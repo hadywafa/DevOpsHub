@@ -6,12 +6,19 @@
 1. **✅ AWS Virtual Private Cloud (VPC) & Hybrid Cloud Networking** _(5:03)_
 1. **✅ Elastic Compute Cloud (EC2) & Elastic Block Store (EBS)** _(5:14)_
 1. **✅ Elastic Load Balancing (ELB) & Auto Scaling** _(8:59)_
-1. **Relational Database Services (RDS), Aurora, and Redshift** _(2:30)_
+1. **✅ Relational Database Services (RDS), Aurora, and Redshift** _(2:30)_
 1. **NoSQL Database Services (DynamoDB, ElastiCache, DocumentDB, and Neptune)** _(2:46)_
 
-1. **🧾 Mid Course Exam**
+---
+
+- **🧾 Mid Course Exam**
+
+---
 
 1. **Simple Storage Service (S3) - Deep Dive** _(4:03)_
+
+---
+
 1. **Identity & Access Management - Intermediate** _(2:03)_
 1. **CloudFront, Route53, and Global Accelerator** _(3:58)_
 1. **Serverless Computing in AWS** _(2:17)_
@@ -19,47 +26,15 @@
 1. **Notifications, Application Integration, and Messaging Services in AWS** _(1:47)_
 1. **Management and Monitoring in AWS (CloudWatch, CloudWatch Logs, and EventBridge)** _(1:10)_
 1. **Container Services in AWS (ECS, ECR, EKS)** _(1:57)_
-1. **❌ Governance, Deployment Automation, and Operations in AWS** _(4:26)_
+1. **Governance, Deployment Automation, and Operations in AWS** _(4:26)_
 1. **Security, Identity, and Compliance Services** _(2:56)_
+
+---
+
 1. **⚡ Analytics Services in AWS** _(2:07)_
 1. **⚡ Machine Learning Services in AWS** _(0:55)_
-1. **Migration and DR Services** _(0:29)_
-1. **AWS Certified Solutions Architect Associate - Additional Services** _(0:25)_
-
-## Suggestion Plan
-
-**Thursday:**
-
-1. **Elastic Load Balancing (ELB) & Auto Scaling** _(8:59)_
-
-**Wednesday:**
-
-1. **Relational Database Services (RDS), Aurora, and Redshift** _(2:30)_
-1. **NoSQL Database Services (DynamoDB, ElastiCache, DocumentDB, and Neptune)** _(2:46)_
-1. **Mid Course Exam**
-1. **Identity & Access Management - Intermediate** _(2:03)_
-
-**Tuesday:**
-
-1. **Simple Storage Service (S3) - Deep Dive** _(4:03)_
-1. **CloudFront, Route53, and Global Accelerator** _(3:58)_
-1. **Serverless Computing in AWS** _(2:17)_
-1. **Storage Services (EFS, FSx, Storage Gateway, Snow Family, Backup, and DataSync)** _(2:25)_
-
-**Friday:**
-
-1. **Container Services in AWS (ECS, ECR, EKS)** _(1:57)_
-1. **Notifications, Application Integration, and Messaging Services in AWS** _(1:47)_
-1. **Management and Monitoring in AWS (CloudWatch, CloudWatch Logs, and EventBridge)** _(1:10)_
-1. **Governance, Deployment Automation, and Operations in AWS** _(4:26)_
-
-**Saturday:**
-
-1. **Security, Identity, and Compliance Services** _(2:56)_
-1. **Analytics Services in AWS** _(2:07)_
-1. **Machine Learning Services in AWS** _(0:55)_
-1. **Migration and DR Services** _(0:29)_
-1. **AWS Certified Solutions Architect Associate - Additional Services** _(0:25)_
+1. **⚡ Migration and DR Services** _(0:29)_
+1. **⚡ AWS Certified Solutions Architect Associate - Additional Services** _(0:25)_
 
 ## **Breakdown of Total Durations per Section**
 
