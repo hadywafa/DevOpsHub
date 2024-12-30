@@ -29,15 +29,15 @@
 
 ---
 
-1. **👁️ Governance, Deployment Automation, and Operations in AWS** _(4:26)_
-1. **👁️ Security, Identity, and Compliance Services** _(2:56)_
+1. **Governance, Deployment Automation, and Operations in AWS** _(4:26)_
+1. **Security, Identity, and Compliance Services** _(2:56)_
 
 ---
 
-1. **👁️ Analytics Services in AWS** _(2:07)_
-1. **👁️ Machine Learning Services in AWS** _(0:55)_
-1. **👁️ Migration and DR Services** _(0:29)_
-1. **👁️ AWS Certified Solutions Architect Associate - Additional Services** _(0:25)_
+1. **Analytics Services in AWS** _(2:07)_
+1. **Machine Learning Services in AWS** _(0:55)_
+1. **Migration and DR Services** _(0:29)_
+1. **AWS Certified Solutions Architect Associate - Additional Services** _(0:25)_
 
 ## **Breakdown of Total Durations per Section**
 
