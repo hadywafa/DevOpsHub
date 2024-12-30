@@ -21,7 +21,7 @@
 
 1. **✅ Identity & Access Management - Intermediate** _(2:03)_
 1. **✅ CloudFront, Route53, and Global Accelerator** _(3:58)_
-1. **Serverless Computing in AWS** _(2:17)_
+1. **✅ Serverless Computing in AWS** _(2:17)_
 1. **Container Services in AWS (ECS, ECR, EKS)** _(1:57)_
 1. **Notifications, Application Integration, and Messaging Services in AWS** _(1:47)_
 1. **Management and Monitoring in AWS (CloudWatch, CloudWatch Logs, and EventBridge)** _(1:10)_
