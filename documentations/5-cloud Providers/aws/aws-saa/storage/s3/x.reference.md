@@ -420,3 +420,45 @@ Using the `s3:x-amz-server-side-encryption` condition key, we can enforce a spec
   - Use to meet compliance requirements by storing a copy a distance away.
   - Use to minimize latency to users/customers by making the data available in other AWS Regions closer to them.
   - Use if availing the data for processing by clusters in two different regions.
+
+---
+
+# S3 Object Lock
+
+S3's Object Lock feature provides a `Write Once Read Many (WORM)` data storage model and compliance in S3
+
+- It protects objects from being deleted for a period of time or indefinitely.
+- Can be configured at the `object or bucket level`.
+  - `Bucket Versioning` must be enabled.
+- It can be combined with CRR or SRR to replicate protected objects to a destination bucket
+
+---
+
+**We can use two different ways to enable Object Lock:**
+
+- `Retention Period:` Can be used to specify a lock duration at the object and object version level.
+- `Legal Hold`: Lock has no expiration until the hold is removed.
+  - An object can have either, both, or none.
+- 📒 It’s very important to note that protected object versions remain safe from being deleted or overwritten by a lifecycle configuration
+
+## Retention modes
+
+**There are two Retention modes in S3 Object Lock:**
+
+- **Governance mode:** Protects against object or object version overwrites/deletes/altering-lock-settings by most users, except those with permissions to do so.
+- **Compliance mode:** No one, not even the root user, can overwrite/delete a protected object for the duration of the retention period.
+
+## Glacier Vault Lock Policies
+
+By default, Glacier archives are immutable. However, they can be deleted.
+
+S3 Glacier Vault Lock policies can be configured to enforce compliance control for
+individual Glacier vaults.
+
+- Write Once Read Many (WORM) compliance requirements can be met.
+- Vault locks are used to prevent future changes.
+
+**Example use cases:**
+
+- Retain archives for one year before they can be deleted.
+- Deny deleting archives based on a specific tag during an investigation
