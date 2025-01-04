@@ -222,3 +222,154 @@ This is a `bucket level` configuration.
 
 - S3 Glacier `Automatically` encrypts data at rest using AES-256-bit symmetric keys maintained by AWS.
 - It supports secure data transfer in-transit over Secure Sockets Layer (SSL)
+
+---
+
+# S3 Access Policies
+
+<div align="center" style="padding: 0 20px;">
+<h3>
+</h3>
+  <img src="images/s3-access-policies.png" alt="S3 Access Policies">
+</div>
+
+- Access policies for bucket or its objects can be identity based policy or resource based policy
+- Both S3 buckets and Glacier vaults support
+  IAM resource-based policies. For Glacier vault, it is called Vault access policies
+
+**Resource-Based Policies can be defined using:**
+
+- Access Control Lists (ACLs)
+
+  - XML format
+  - up to 100 grants per policy
+  - Policy can be applied on bucket or object level
+
+- Bucket Policies
+  - JSON format
+  - Policy can be up to 20KB in size
+  - Policy can be applied on bucket level only
+
+## **Understanding Object Ownership in S3:**
+
+**Object Ownership Option mean that:**
+![s3-object-ownership](images/s3-object-ownership.png)
+
+- Objects and buckets are private by default.
+- Every resource in AWS is owned by an account.
+- The resource owner of the bucket is the account of the IAM entity (IAM user, IAM Role or Root account) that created the bucket.
+
+## Using ACLs (Not Recommended)
+
+- Each bucket and object has an ACL attached to it as a sub-resource.
+  - The ACL defines which AWS accounts or groups are granted access and the type of access.
+- Using `Object Ownership`, we can disable ACLs;
+  - The bucket owner automatically owns every object in the bucket.
+  - Access control for the data in the bucket will be based on policies only, such as IAM policies, S3 bucket policies, virtual private cloud (VPC) endpoint policies, and AWS Organizations service control policies (SCPs).
+- If you do not use Object Ownership, then the account that uploads the object is the object owner.
+- AWS recommends disabling ACLs and using Object Ownership unless absolutely required otherwise.
+
+## Using Resource Policy
+
+its ....etc
+
+### Examples
+
+#### Granting Public Read Access
+
+This example gives permissions to everyone (**public read access**) via the GetObject permission, on all objects in the S3 bucket `hw-bucket-01`.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicRead",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": ["arn:aws:s3:::hw-bucket-01/*"]
+    }
+  ]
+}
+```
+
+#### Cross-Account Uploads
+
+Using the `s3:x-amz-storage-class` condition key, cross account access can be provided to allow other accounts to upload objects in a bucket and **restrict them to upload only to a specific S3 storage class**.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "statement1",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::AccountB-ID:user/Ahmed"
+      },
+      "Action": "s3:PutObject",
+      "Resource": ["arn:aws:s3:::hw-bucket-01/*"],
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-storage-class": ["STANDARD_IA"]
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Cross-Account Object Uploads - Public-Read Access
+
+Using the `s3:x-amz-acl` Condition key, we can allow other accounts to upload objects conditionally upon granting public read access to their objects.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AddCannedAcl",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": ["arn:aws:iam::accountA-ID:root", "arn:aws:iam::accountB-ID:root"]
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::hw-bucket-01/*",
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": "public-read"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Object Uploads - Enforcing Encryption
+
+Using the `s3:x-amz-server-side-encryption` condition key, we can enforce a specific server-side encryption for S3 object uploads.
+
+- If the correct encryption is not specified in the upload request, the request will fail.
+- Use AWS:KMS this means KMS encryption and use AES256 for SSE-S3
+
+```json
+{
+  "Version": "2012-10-17",
+  "Id": "PutObjectPolicy",
+  "Statement": [
+    {
+      "Sid": "DenyUnEncryptedObjectUploads",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::hw-bucket-01/*",
+      "Condition": {
+        "StringNotEquals": {
+          "s3:x-amz-server-side-encryption": "aws:kms"
+        }
+      }
+    }
+  ]
+}
+```
