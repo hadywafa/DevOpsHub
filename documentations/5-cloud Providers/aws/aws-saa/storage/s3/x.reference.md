@@ -373,3 +373,50 @@ Using the `s3:x-amz-server-side-encryption` condition key, we can enforce a spec
   ]
 }
 ```
+
+---
+
+# S3 Bucket Replication
+
+<div align="center" style="padding: 0 20px;">
+  <img src="images/srr-crr.png" alt="Encryption In-Transit">
+</div>
+
+- Is an `asynchronous replication` at the bucket level from a source bucket to a destination bucket.
+- TLS/SSL is used to encrypt replication data in-transit.
+- Source and destination buckets can be in the same or different AWS accounts.
+- Source and destination buckets can be in the same (SRR) or different (CRR) AWS Regions.
+- `Both buckets must have versioning enabled.`
+- We can replicate all objects, or a subset based on a prefix.
+
+---
+
+- We can configure the source bucket to replicate to more than one destination bucket (requires multiple replication rules).
+- You can choose to copy the pre -existing objects in the bucket (one time batch operation).
+- S3 requires an IAM role to replicate objects between buckets.
+- We can choose to enable replication metrics and notifications (sent to CloudWatch).
+- We can choose to replicate DELETE markers
+
+**Replication Time Control (RTC):**
+
+- We can enable S3 Replication Time Control (S3 RTC) in the replication configuration.
+- S3 RTC replicates most objects in seconds and 99.99 percent of objects within 15 minutes (backed by a service-level agreement).
+
+**Replication Encryption:**
+
+- For encrypted objects in the source bucket, the following applies:
+  - Objects encrypted with SSE-S3 are replicated.
+  - You can optionally replicate objects encrypted with SSE-KMS.
+  - Objects encrypted with SSE-C are not replicated.
+- For un-encrypted objects in the source bucket, if the destination bucket has default encrypted enabled, the replicated objects will be encrypted following that.
+
+**Use Cases:**
+
+- **SRR:**
+  - Use for aggregating log data into a single bucket (from the same or different account buckets).
+  - Use to replicate between different environments that work on the same data (ex. production and testing).
+  - Use to replicate critical data within the same region for data sovereignty laws.
+- **CRR:**
+  - Use to meet compliance requirements by storing a copy a distance away.
+  - Use to minimize latency to users/customers by making the data available in other AWS Regions closer to them.
+  - Use if availing the data for processing by clusters in two different regions.
