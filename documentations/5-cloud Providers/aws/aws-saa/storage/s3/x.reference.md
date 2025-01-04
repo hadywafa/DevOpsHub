@@ -495,3 +495,156 @@ place) on an archive without having to first restore the archive.
 <div align="center" style="padding: 0 20px">
   <img src="images/s3-select-glacier.gif" alt="S3 Bucket Replication">
 </div>
+
+---
+
+# S3 Pre-Signed URLs
+
+- All objects are private by default.
+- The object owner can share the object by creating a pre-signed URL, using their own security credentials.
+- `Signed URLs are object specific.`
+- The entity that creates the signed URL can be an IAM user, root account, EC2 instance/APP, or someone with an STS token.
+- This will work even on private buckets and objects
+
+---
+
+- Amazon S3 checks the expiration date and time of a signed URL at the time of the HTTP request.
+- Depending on how you generate it (CLI, SDK, Console) the signed URL can be valid for up to 7 days.
+- Pre-Signed URLS can also be used to upload an object to a private bucket.
+  - This can be generated through SDKs only
+
+---
+
+# S3 Transfer Acceleration & Requester Pays
+
+## S3 Transfer Accelerator
+
+Transfer Acceleration is a chargeable service used to accelerate objects uploads into S3 buckets from users over long distances.
+
+- It uses HTTPS for uploads.
+- It utilizes CloudFront’s edge locations nearest to the source.
+- Needs to be enabled on the bucket.
+- Can be used with multipart upload.
+- The farther away the upload source is from the Amazon S3 region, the higher the speed improvement expected
+
+### How To Choice
+
+This speed checker uses multipart uploads to transfer a file from your browser to various Amazon S3 regions with and without Amazon S3 Transfer Acceleration. It compares the speed results and shows the percentage difference for every region.
+
+[https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html](https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html)
+
+## S3 Requester Pays
+
+if you are re-searchable institute and you provide a lot of data set for users for research, you can only pay for storage and the users (must be have iam account in aws) who needs the data will be for the data retrieval.
+
+•Configure the bucket to be a "requester pays" bucket if the bucket owner would like to share large data sets but does not want to incur the read/download charges.
+•The bucket owner continues to pay for storage, but the requester pays for data transfer.
+•Anonymous access to requester pays buckets is not allowed.
+ØThe requester must be authenticated (known to AWS) for billing purposes.
+•The requests made to a requester pays bucket must include the x-amz-request-payerheader.
+•Objects can be requested through the CLI and REST API
+
+---
+
+# S3 Event Notifications
+
+<div align="center" style="padding: 0 0;">
+  <img src="images/s3-event-notification.png" alt="S3 CORS">
+</div>
+
+S3 Event notifications is about sending notifications when certain events in the configured S3 bucket occur.
+
+- S3 events like object create, delete, restore events as well as replications, lifecycle, or intelligent tiering events.
+- S3 bucket-level event notifications can be configured to automatically send notifications to one of the following destinations:
+  - SNS Topic
+  - SQS Queue
+  - Lambda Function
+
+---
+
+# S3 additional Features
+
+## AWS Transfer Family
+
+Transfer family provides customers access to a fully
+managed FTP-enabled server in the cloud.
+
+<div align="center" style="padding: 0 0;">
+  <img src="images/aws-transfer-family.png" alt="AWS Transfer Family">
+</div>
+
+- It helps in migrating file transfer workflows into AWS.
+
+**AWS Transfer Family includes:**
+
+- SSH File Transfer Protocol (SFTP) – Relies on SSH.
+- File Transfer Protocol Secure (FTPS) – Uses TLS/SSL.
+- File Transfer Protocol (FTP).
+
+## S3 Access Points
+
+Amazon Access Points are named network endpoints that can be used to simplify access to S3 buckets and provide many applications access at scale for shared datasets in Amazon S3.
+
+<div align="center" style="padding: 0 20px;">
+  <img src="images/s3-access-point.png" alt="S3 Access Points">
+</div>
+
+- Access Points are attached to buckets.
+- We can use S3 Access Points to perform S3 object operations, such as GetObject and PutObject.
+- Each S3 Access Point has its own access point policy (resource-based policy) which defines how data can be accessed using that endpoint.
+- We can configure block public access settings for each Access Point.
+
+---
+
+- We can configure an access point to accept requests only from a VPC (and not from the Internet).
+- There are some limitations for S3 requests that cannot be done through access points, for example, S3 Website endpoints does not support access points.
+- For a request to be allowed through the Access Point, it has to be allowed by both the Access Point policy and the Bucket Policy.
+  - We can delegate all Bucket access to be through its Access Points.
+
+## S3 Inventory
+
+<div align="center" style="padding: 0 20px;">
+  <img src="images/s3-inventory.png" alt="S3 Inventory">
+</div>
+
+Amazon S3 Inventory can be used to get a list of the objects (or a subset of the objects sharing a common prefix) in a source bucket and their corresponding metadata.
+
+- S3 Inventory can provide the Inventory report (output) on a daily or weekly basis.
+- Amazon S3 Inventory provides a CSV, Apache ORC, or Apache Parquet output file that gets stored in the destination bucket.
+- We can use the Inventory data to report on the status of the objects for compliance or regulatory purposes.
+
+## S3 Analytics and Insights
+
+Analytics and insights in Amazon S3 can be used to understand, analyze, and
+optimize S3 storage usage.
+
+**S3 Analytics Storage Class Analysis:**
+
+- It observes object access patterns and provides analysis results that can be used to determine when to transition the (using lifecycle policy) from S3 Standard to S3-IA.
+- We can use it for all objects in a bucket, objects with a specific tag, or objects with a common prefix.
+- Once configured, analysis data will appear in the console in 24-48 hours.
+
+---
+
+Amazon S3 Storage Lens provides a single view of S3 storage usage across all your S3 storage.
+
+- It can generate insights at the organization, account, region, bucket, or prefix level.
+- Using S3 Storage Lens, we can display usage and activity metrics in the console, interactive dashboard, or export/download the metrics data in CSV, or Parquet format.
+- It has a free tier that can display the data up to 14 days, or a subscription to the advanced metrics and recommendations.
+- All S3 Lens data is retained for 15 months.
+
+## S3 Batch Operations
+
+S3 Batch Operations can be used to perform large-scale batch operations on Amazon S3
+objects.
+
+Amazon S3 tracks progress, sends notifications and stores a detailed completion report.
+
+**S3 Batch Operations can be used to:**
+
+- Copy objects.
+- Set object tags.
+- Initiate object retrieval/restores from Glacier.
+- Custom actions using the S3 objects (using Lambda functions).
+
+These operations can be performed on a custom list of objects, or an Amazon S3 inventory report can be used to make generating larger lists of objects easy.
