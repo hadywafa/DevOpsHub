@@ -462,3 +462,36 @@ individual Glacier vaults.
 
 - Retain archives for one year before they can be deleted.
 - Deny deleting archives based on a specific tag during an investigation
+
+---
+
+# S3 Select
+
+## S3 Select (Query At The Source)
+
+S3 Select provides the ability to run simple SQL statements to filter the contents of an Amazon S3 object to retrieve the required subset of data.
+
+- It supports objects in CSV, JSON, and Apache Parquet formats and works on GZIP or Snappy compressed objects
+- It supports queries on SSE encrypted objects.
+- Query output can be in CSV or JSON.
+- It reduces data transfer costs and enhances application performance by reducing latency and CPU cycles
+
+### How it works
+
+<div align="center" style="padding: 0 20px">
+  <img src="images/s3-select.gif" alt="S3 Bucket Replication">
+</div>
+
+## S3 Glacier Select
+
+S3 Glacier Select feature allows simple SQL statements to run directly (query in
+place) on an archive without having to first restore the archive.
+
+- Query results are saved to an S3 bucket.
+- Glacier can now be considered part of your data lake
+
+### How it works
+
+<div align="center" style="padding: 0 20px">
+  <img src="images/s3-select-glacier.gif" alt="S3 Bucket Replication">
+</div>
