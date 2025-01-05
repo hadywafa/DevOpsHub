@@ -15,22 +15,22 @@
 
 ---
 
-1. **🔥 Simple Storage Service (S3) - Deep Dive** _(4:03)_
+1. **✅ Simple Storage Service (S3) - Deep Dive** _(4:03)_
 
 ---
 
+1. **🔥 Storage Services (EFS, FSx, Storage Gateway, Snow Family, Backup, and DataSync)** _(2:25)_
 1. **✅ Identity & Access Management - Intermediate** _(2:03)_
 1. **✅ CloudFront, Route53, and Global Accelerator** _(3:58)_
 1. **✅ Serverless Computing in AWS** _(2:17)_
 1. **✅ Notifications, Application Integration, and Messaging Services in AWS** _(1:47)_
 1. **✅ Management and Monitoring in AWS (CloudWatch, CloudWatch Logs, and EventBridge)** _(1:10)_
 1. **Container Services in AWS (ECS, ECR, EKS)** _(1:57)_
-1. **Storage Services (EFS, FSx, Storage Gateway, Snow Family, Backup, and DataSync)** _(2:25)_
 
 ---
 
-1. **Governance, Deployment Automation, and Operations in AWS** _(4:26)_
-1. **Security, Identity, and Compliance Services** _(2:56)_
+1. **🔥 Governance, Deployment Automation, and Operations in AWS** _(4:26)_
+1. **🔥 Security, Identity, and Compliance Services** _(2:56)_
 
 ---
 
