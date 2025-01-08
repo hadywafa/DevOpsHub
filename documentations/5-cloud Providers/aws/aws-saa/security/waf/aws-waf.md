@@ -1,5 +1,7 @@
 # AWS WAF 🧱
 
+`Advanced Protection for Your Applications`
+
 AWS Web Application Firewall (WAF) is a **managed service** designed to protect web applications and APIs from common web exploits, attack patterns, and unwanted traffic. By analyzing HTTP/S requests and applying custom or managed rules, AWS WAF helps secure applications and optimize resource utilization.
 
 ---
