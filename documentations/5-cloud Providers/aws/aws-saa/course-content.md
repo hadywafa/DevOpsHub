@@ -29,8 +29,8 @@
 
 ---
 
-1. **🔥 Governance, Deployment Automation, and Operations in AWS** _(4:26)_
-1. **🔥 Security, Identity, and Compliance Services** _(2:56)_
+1. **✅ Governance, Deployment Automation, and Operations in AWS** _(4:26)_
+1. **✅ Security, Identity, and Compliance Services** _(2:56)_
 
 ---
 
