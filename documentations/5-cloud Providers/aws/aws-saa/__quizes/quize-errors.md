@@ -7,5 +7,8 @@
     <img src="images/s3-q6.png" alt="s3-q6">
     <img src="images/s3-q7.png" alt="s3-q7">
     <img src="images/s3-q10.png" alt="s3-q10">
+    <h1>Security</h1>
     <img src="images/security-q6.png" alt="security-q6">
+    <h1>No SQL</h1>
+    <img src="images/no-sql-q1.png" alt="no-sql-q1">
 </div>

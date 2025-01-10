@@ -7,7 +7,7 @@
 1. **✅ Elastic Compute Cloud (EC2) & Elastic Block Store (EBS)** _(5:14)_
 1. **✅ Elastic Load Balancing (ELB) & Auto Scaling** _(8:59)_
 1. **✅ Relational Database Services (RDS), Aurora, and Redshift** _(2:30)_
-1. **🔥 NoSQL Database Services (DynamoDB, ElastiCache, DocumentDB, and Neptune)** _(2:46)_
+1. **✅ NoSQL Database Services (DynamoDB, ElastiCache, DocumentDB, and Neptune)** _(2:46)_
 
 ---
 
