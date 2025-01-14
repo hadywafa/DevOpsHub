@@ -11,4 +11,6 @@
     <img src="images/security-q6.png" alt="security-q6">
     <h1>No SQL</h1>
     <img src="images/no-sql-q1.png" alt="no-sql-q1">
+    <h1>Analytics</h1>
+    <img src="images/analysis-q5.png" alt="analysis-q5">
 </div>
