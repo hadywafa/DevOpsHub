@@ -7,7 +7,7 @@ To deploy an image from a private Docker repository in Kubernetes, follow these 
 
 ## Methods to Create a Docker Registry Secret
 
-### Method 1: Using `kubectl create secret docker-registry`
+### Method 1: Using `kubectl create secret account docker-registry`
 
 This method is ideal for quickly creating a secret for a single Docker registry.
 
@@ -15,9 +15,9 @@ This method is ideal for quickly creating a secret for a single Docker registry.
 
 ```sh
 kubectl create secret docker-registry <secret-name> \
-  --docker-server=<registry-url> \
+  --docker-server=https://index.docker.io/v1/ \ 
   --docker-username=<username> \
-  --docker-password=<password> \
+  --docker-password=<access-token> \
   --docker-email=<email>
 ```
 
@@ -31,9 +31,18 @@ kubectl create secret docker-registry myawsecrsecret \
   --docker-email=myemail@example.com
 ```
 
+**Example for Docker Hub**:
+
+```sh
+kubectl create secret docker-registry mydockerhubsecret \
+  --docker-server=https://index.docker.io/v1/ \
+  --docker-username=mydockerhubusername \
+  --docker-password=mydockerhubpassword \
+```
+
 ### Method 2: Using a YAML Manifest
 
-This method is suitable for managing multiple Docker registries and is ideal for declarative configurations.
+This method is suitable for managing multiple Account Docker registries and is ideal for declarative configurations.
 
 **Steps**:
 
@@ -81,11 +90,7 @@ This method is suitable for environments requiring dynamic credential management
      "Statement": [
        {
          "Effect": "Allow",
-         "Action": [
-           "ecr:GetDownloadUrlForLayer",
-           "ecr:BatchGetImage",
-           "ecr:BatchCheckLayerAvailability"
-         ],
+         "Action": ["ecr:GetDownloadUrlForLayer", "ecr:BatchGetImage", "ecr:BatchCheckLayerAvailability"],
          "Resource": "*"
        }
      ]
@@ -167,6 +172,7 @@ kubectl apply -f deployment.yaml
 ## Summary
 
 1. **Create a Docker registry secret** using one of the methods:
+
    - `kubectl create secret docker-registry` for single registry.
    - YAML manifest for multiple registries or declarative configurations.
    - AWS CLI and Kubernetes service account for dynamic credential management.
@@ -174,5 +180,3 @@ kubectl apply -f deployment.yaml
 2. **Reference the secret** in your pod or deployment specification under `imagePullSecrets`.
 
 3. **Deploy your application** using `kubectl apply`.
-
-By following these steps, you can securely deploy images from private Docker repositories in Kubernetes.

@@ -22,6 +22,7 @@
 ### Alternatives to Minikube
 
 1. **Kubernetes in the Cloud:**
+
    - **Google Kubernetes Engine (GKE):** Managed Kubernetes service by Google Cloud.
    - **Amazon Elastic Kubernetes Service (EKS):** Managed Kubernetes service by AWS.
    - **Azure Kubernetes Service (AKS):** Managed Kubernetes service by Microsoft Azure.

@@ -7,5 +7,14 @@
         "**/.DS_Store": false,
         "**/Thumbs.db": false
     },
-    "explorerExclude.backup": {}
+    "explorerExclude.backup": {},
+    "cSpell.words": [
+        "apiserver",
+        "infinitesoftware",
+        "issi",
+        "Kusto",
+        "onmicrosoft",
+        "resourcequotas",
+        "Sugession"
+    ]
 }
