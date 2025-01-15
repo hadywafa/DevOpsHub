@@ -36,8 +36,10 @@
 
 1. **✅ Analytics Services in AWS** _(2:07)_
 1. **🤖 Machine Learning Services in AWS** _(0:55)_
-1. **🤖 Migration and DR Services** _(0:29)_
-1. **🤖 AWS Certified Solutions Architect Associate - Additional Services** _(0:25)_
+1. **✅ Mobile and Web Service** _(0:19)_
+1. **✅ Migration and DR Services** _(0:29)_
+1. **✅ Additional Services** _(0:25)_
+1. **🤖 The Well Architected Framework** _(0:55)_
 
 ## **Breakdown of Total Durations per Section**
 

@@ -13,4 +13,6 @@
     <img src="images/no-sql-q1.png" alt="no-sql-q1">
     <h1>Analytics</h1>
     <img src="images/analysis-q5.png" alt="analysis-q5">
+    <h1>Other</h1>
+    <img src="images/other-q1.png" alt="other-q1">
 </div>
