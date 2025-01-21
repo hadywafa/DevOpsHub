@@ -38,12 +38,18 @@ Here’s how the **CloudTrail log lifecycle** works:
 ### **Event Storage and Retention** 🗃️
 
 - **Events** are stored by CloudTrail for **90 days** by default.
+
 - If you want to **archive** or **analyze** the logs beyond 90 days, you need to **create a trail**.
-- A **CloudTrail trail** can be configured:
-  - **Single Region**: Tracks events within a specific AWS region.  
-    ![cloud-trail-single-region](images/cloud-trail-single-region.png)
-  - **All Regions (Recommended)**: Tracks events across all regions and future regions.  
-    ![cloud-trail-multi-region](images/cloud-trail-multi-region.png)
+
+### **CloudTrail trail** 🛤️
+
+_CloudTrail trail_ can be configured as:
+
+- **Single Region**: Tracks events within a specific AWS region.  
+  ![cloud-trail-single-region](images/cloud-trail-single-region.png)
+- **All Regions (Recommended)**: Tracks events across all regions and future regions.  
+  ![cloud-trail-multi-region](images/cloud-trail-multi-region.png)
+- by default, a trail created in the console is a multi-region trail.
 
 ### **CloudTrail Trail Features** ⚙️
 
