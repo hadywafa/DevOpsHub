@@ -1,10 +1,12 @@
 # 🛡️ **Service Control Policies (SCPs)**
 
-<div align="center">
-  <img src="images/scp.png" alt="Service Control Policies" />
-</div>
-
 **Service Control Policies (SCPs)** are a key feature of AWS Organizations, enabling administrators to set guardrails for what IAM users and roles within an organization can and cannot do.
+
+---
+
+<div align="center">
+  <img src="images/scps.png" alt="Service Control Policies" /> 
+</div>
 
 ---
 
@@ -29,7 +31,7 @@
 
 ## 📌 **Important Considerations**
 
-### **1. Exclusions**
+### **2. Exclusions**
 
 SCPs **do not affect** the following:
 
@@ -38,20 +40,24 @@ SCPs **do not affect** the following:
 - **Service-linked roles** required for AWS services.
 - Users, groups, and roles **outside the organization**.
 
-### **2. Whitelisting vs. Blacklisting**
-
-- **Whitelisting**:
-  - Define a list of **allowed actions**, denying everything else by default.
-- **Blacklisting**:
-  - Define a list of **denied actions**, allowing everything else by default.
-
-### **3. Default Policy**
+### **2. Default Policy**
 
 - By default, AWS applies a `FullAWSAccess` SCP to all accounts, allowing all actions unless explicitly denied.
+
+### **3. Use Blacklisting Over Whitelisting**
+
+it is recommended to use blacklisting over whitelisting when deals with SCPs to decrease the overheads
+
+> **Whitelisting**: Define a list of **allowed actions**, denying everything else by default.  
+> **Blacklisting**: Define a list of **denied actions**, allowing everything else by default.
 
 ---
 
 ## **Example: Creating and Assigning an SCP**
+
+<div align="center"> 
+  <img src="images/scp.png" alt="Service Control Policies - 2" />
+</div>
 
 ### Scenario
 

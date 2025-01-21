@@ -122,3 +122,25 @@ AWS Organizations can operate in one of two modes:
 8. **OU has only one parent:** Each OU has only **one parent**, ensuring a clear hierarchy.
 
 9. **Billing When Inviting an Account with Existing Resources:** When you invite an account that already has existing resources and billing arrangements into your AWS Organization, the billing for that account will transition to the management account of the organization.
+
+## 📒 **Notes**
+
+When you create an account in your AWS Organization or invite an account to join your organization, AWS automatically handles some roles for you, but there are additional steps you might need to take:
+
+### When Creating a New Account in Your Organization:
+
+1. **Automatic Roles**:
+   - **OrganizationAccountAccessRole**: This role is automatically created and allows users and roles in the management account to have full administrative control over the new member account.
+   - **AWSServiceRoleForOrganizations**: This service-linked role is also automatically created to enable integration with select AWS services.
+
+### When Inviting an Existing Account to Join Your Organization:
+
+1. **Manual Role Creation**:
+   - Unlike newly created accounts, invited accounts do not automatically get the OrganizationAccountAccessRole. You need to manually create this role in the invited account.
+   - **Steps to Create the Role**:
+     1. Sign in to the IAM console in the invited account.
+     2. Navigate to Roles and choose Create role.
+     3. Select AWS account and then Another AWS account.
+     4. Enter the 12-digit account ID of your management account.
+     5. Choose AdministratorAccess as the policy and create the role.
+     6. Name the role OrganizationAccountAccessRole for consistency.
