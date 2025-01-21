@@ -29,30 +29,9 @@ Managing numerous AWS accounts individually can be cumbersome and inefficient. H
 
 ---
 
-## 🌟 **Introducing AWS Organizations**
+## 🌟 **Benefits of AWS Organizations**
 
 **AWS Organizations** simplifies the management of multiple AWS accounts by providing a centralized framework for administration, billing, and policy enforcement.
-
-### 🔑 **Key Features:**
-
-- **Global Service:**
-
-  - Operates **globally**, similar to IAM, ensuring high availability and reliability.
-
-- **Highly Available and Durable:**
-
-  - **Data replicated** across multiple servers within an AWS Region for resilience.
-
-- **Eventual Consistency:**
-
-  - **Read operations** are eventually consistent, ensuring up-to-date information over time.
-
-- **Centralized Account Management:**
-  - **Consolidate multiple accounts** into a single organization, managed from a **management account** for streamlined oversight.
-
----
-
-## 🌟 **Benefits of AWS Organizations**
 
 ### 💼 **Centralized Management**
 
@@ -73,6 +52,13 @@ Managing numerous AWS accounts individually can be cumbersome and inefficient. H
 
 - **Tag Policies:** Standardize tagging across accounts to improve **resource management** and **cost allocation**.
 - **Central AWS Backup:** Apply consistent backup policies and manage backups for resources across the entire organization.
+
+### **🌍 Global Service:**
+
+- **Global Availability** AWS Organizations operates globally, ensuring consistent management and policy enforcement across all regions.
+- **Highly Available and Durable:** Data replicated across multiple servers within an AWS Region for resilience.
+- **Eventual Consistency:** Read operations are eventually consistent, ensuring up-to-date information over time.
+- **Scalability:** Easily scale your AWS account management as your organization grows.
 
 ---
 
@@ -113,84 +99,26 @@ AWS Organizations can operate in one of two modes:
 
 ---
 
-## 🛡️ **Service Control Policies (SCPs)**
+## 😓 **Limitations**
 
-![Service Control Policies](images/scp.png)
+1. **Single Organization per Account**: An AWS account can belong to only one organization at a time.
+2. **Management Account Limitations**:
+   - Only the management account can create and manage the organization.
+   - The management account cannot be removed from the organization.
+3. **Member Account Limitations**:
+   - Member accounts can't create their own organizations while part of another.
+   - Member accounts are subject to Service Control Policies (SCPs) enforced by the management account.
+4. **Service Control Policies (SCPs)**:
+   - SCPs can restrict or allow specific services/actions for accounts or Organizational Units (OUs).
+   - SCPs do not grant permissions by themselves; they only restrict actions granted by IAM policies.
+5. **Account Creation and Management**:
+   - New accounts created in an organization are billed to the management account.
+   - Removing an account from an organization involves a few steps and reconfigurations.
+6. **Consolidated Billing**:
+   - All accounts in an organization share a single billing method.
+   - The management account is responsible for paying all charges.
+7. **Cross-Account Access**:
+   - Managing cross-account roles and permissions requires careful configuration to ensure security and proper access.
+8. **OU has only one parent:** Each OU has only **one parent**, ensuring a clear hierarchy.
 
-Service Control Policies (SCPs) are a cornerstone of AWS Organizations, enabling granular control over the actions that users and roles can perform within your AWS accounts.
-
-### 🔑 **Key Features:**
-
-- **Policy Definition:** SCPs define the **allowed** and **denied** AWS services and actions for IAM users and roles.
-- **Policy Scope:** Can be applied at the **organization's root**, **OU level**, or **individual account level**.
-- **Non-Granting Nature:** SCPs **do not grant permissions**; they **restrict** the maximum available permissions.
-
-### 📌 **Important Considerations:**
-
-- **Exclusions:**
-
-  - SCPs **do not affect** the management account, resource-based policies, service-linked roles, or users/roles outside the organization.
-
-- **Whitelisting vs. Blacklisting:**
-
-  - **Whitelisting:** Define a list of **allowed** actions, denying everything else by default.
-  - **Blacklisting:** Define a list of **denied** actions, allowing everything else by default.
-
-- **Default Policy:**
-  - A `FULLAWSACCESS` SCP is applied by default, allowing all actions unless explicitly denied.
-
----
-
-## 📝 **Best Practices**
-
-- **Organizational Structure:**
-
-  - Design a **logical hierarchy** using OUs to reflect your organization's structure, facilitating easier policy management.
-
-- **Policy Management:**
-
-  - Start with **restrictive policies** and gradually **grant permissions** as needed to ensure security.
-
-- **Regular Audits:**
-
-  - Utilize **AWS CloudTrail** and **AWS Config** to monitor and audit account activities and policy compliance.
-
-- **Cost Optimization:**
-
-  - Leverage **consolidated billing** to identify cost-saving opportunities and apply **lifecycle policies** to manage resources effectively.
-
-- **Security Enforcement:**
-  - Implement **SCPs** to enforce security standards and prevent unauthorized access across all accounts.
-
----
-
-## 📈 **Benefits Summary**
-
-| **Feature**                 | **AWS Organizations**                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------- |
-| **Centralized Management**  | Manage all AWS accounts from a single interface, reducing complexity and overhead. |
-| **Consolidated Billing**    | Aggregate usage for volume discounts and simplified financial tracking.            |
-| **Policy Enforcement**      | Apply SCPs to enforce security and compliance across the organization.             |
-| **Hierarchical Grouping**   | Organize accounts into OUs for streamlined policy application and management.      |
-| **Integrated Backup Plans** | Implement centralized backup strategies for consistent data protection.            |
-| **Tag Standardization**     | Standardize resource tagging for improved management and cost allocation.          |
-| **Scalability**             | Easily scale your AWS account management as your organization grows.               |
-
----
-
-## 📝 **Important Notes**
-
-- **🔒 Security Best Practices:**
-
-  - Regularly review and update SCPs to align with evolving security requirements and organizational policies.
-
-- **📈 Monitoring and Reporting:**
-
-  - Use AWS tools like **CloudWatch**, **CloudTrail**, and **AWS Cost Explorer** to monitor activities, enforce compliance, and optimize costs.
-
-- **🔧 Permissions Management:**
-
-  - Ensure that the management account has the necessary permissions to manage the organization and apply policies effectively.
-
-- **🌍 Global Availability:**
-  - AWS Organizations operates globally, ensuring consistent management and policy enforcement across all regions.
+9. **Billing When Inviting an Account with Existing Resources:** When you invite an account that already has existing resources and billing arrangements into your AWS Organization, the billing for that account will transition to the management account of the organization.
