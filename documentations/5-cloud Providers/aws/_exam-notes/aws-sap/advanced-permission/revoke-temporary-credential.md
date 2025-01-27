@@ -4,7 +4,7 @@ Temporary credentials in AWS IAM provide short-term, limited access to AWS resou
 
 ---
 
-![alt text](image.png)
+![revoke-temporary-credential](images/revoke-temporary-credential.png)
 
 ---
 
