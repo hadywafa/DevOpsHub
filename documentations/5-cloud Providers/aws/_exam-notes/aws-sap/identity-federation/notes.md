@@ -4,3 +4,4 @@
 - SAML Identity Federations in AWS Uses IAM Roles & AWS Temporary Credentials (12 hour validity)
 
 ![SAML-Identity-Federation-API](images/saml-idf-api.png)
+![SAML-Identity-Federation-Console](images/saml-idf-console.png)
