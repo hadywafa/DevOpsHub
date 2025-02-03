@@ -24,4 +24,8 @@
     <img src="images/other-q5.png" alt="other-q5">
     SCP's only impact identities in the account they are attached to in this case the SCP is on account B, and bob's identity is in account A .. so the SCP doesn't apply this leaves the identity policy and the resource policy together which allow bobs access.
     </div>
+    <div>
+    <img src="images/other-q6.png" alt="other-q6">
+    SAML 2.0 is designed for enterprise scenarios, while Web Identity Federation allows users to log in with social media accounts for consumer-facing applications. They serve different purposes and contexts.
+    </div>
 </div>
