@@ -12,14 +12,14 @@
       "console": "integratedTerminal",
       "args": [
         "--account-id",
-        "730335390054",
+        "590183819111",
         "--username",
-        "kk_labs_user_786051",
+        "kk_labs_user_908452",
         "--password",
-        "ko%M!6hdA3Mi",
-        "--use-existing-file",
-        "--file",
-        "C:\\Users\\HadyW\\Downloads\\kk_labs_user_786051_accessKeys.csv"
+        "24hs!loolTq%",
+        // "--use-existing-file",
+        // "--file",
+        // "C:\\Users\\HadyW\\Downloads\\kk_labs_user_786051_accessKeys.csv"
       ]
     }
   ]
