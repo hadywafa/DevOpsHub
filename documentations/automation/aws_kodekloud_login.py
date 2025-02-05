@@ -150,8 +150,8 @@ try:
 
 except Exception as e:
     print("❌ Error:", str(e))
-    # driver.quit()
-    # exit()
+    driver.quit()
+    exit()
 
 
 
