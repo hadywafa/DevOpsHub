@@ -80,38 +80,35 @@ try:
         exit()
 
     try:
-        # ---------------------------------------------------------------------- asd
-
         print("🔄 Selecting 'Command Line Interface (CLI)' as Use Case...")
 
         wait = WebDriverWait(driver, 10)
-        label = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Command Line Interface (CLI)')]")))
-        label.click()
+        cli_label = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//span[contains(text(),'Command Line Interface (CLI)')]")))
 
-        # print(radio_button.is_selected())    # True if enabled
+        time.sleep(3)
+        cli_label.click()
 
-        # driver.execute_script("arguments[0].click();", radio_button)
-
-        # cli_radio_button.select()
-        # assert radio_button.is_selected(), "Radio button was not selected!"
         print("Radio button selected successfully")
-
-        # ---------------------------------------------------------------------- asd
 
         # 🔹 Click "I Understand" Checkbox
         print("🔄 Checking 'I understand' confirmation checkbox...")
-        confirm_checkbox = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@type='checkbox']"))
-        )
-        confirm_checkbox.click()
-        time.sleep(2)
+        confirm_label = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//span[contains(text(),'I understand the above recommendation and want to proceed to create an access key.')]")))
+
+        driver.execute_script(
+            "arguments[0].scrollIntoView();", confirm_label)
+
+        time.sleep(3)
+        confirm_label.click()
+
         print("✅ Confirmation Checkbox Checked Successfully!")
 
         # 🔹 Click "Next" Button
         print("🔄 Clicking 'Next' Button...")
         next_button = WebDriverWait(driver, 5).until(
             EC.element_to_be_clickable(
-                (By.XPATH, "//button[contains(@class, 'awsui_button_vjswe_1heue_157')]"))
+                (By.XPATH, "//button[@class='awsui_primary-button_1xupv_5n7ac_434 awsui_button_vjswe_nb70g_157 awsui_variant-primary_vjswe_nb70g_297']"))
         )
         next_button.click()
         time.sleep(3)
