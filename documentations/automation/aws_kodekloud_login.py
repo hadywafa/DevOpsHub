@@ -90,7 +90,7 @@ try:
         cli_label.click()
 
         print("Radio button selected successfully")
-
+# ---------------------------------------------------------------------------
         # 🔹 Click "I Understand" Checkbox
         print("🔄 Checking 'I understand' confirmation checkbox...")
         confirm_label = wait.until(EC.element_to_be_clickable(
@@ -103,17 +103,34 @@ try:
         confirm_label.click()
 
         print("✅ Confirmation Checkbox Checked Successfully!")
-
+# ---------------------------------------------------------------------------
         # 🔹 Click "Next" Button
         print("🔄 Clicking 'Next' Button...")
-        next_button = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable(
-                (By.XPATH, "//button[@class='awsui_primary-button_1xupv_5n7ac_434 awsui_button_vjswe_nb70g_157 awsui_variant-primary_vjswe_nb70g_297']"))
-        )
-        next_button.click()
-        time.sleep(3)
-        print("✅ 'Next' Button Clicked Successfully!")
+        next_button = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located(
+                (By.XPATH, "//button[contains(@class, 'awsui_primary-button')]"))
 
+        )
+
+        time.sleep(3)
+        next_button.click()
+
+        print("✅ 'Next' Button Clicked Successfully!")
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+        # 🔹 Click "Create Access Key" Button
+        print("🔄 Clicking 'Next' Button...")
+        create_button = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located(
+                (By.XPATH, "//button[contains(@class, 'awsui_primary-button')]"))
+
+        )
+
+        time.sleep(3)
+        create_button.click()
+
+        print("✅ 'Next' Button Clicked Successfully!")
+# ---------------------------------------------------------------------------
     except Exception as e:
         print("❌ Error:", str(e))
         driver.quit()
