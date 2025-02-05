@@ -16,5 +16,8 @@
         "onmicrosoft",
         "resourcequotas",
         "Sugession"
+    ],
+    "python.analysis.extraPaths": [
+        "./automation/configure-kodekloud-access-key/src"
     ]
 }

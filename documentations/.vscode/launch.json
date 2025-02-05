@@ -1,0 +1,26 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "python: configure-kodekloud-access-key",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/automation/configure-kodekloud-access-key/main.py", //${workspaceFolder}/configure_kodekloud_access_key.py or ${file} if the file is opened in a separate window
+      "console": "integratedTerminal",
+      "args": [
+        "--account-id",
+        "339713021565",
+        "--username",
+        "kk_labs_user_694229",
+        "--password",
+        "62kD9D6@lFtD",
+        "--use-existing-file",
+        "--file",
+        "C:\\Users\\HadyW\\Downloads\\hady_accessKeys.csv"
+      ]
+    }
+  ]
+}
