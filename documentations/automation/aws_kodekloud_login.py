@@ -10,9 +10,13 @@ import os
 AWS_CONSOLE_URL = "https://hadywafa.signin.aws.amazon.com/console?region=us-east-1"
 USERNAME = "hady"
 PASSWORD = "hH@HadyWafa"
+DOWNLOAD_DIR = os.path.join(os.path.expanduser("~"), "Desktop")
 
 # 🔹 Start Selenium WebDriver (Chrome)
 options = webdriver.ChromeOptions()
+
+prefs = {"download.default_directory": DOWNLOAD_DIR}
+options.add_experimental_option("prefs", prefs)
 # options.add_argument("--headless")  # Uncomment to run in headless mode
 driver = webdriver.Chrome(options)
 
@@ -136,37 +140,34 @@ print("✅ AWS CLI Configured Successfully!")
 # ---------------------------------------------------------------------------
 # Download cv file
 
-# Configure the download directory (Desktop)
-DOWNLOAD_DIR = os.path.join(os.path.expanduser("~"), "Desktop")
-
-# Setup Chrome options to auto-download files
-chrome_options = webdriver.ChromeOptions()
-prefs = {"download.default_directory": DOWNLOAD_DIR}
-chrome_options.add_experimental_option("prefs", prefs)
-
 try:
     # Click the "Download .csv file" button
     download_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable(
             (By.XPATH, "//button[contains(span/text(), 'Download .csv file')]"))
     )
+
+    driver.execute_script(
+        "arguments[0].scrollIntoView();", download_button)
+
+    time.sleep(3)
+
     download_button.click()
     print("✅ CSV file download initiated!")
 
-    # Wait for the file to be fully downloaded
-    time.sleep(5)  # Adjust if necessary
-
+    # Wait for the file to be downloaded
+    time.sleep(10)
+    print("✅ CSV file downloaded successfully!")
+    
     # Find the latest downloaded CSV file
-    files = [f for f in os.listdir(DOWNLOAD_DIR) if f.startswith(
-        "AccessKeys") and f.endswith(".csv")]
+    files = [f for f in os.listdir(DOWNLOAD_DIR) if f.startswith("AccessKeys") and f.endswith(".csv")]
     if not files:
         print("❌ No AWS Access Key CSV file found.")
         driver.quit()
         exit()
 
     # Sort by modification time (most recent file first)
-    files.sort(key=lambda x: os.path.getmtime(
-        os.path.join(DOWNLOAD_DIR, x)), reverse=True)
+    files.sort(key=lambda x: os.path.getmtime(os.path.join(DOWNLOAD_DIR, x)), reverse=True)
     csv_file_path = os.path.join(DOWNLOAD_DIR, files[0])
     print(f"✅ Found AWS Access Key CSV: {csv_file_path}")
 
@@ -174,17 +175,14 @@ try:
     df = pd.read_csv(csv_file_path)
     AWS_ACCESS_KEY = df.iloc[0]["Access Key Id"]
     AWS_SECRET_KEY = df.iloc[0]["Secret Access Key"]
-
+    
     print(f"🔑 Extracted Access Key: {AWS_ACCESS_KEY}")
     print(f"🔒 Extracted Secret Key: {AWS_SECRET_KEY}")
 
     # Configure AWS CLI
-    subprocess.run(f'aws configure set aws_access_key_id {
-                   AWS_ACCESS_KEY} --profile kodekloud', shell=True, check=True)
-    subprocess.run(f'aws configure set aws_secret_access_key {
-                   AWS_SECRET_KEY} --profile kodekloud', shell=True, check=True)
-    subprocess.run(
-        f'aws configure set region us-east-1 --profile kodekloud', shell=True, check=True)
+    subprocess.run(f'aws configure set aws_access_key_id {AWS_ACCESS_KEY} --profile kodekloud', shell=True, check=True)
+    subprocess.run(f'aws configure set aws_secret_access_key {AWS_SECRET_KEY} --profile kodekloud', shell=True, check=True)
+    subprocess.run(f'aws configure set region us-east-1 --profile kodekloud', shell=True, check=True)
 
     print("✅ AWS CLI Configured Successfully!")
 
