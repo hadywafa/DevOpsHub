@@ -14,7 +14,7 @@ PASSWORD = "hH@HadyWafa"
 # 🔹 Start Selenium WebDriver (Chrome)
 options = webdriver.ChromeOptions()
 # options.add_argument("--headless")  # Uncomment to run in headless mode
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(options)
 
 driver.maximize_window()
 
@@ -64,98 +64,127 @@ try:
     time.sleep(3)  # Wait for animations
 
     # 🔹 Click "Create Access Key" Button
-    try:
-        print("🔄 Clicking 'Create Access Key' Button...")
-        create_access_key_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable(
-                (By.XPATH, "//button[@data-cy='create-access-keys']"))
-        )
-        time.sleep(1)
-        create_access_key_button.click()
-        time.sleep(3)
-        print("✅ 'Create Access Key' Button Clicked Successfully!")
-    except:
-        print("❌ Error: Could not find the 'Create Access Key' button.")
+    print("🔄 Clicking 'Create Access Key' Button...")
+    create_access_key_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable(
+            (By.XPATH, "//button[@data-cy='create-access-keys']"))
+    )
+    time.sleep(1)
+    create_access_key_button.click()
+    time.sleep(3)
+    print("✅ 'Create Access Key' Button Clicked Successfully!")
+
+    print("🔄 Selecting 'Command Line Interface (CLI)' as Use Case...")
+
+    wait = WebDriverWait(driver, 10)
+    cli_label = wait.until(EC.element_to_be_clickable(
+        (By.XPATH, "//span[contains(text(),'Command Line Interface (CLI)')]")))
+
+    time.sleep(3)
+    cli_label.click()
+
+    print("Radio button selected successfully")
+# ---------------------------------------------------------------------------
+    # 🔹 Click "I Understand" Checkbox
+    print("🔄 Checking 'I understand' confirmation checkbox...")
+    confirm_label = wait.until(EC.element_to_be_clickable(
+        (By.XPATH, "//span[contains(text(),'I understand the above recommendation and want to proceed to create an access key.')]")))
+
+    driver.execute_script(
+        "arguments[0].scrollIntoView();", confirm_label)
+
+    time.sleep(3)
+    confirm_label.click()
+
+    print("✅ Confirmation Checkbox Checked Successfully!")
+# ---------------------------------------------------------------------------
+    # 🔹 Click "Next" Button
+    print("🔄 Clicking 'Next' Button...")
+    next_button = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located(
+            (By.XPATH, "//button[contains(@class, 'awsui_primary-button')]"))
+
+    )
+
+    time.sleep(3)
+    next_button.click()
+
+    print("✅ 'Next' Button Clicked Successfully!")
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+    # 🔹 Click "Create Access Key" Button
+    print("🔄 Clicking 'Next' Button...")
+    create_button = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located(
+            (By.XPATH, "//button[contains(@class, 'awsui_primary-button')]"))
+
+    )
+
+    time.sleep(3)
+    create_button.click()
+
+    print("✅ 'Next' Button Clicked Successfully!")
+
+except Exception as e:
+    print("❌ Error:", str(e))
+    driver.quit()
+    exit()
+
+
+print("✅ AWS CLI Configured Successfully!")
+
+# ---------------------------------------------------------------------------
+# Download cv file
+
+# Configure the download directory (Desktop)
+DOWNLOAD_DIR = os.path.join(os.path.expanduser("~"), "Desktop")
+
+# Setup Chrome options to auto-download files
+chrome_options = webdriver.ChromeOptions()
+prefs = {"download.default_directory": DOWNLOAD_DIR}
+chrome_options.add_experimental_option("prefs", prefs)
+
+try:
+    # Click the "Download .csv file" button
+    download_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable(
+            (By.XPATH, "//button[contains(span/text(), 'Download .csv file')]"))
+    )
+    download_button.click()
+    print("✅ CSV file download initiated!")
+
+    # Wait for the file to be fully downloaded
+    time.sleep(5)  # Adjust if necessary
+
+    # Find the latest downloaded CSV file
+    files = [f for f in os.listdir(DOWNLOAD_DIR) if f.startswith(
+        "AccessKeys") and f.endswith(".csv")]
+    if not files:
+        print("❌ No AWS Access Key CSV file found.")
         driver.quit()
         exit()
 
-    try:
-        print("🔄 Selecting 'Command Line Interface (CLI)' as Use Case...")
+    # Sort by modification time (most recent file first)
+    files.sort(key=lambda x: os.path.getmtime(
+        os.path.join(DOWNLOAD_DIR, x)), reverse=True)
+    csv_file_path = os.path.join(DOWNLOAD_DIR, files[0])
+    print(f"✅ Found AWS Access Key CSV: {csv_file_path}")
 
-        wait = WebDriverWait(driver, 10)
-        cli_label = wait.until(EC.element_to_be_clickable(
-            (By.XPATH, "//span[contains(text(),'Command Line Interface (CLI)')]")))
+    # Read the CSV file
+    df = pd.read_csv(csv_file_path)
+    AWS_ACCESS_KEY = df.iloc[0]["Access Key Id"]
+    AWS_SECRET_KEY = df.iloc[0]["Secret Access Key"]
 
-        time.sleep(3)
-        cli_label.click()
+    print(f"🔑 Extracted Access Key: {AWS_ACCESS_KEY}")
+    print(f"🔒 Extracted Secret Key: {AWS_SECRET_KEY}")
 
-        print("Radio button selected successfully")
-# ---------------------------------------------------------------------------
-        # 🔹 Click "I Understand" Checkbox
-        print("🔄 Checking 'I understand' confirmation checkbox...")
-        confirm_label = wait.until(EC.element_to_be_clickable(
-            (By.XPATH, "//span[contains(text(),'I understand the above recommendation and want to proceed to create an access key.')]")))
-
-        driver.execute_script(
-            "arguments[0].scrollIntoView();", confirm_label)
-
-        time.sleep(3)
-        confirm_label.click()
-
-        print("✅ Confirmation Checkbox Checked Successfully!")
-# ---------------------------------------------------------------------------
-        # 🔹 Click "Next" Button
-        print("🔄 Clicking 'Next' Button...")
-        next_button = WebDriverWait(driver, 10).until(
-            EC.visibility_of_element_located(
-                (By.XPATH, "//button[contains(@class, 'awsui_primary-button')]"))
-
-        )
-
-        time.sleep(3)
-        next_button.click()
-
-        print("✅ 'Next' Button Clicked Successfully!")
-# ---------------------------------------------------------------------------
-# ---------------------------------------------------------------------------
-        # 🔹 Click "Create Access Key" Button
-        print("🔄 Clicking 'Next' Button...")
-        create_button = WebDriverWait(driver, 10).until(
-            EC.visibility_of_element_located(
-                (By.XPATH, "//button[contains(@class, 'awsui_primary-button')]"))
-
-        )
-
-        time.sleep(3)
-        create_button.click()
-
-        print("✅ 'Next' Button Clicked Successfully!")
-# ---------------------------------------------------------------------------
-    except Exception as e:
-        print("❌ Error:", str(e))
-        driver.quit()
-        exit()
-
-    # Extract the newly created Access Key & Secret Key
-    print("🔄 Extracting new Access Key & Secret Key...")
-    AWS_ACCESS_KEY = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located(
-            (By.XPATH, "//span[contains(text(),'AKIA')]"))
-    ).text
-
-    AWS_SECRET_KEY = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located(
-            (By.XPATH, "//span[contains(text(),'Secret access key')]/following-sibling::span"))
-    ).text
-
-    print(f"✅ New Access Key Created: {AWS_ACCESS_KEY}")
-
-    # 🔹 Save Credentials to AWS CLI Profile
-    os.system(f'aws configure set aws_access_key_id {
-              AWS_ACCESS_KEY} --profile kodekloud')
-    os.system(f'aws configure set aws_secret_access_key {
-              AWS_SECRET_KEY} --profile kodekloud')
-    os.system(f'aws configure set region us-east-1 --profile kodekloud')
+    # Configure AWS CLI
+    subprocess.run(f'aws configure set aws_access_key_id {
+                   AWS_ACCESS_KEY} --profile kodekloud', shell=True, check=True)
+    subprocess.run(f'aws configure set aws_secret_access_key {
+                   AWS_SECRET_KEY} --profile kodekloud', shell=True, check=True)
+    subprocess.run(
+        f'aws configure set region us-east-1 --profile kodekloud', shell=True, check=True)
 
     print("✅ AWS CLI Configured Successfully!")
 
