@@ -2,7 +2,7 @@
 
 AWS CloudFormation is a **powerful Infrastructure as Code (IaC) service** that enables you to automate and manage AWS resources. It provides a streamlined way to model, provision, and maintain your cloud infrastructure using JSON or YAML templates.
 
-<div align="center">
+<div align="center" style="padding: 0 80px">
   <img src="images/cf.png" alt="CloudFormation" />
 </div>
 
