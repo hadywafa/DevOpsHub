@@ -10,12 +10,16 @@
     "explorerExclude.backup": {},
     "cSpell.words": [
         "apiserver",
+        "Dichone",
+        "Emre",
         "infinitesoftware",
         "issi",
         "Kusto",
+        "Metwally",
         "onmicrosoft",
         "resourcequotas",
-        "Sugession"
+        "Sugession",
+        "Yilmaz"
     ],
     "python.analysis.extraPaths": [
         "./automation/configure-kodekloud-access-key/src"
