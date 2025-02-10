@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Id": "allow-specific-ip-policy",
+    "Statement": [
+        {
+            "Sid": "IPAllow",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::hw-first-bucket/*",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "0.0.0.0/0"
+                }
+            }
+        }
+    ]
+}

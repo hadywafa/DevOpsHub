@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Id": "allow-specific-domain-policy",
+    "Statement": [
+        {
+            "Sid": "DomainAllow",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": ["s3:GetObject"],
+            "Resource": "arn:aws:s3:::hw-first-bucket/*.jpg",
+            "Condition": {
+                "stringLike": {
+                    "s3:Referer": "https://example.com/*"
+                }
+            }
+        }
+    ] 
+}
