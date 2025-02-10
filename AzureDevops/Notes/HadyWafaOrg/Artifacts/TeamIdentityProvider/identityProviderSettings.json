@@ -1,5 +1,0 @@
-{
-  "identityProviderSettings": {
-    "apiScopes": [ "read", "write" ]
-  }
-}

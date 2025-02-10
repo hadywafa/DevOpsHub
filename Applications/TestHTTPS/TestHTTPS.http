@@ -1,6 +1,0 @@
-@TestHTTPS_HostAddress = http://localhost:5210
-
-GET {{TestHTTPS_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

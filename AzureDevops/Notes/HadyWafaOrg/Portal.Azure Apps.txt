@@ -1,5 +1,0 @@
----------------------------------------		hub-auth 	----------------------------------------
-FTP Credential:-
-	FTPS endpoint:-		ftps://waws-prod-blu-225.ftp.azurewebsites.windows.net/site/wwwroot
-	FTPS Username:-		hub-auth\$hub-auth
-	Password     :-		Myr8el9Z9h3898XCx2zqMekMumx7gb5l2kSziMS6lJboyHiqKBGopDofXgAh
