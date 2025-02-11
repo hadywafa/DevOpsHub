@@ -1,13 +1,5 @@
 # AWS Developer Courses
 
-## AWS CDK
-
-- [Paulo Dichone](https://www.udemy.com/course/aws-cdk-masterclass-build-aws-cloud-infrastructures/learn/lecture/33197188#overview)
-
-## AWS SDK
-
-- [Emre Yilmaz](https://www.udemy.com/course/aws-cdk-with-python-step-by-step/learn/)
-
 ## AWS Lambda
 
 - [Paulo Dichone](https://www.udemy.com/course/aws-lambda-serverless)
@@ -15,6 +7,14 @@
 ## AWS SAM
 
 - [Paulo Dichone](https://www.udemy.com/course/aws-sam-framework-and-aws-lambda)
+
+## AWS CDK
+
+- [Paulo Dichone](https://www.udemy.com/course/aws-cdk-masterclass-build-aws-cloud-infrastructures/learn/lecture/33197188#overview)
+
+## AWS SDK
+
+- [Emre Yilmaz](https://www.udemy.com/course/aws-cdk-with-python-step-by-step/learn/)
 
 ## AWS Amplify
 
@@ -32,18 +32,18 @@
 
 - [Paulo Dichone](https://www.udemy.com/course/aws-dynamodb)
 
-## AWS ECS
+## AWS Pipelines
+
+- [Emre Yilmaz](https://www.udemy.com/course/aws-codepipeline-step-by-step/learn/lecture/17536446#overview)
+- [Metwally](https://cloudnativebasecamp.com/courses/aws-devops-90/)
+
+## AWS ECS & Fargate
 
 - [Paulo Dichone](https://www.udemy.com/course/aws-ecs-fargate)
 
 ## AWS EKS
 
 - [Paulo Dichone](https://www.udemy.com/course/amazon-eks-starter-kubernetes-on-aws)
-
-## AWS Pipelines
-
-- [Emre Yilmaz](https://www.udemy.com/course/aws-codepipeline-step-by-step/learn/lecture/17536446#overview)
-- [Metwally](https://cloudnativebasecamp.com/courses/aws-devops-90/)
 
 ## Notes
 
