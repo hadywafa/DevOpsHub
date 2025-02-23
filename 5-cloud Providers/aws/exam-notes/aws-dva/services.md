@@ -1,41 +1,40 @@
 # AWS Developer Courses
 
-## AWS Lambda
+## 1. AWS Lambda
 
 - [Paulo Dichone](https://www.udemy.com/course/aws-lambda-serverless)
 
-## AWS SAM
+## 2. AWS SAM
 
 - [Paulo Dichone](https://www.udemy.com/course/aws-sam-framework-and-aws-lambda)
 
-## AWS CDK
+## 3. AWS Step Functions
 
-- [Paulo Dichone](https://www.udemy.com/course/aws-cdk-masterclass-build-aws-cloud-infrastructures/learn/lecture/33197188#overview)
+- [Paulo Dichone](https://www.udemy.com/course/aws-step-functions-guide-workflow-automation-in-minutes)
+
+## 4. AWS Amplify
+
+- [Paulo Dichone](https://www.udemy.com/course/aws-amplify-studio-masterclass)
+
+## 5. AWS DynamoDB
+
+- [Paulo Dichone](https://www.udemy.com/course/aws-dynamodb)
+
+## 6. AWS AppSync
+
+- [Paulo Dichone](https://www.udemy.com/course/aws-appsync-amplify-with-react-graphql-course)
+
+---
 
 ## AWS SDK
 
 - [Emre Yilmaz](https://www.udemy.com/course/aws-cdk-with-python-step-by-step/learn/)
 
-## AWS Amplify
+## AWS CDK
 
-- [Paulo Dichone](https://www.udemy.com/course/aws-amplify-studio-masterclass)
+- [Paulo Dichone](https://www.udemy.com/course/aws-cdk-masterclass-build-aws-cloud-infrastructures/learn/lecture/33197188#overview)
 
-## AWS AppSync
-
-- [Paulo Dichone](https://www.udemy.com/course/aws-appsync-amplify-with-react-graphql-course)
-
-## AWS Step Functions
-
-- [Paulo Dichone](https://www.udemy.com/course/aws-step-functions-guide-workflow-automation-in-minutes)
-
-## AWS DynamoDB
-
-- [Paulo Dichone](https://www.udemy.com/course/aws-dynamodb)
-
-## AWS Pipelines
-
-- [Emre Yilmaz](https://www.udemy.com/course/aws-codepipeline-step-by-step/learn/lecture/17536446#overview)
-- [Metwally](https://cloudnativebasecamp.com/courses/aws-devops-90/)
+---
 
 ## AWS ECS & Fargate
 
@@ -44,6 +43,13 @@
 ## AWS EKS
 
 - [Paulo Dichone](https://www.udemy.com/course/amazon-eks-starter-kubernetes-on-aws)
+
+## AWS Pipelines
+
+- [Emre Yilmaz](https://www.udemy.com/course/aws-codepipeline-step-by-step/learn/lecture/17536446#overview)
+- [Metwally](https://cloudnativebasecamp.com/courses/aws-devops-90/)
+
+---
 
 ## Notes
 
