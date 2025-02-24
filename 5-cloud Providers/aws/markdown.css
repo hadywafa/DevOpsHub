@@ -1,8 +1,0 @@
-@font-face {
-    font-family: '0xProto Nerd Font';
-    src: url('./0xProtoNerdFont.ttf') format('truetype');
-}
-
-body {
-    font-family: '0xProto Nerd Font', sans-serif;
-}
