@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'Nerd Font';
-    src: url('path/to/nerd-font.woff2') format('woff2');
+    font-family: '0xProto Nerd Font';
+    src: url('./0xProtoNerdFont.ttf') format('truetype');
 }
 
 body {
-    font-family: 'Nerd Font';
+    font-family: '0xProto Nerd Font', sans-serif;
 }
