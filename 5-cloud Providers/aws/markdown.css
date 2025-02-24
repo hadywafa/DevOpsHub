@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Nerd Font';
+    src: url('path/to/nerd-font.woff2') format('woff2');
+}
+
+body {
+    font-family: 'Nerd Font';
+}
