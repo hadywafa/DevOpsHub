@@ -28,4 +28,8 @@
     <img src="images/other-q6.png" alt="other-q6">
     SAML 2.0 is designed for enterprise scenarios, while Web Identity Federation allows users to log in with social media accounts for consumer-facing applications. They serve different purposes and contexts.
     </div>
+    <div>
+    <img src="images/rds-q3.png" alt="rds-q3">
+    <img src="images/rds-q7.png" alt="rds-q7">
+    </div>
 </div>
