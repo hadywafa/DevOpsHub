@@ -1,4 +1,4 @@
-# AWS Neptune: Fully Managed Graph Database for Complex Relationships 📉
+# AWS Neptune (like `aurora` architecture but with Graph Database) 📉
 
 Amazon Neptune is a **fully managed graph database service** that simplifies building and running applications requiring fast and efficient navigation of complex relationships. It supports popular graph query languages, making it ideal for applications like recommendation systems, fraud detection, and social networks.
 
@@ -23,7 +23,7 @@ Amazon Neptune is a **fully managed graph database service** that simplifies bui
 4. **Seamless Integration**:
    - Operates within a customer's **VPC** for secure network isolation.
    - Supports automated backups to Amazon S3 for recovery.
-
+ 
 ---
 
 ## 🛠️ **How AWS Neptune Works**

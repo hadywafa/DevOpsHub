@@ -1,4 +1,4 @@
-# AWS KeySpaces (For Apache Cassandra): Fully Managed NoSQL Database 🗃️
+# AWS KeySpaces (For Apache Cassandra) Serverless like `dynamodb`
 
 Amazon KeySpaces is a **fully managed, serverless database service** designed to run **Apache Cassandra–compatible workloads** in AWS. It simplifies the deployment and management of Cassandra-based applications, allowing developers to focus on building scalable, high-performance applications.
 

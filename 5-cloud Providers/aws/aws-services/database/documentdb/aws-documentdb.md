@@ -1,4 +1,4 @@
-# AWS DocumentDB (MongoDB): A Fully Managed NoSQL Solution 📄
+# AWS DocumentDB (like `aurora` architecture but with MongoDB)📄
 
 Amazon DocumentDB is a **fully managed document database service** designed to be compatible with **MongoDB**, a popular NoSQL database. It enables organizations to run scalable, high-performance document-based applications without worrying about the operational complexities of managing infrastructure.
 
