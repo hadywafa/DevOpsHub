@@ -2,6 +2,9 @@
 
 AWS QuickSight is a **cloud-based business intelligence (BI) and analytics service** designed to help organizations derive insights from their data using interactive dashboards, visualizations, and ad-hoc analysis.
 
+
+[Getting started with Amazon Quicksight](https://aws.amazon.com/quicksight/getting-started/)
+
 ---
 
 <div style="text-align: center">
