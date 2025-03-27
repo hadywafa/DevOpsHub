@@ -1,5 +1,15 @@
 # 📦 AWS Data Exchange — The Marketplace for Third-Party Data
 
+<div style="text-align: center;">
+    <img src="images/android-ios-marketplace.png" style="border-radius: 10px;" alt="Android and iOS app stores" />
+</div>
+
+---
+
+<div style="text-align: center;">
+    <img src="images/aws-data-exchange-marketplace.png" style="border-radius: 10px;" alt="AWS Data Exchange marketplace" />
+</div>
+
 ---
 
 ## 🧠 What is AWS Data Exchange?
@@ -42,10 +52,6 @@ Imagine how you use your phone to **download an app** from Google Play or the Ap
 | Apps can be free or paid                  | →   | Data sets can be free or monetized                 |
 | You get regular app updates automatically | →   | You get updated data automatically (to S3, etc.)   |
 | Apps run securely within your OS sandbox  | →   | Data is governed by IAM, encryption, and logs      |
-
-![alt text](image.png)
-
-![alt text](image-1.png)
 
 ### 🧠 Just like…
 
@@ -144,7 +150,9 @@ sequenceDiagram
 
 ## 🧩 Data Delivery Methods
 
-![alt text](image-2.png)
+<div style="text-align: center;">
+    <img src="images/aws-data-exchange-delivery-methods.png" alt="AWS Data Exchange Delivery Methods" style="border-radius: 10px;">
+</div>
 
 ---
 
