@@ -18,7 +18,7 @@ Apache Cassandra is an **open-source, distributed NoSQL database** known for its
 ---
 
 <div align="center">
-  <img src="images/apache-cassandra.png" alt="Apache Cassandra" />
+  <img src="images/apache-cassandra.png" alt="Apache Cassandra" style="background-color: white; border-radius: 10px;" />
 </div>
 
 ---
@@ -34,7 +34,7 @@ Amazon KeySpaces is a **Cassandra-compatible, fully managed database service** t
 ---
 
 <div align="center">
-  <img src="images/aws-KeySpaces.png" alt="Amazon KeySpaces" />
+  <img src="images/aws-KeySpaces.png" alt="Amazon KeySpaces" style="background-color: white; border-radius: 10px;" />
 </div>
 
 ---

@@ -5,7 +5,7 @@ Amazon TimeStream is a **fully managed, serverless time-series database** design
 ---
 
 <div align="center">
-  <img src="images/aws-timestream.png" alt="AWS TimeStream" />
+  <img src="images/aws-timestream.png" alt="AWS TimeStream" style="background-color: white; border-radius: 10px;" />
 </div>
 
 ---

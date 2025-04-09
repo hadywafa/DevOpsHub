@@ -23,7 +23,7 @@ Amazon Neptune is a **fully managed graph database service** that simplifies bui
 4. **Seamless Integration**:
    - Operates within a customer's **VPC** for secure network isolation.
    - Supports automated backups to Amazon S3 for recovery.
- 
+
 ---
 
 ## 🛠️ **How AWS Neptune Works**
