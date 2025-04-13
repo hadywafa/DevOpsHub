@@ -3,7 +3,7 @@
 **AWS Backup** is a fully managed backup service that centralizes and automates backup activities across various AWS services and on-premises environments. It ensures your data is securely backed up, easily recoverable, and compliant with your organizational policies.
 
 <div align="center">
-  <img src="images/aws-backup.png" alt="AWS Backup" />
+  <img src="images/aws-backup.png" alt="AWS Backup" style="border-radius: 20px;" />
 </div>
 
 ---
