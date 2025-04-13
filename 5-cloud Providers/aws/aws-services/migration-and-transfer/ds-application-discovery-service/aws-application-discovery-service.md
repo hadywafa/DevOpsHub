@@ -5,7 +5,7 @@ AWS Application Discovery Service helps businesses **plan their migration projec
 ---
 
 <div style="text-align: center;">
-    <img src="images/ads.png" alt="aws application discovery service" style="display: inline-block;"/>
+    <img src="images/ads.png" alt="aws application discovery service" style="display: inline-block; border-radius: 20px;"/>
 </div>
 
 ---
