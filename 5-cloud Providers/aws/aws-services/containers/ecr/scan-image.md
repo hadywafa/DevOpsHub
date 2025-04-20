@@ -1,0 +1,148 @@
+Absolutely, Hady! 💪 Let's dive into a comprehensive guide on **Amazon ECR Image Scanning**, covering both **Basic** and **Enhanced** scanning options. This guide will provide you with practical steps, insights, and best practices to ensure your container images are secure and compliant.
+
+---
+
+# 🔍 Amazon ECR Image Scanning: Comprehensive Guide
+
+## 🧠 Overview
+
+Amazon Elastic Container Registry (ECR) offers two primary image scanning options:
+
+1. **Basic Scanning**: Detects vulnerabilities in the operating system packages of your container images.
+2. **Enhanced Scanning**: Provides continuous and deeper scanning capabilities, including application dependencies, using Amazon Inspector.
+
+---
+
+## 🛡️ Basic Scanning
+
+### ✅ What It Is
+
+Basic scanning in ECR analyzes your container images for known vulnerabilities in the operating system packages. It utilizes the Common Vulnerabilities and Exposures (CVEs) database to identify issues.
+
+### 🔧 How to Enable Basic Scanning
+
+By default, basic scanning is enabled for all private registries. However, you can configure it further:
+
+#### AWS Console
+
+1. Navigate to the **ECR Console**.
+2. Select **Private registry** from the navigation pane.
+3. Click on **Settings**.
+4. Under **Scanning configuration**, choose **Basic scanning**.
+5. Optionally, set up scan-on-push filters for specific repositories.
+
+#### AWS CLI
+
+```bash
+aws ecr put-registry-scanning-configuration \
+  --scan-type BASIC \
+  --rules '[{"repositoryFilters": [{"filter": "*", "filterType": "WILDCARD"}], "scanFrequency": "SCAN_ON_PUSH"}]' \
+  --region your-region
+```
+
+Replace `your-region` with your desired AWS region.
+
+### 📝 Notes
+
+- Basic scanning can be configured to scan images on push or manually.
+- You can scan up to 100,000 images per 24 hours in a given registry.
+- Scanning is limited to once per image every 24 hours.
+
+---
+
+## 🚀 Enhanced Scanning with Amazon Inspector
+
+### ✅ What It Is
+
+Enhanced scanning provides continuous and deeper analysis of your container images, including application dependencies. It leverages Amazon Inspector to detect vulnerabilities beyond the operating system level.
+
+### 🔧 How to Enable Enhanced Scanning
+
+#### AWS Console
+
+1. Navigate to the **ECR Console**.
+2. Select **Private registry** from the navigation pane.
+3. Click on **Settings**.
+4. Under **Scanning configuration**, choose **Enhanced scanning**.
+5. Configure scan filters as needed.
+
+#### AWS CLI
+
+```bash
+aws ecr put-registry-scanning-configuration \
+  --scan-type ENHANCED \
+  --rules '[{"repositoryFilters": [{"filter": "*", "filterType": "WILDCARD"}], "scanFrequency": "CONTINUOUS_SCAN"}]' \
+  --region your-region
+```
+
+Replace `your-region` with your desired AWS region.
+
+### 📝 Notes
+
+- Enhanced scanning provides continuous monitoring of your images.
+- It supports a broader range of operating systems and application packages.
+- Amazon Inspector must be enabled in your account.
+
+---
+
+## 🔍 Retrieving Scan Findings
+
+You can retrieve the results of your image scans to assess vulnerabilities.
+
+#### AWS Console
+
+1. Navigate to the **ECR Console**.
+2. Select your repository and image.
+3. View the **Scan findings** tab for detailed results.
+
+#### AWS CLI
+
+```bash
+aws ecr describe-image-scan-findings \
+  --repository-name your-repo-name \
+  --image-id imageTag=your-image-tag \
+  --region your-region
+```
+
+Replace `your-repo-name`, `your-image-tag`, and `your-region` with your specific details.
+
+---
+
+## 🛠️ Manual Scanning
+
+If you have images that weren't scanned on push, you can initiate a manual scan.
+
+#### AWS CLI
+
+```bash
+aws ecr start-image-scan \
+  --repository-name your-repo-name \
+  --image-id imageTag=your-image-tag \
+  --region your-region
+```
+
+Replace `your-repo-name`, `your-image-tag`, and `your-region` with your specific details.
+
+---
+
+## 🧰 Troubleshooting Common Issues
+
+- **UnsupportedImageError**: Occurs when scanning an image built from an unsupported operating system or the `scratch` base image.
+- **UNDEFINED Severity**: Indicates that the vulnerability's severity couldn't be determined from the CVE source.
+- **SCAN_ELIGIBILITY_EXPIRED**: Happens when images are older than the scanning eligibility window. Re-push the image to make it eligible again.
+
+For more detailed troubleshooting, refer to the [Amazon ECR Image Scanning Troubleshooting Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-troubleshooting.html).
+
+---
+
+## 📋 Best Practices
+
+- **Enable Enhanced Scanning**: For comprehensive vulnerability detection, especially in application dependencies.
+- **Use Scan-on-Push**: To ensure immediate scanning of new images.
+- **Implement Lifecycle Policies**: To remove untagged or old images, reducing storage costs and potential vulnerabilities.
+- **Monitor Scan Findings**: Regularly review scan results and address high or critical vulnerabilities promptly.
+- **Integrate with CI/CD Pipelines**: Automate scanning processes within your development workflows.
+
+---
+
+By implementing these scanning strategies, you can significantly enhance the security posture of your containerized applications in Amazon ECR. If you need further assistance or examples, feel free to ask! s
