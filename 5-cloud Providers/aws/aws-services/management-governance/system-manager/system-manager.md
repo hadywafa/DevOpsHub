@@ -4,6 +4,18 @@ AWS Systems Manager (SSM) is a robust service designed to centralize the **confi
 
 ---
 
+![alt text](image.png)
+
+---
+
+![alt text](image-1.png)
+
+---
+
+![alt text](image-2.png)
+
+---
+
 ## 🌟 **What is AWS Systems Manager?**
 
 AWS Systems Manager provides a unified interface to manage resources across AWS and on-premises environments securely and efficiently.
@@ -106,7 +118,7 @@ AWS Systems Manager integrates seamlessly with:
 
 ## 🤔 **When to Use AWS Systems Manager**
 
-### Ideal Scenarios:
+### ⭐ **Ideal Scenarios**
 
 - Centralizing configuration and management for large-scale environments.
 - Automating routine tasks like patching or compliance audits.
