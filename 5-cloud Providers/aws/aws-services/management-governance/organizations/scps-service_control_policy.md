@@ -2,10 +2,12 @@
 
 **Service Control Policies (SCPs)** are a key feature of AWS Organizations, enabling administrators to set guardrails for what IAM users and roles within an organization can and cannot do.
 
+> it is `multi-level hierarchy`
+
 ---
 
 <div align="center">
-  <img src="images/scps.png" alt="Service Control Policies" /> 
+  <img src="images/scps.png" alt="Service Control Policies" style="border-radius: 20px; width: 80%;" />
 </div>
 
 ---
@@ -31,7 +33,7 @@
 
 ## 📌 **Important Considerations**
 
-### **2. Exclusions**
+### **😈 Exclusions**
 
 SCPs **do not affect** the following:
 
@@ -40,11 +42,11 @@ SCPs **do not affect** the following:
 - **Service-linked roles** required for AWS services.
 - Users, groups, and roles **outside the organization**.
 
-### **2. Default Policy**
+### **🧾 Default Policy**
 
 - By default, AWS applies a `FullAWSAccess` SCP to all accounts, allowing all actions unless explicitly denied.
 
-### **3. Use Blacklisting Over Whitelisting**
+### **🎩 Blacklisting Over Whitelisting**
 
 it is recommended to use blacklisting over whitelisting when deals with SCPs to decrease the overheads
 
@@ -53,62 +55,72 @@ it is recommended to use blacklisting over whitelisting when deals with SCPs to 
 
 ---
 
-## **Example: Creating and Assigning an SCP**
-
-<div align="center"> 
-  <img src="images/scp.png" alt="Service Control Policies - 2" />
+<div align="center">
+  <img src="images/scp.png" alt="Service Control Policies - 2" style="border-radius: 20px;" />
 </div>
 
-### Scenario
+## ✍️ **Example: Restrict Developers from IAM, Billing, and Critical Services**
 
-You want to ensure that developers in a specific OU can only use S3 and EC2 services, and all other services should be denied.
+### 🎯 **Goal (Realistic Scenario)**
 
-### **Step 1: Create the SCP**
+You're managing a **Developer OU**, and you want to:
 
-Use the AWS Management Console or CLI to create the SCP.
+- ✅ Allow access to most AWS services for development (default: `FullAWSAccess`)
+- ❌ Deny **sensitive services** like:
+  - IAM (to prevent privilege escalation)
+  - AWS Organizations (to protect org structure)
+  - Billing (costs visibility)
+  - CloudTrail (logs tampering)
+  - Account Settings (root-level actions)
 
-#### SCP Policy Document
+---
+
+### 🧾 Step 1: Define the Deny-Based SCP
+
+#### ✅ **Deny Critical Services SCP (Best Practice)**
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Effect": "Allow",
-      "Action": ["s3:*", "ec2:*"],
+      "Sid": "DenyIAMAccess",
+      "Effect": "Deny",
+      "Action": ["iam:*", "organizations:*", "account:*", "cloudtrail:*", "billing:*"],
       "Resource": "*"
     }
   ]
 }
 ```
 
-- **Effect**: `Allow` specifies the permitted actions.
-- **Action**: Allows all actions (`*`) within the `s3` and `ec2` services.
-- **Resource**: Applies to all resources (`*`).
+> 🔒 This SCP **denies only risky services**, while the **default `FullAWSAccess` policy** is still attached. That means devs can use most AWS services safely, but cannot access critical areas.
 
-#### Create the SCP via AWS CLI
+---
+
+### 🛠️ Step 2: Create the SCP via AWS CLI
+
+Save the policy to `deny-critical-services.json` and run:
 
 ```sh
 aws organizations create-policy \
-  --name "AllowS3AndEC2" \
+  --name "DenyCriticalServices" \
   --type "SERVICE_CONTROL_POLICY" \
-  --content file://scp-policy.json
+  --description "Deny access to IAM, CloudTrail, Billing, etc. for developer OU" \
+  --content file://deny-critical-services.json
 ```
 
 ---
 
-### **Step 2: Attach the SCP to an OU**
+### 🔗 Step 3: Attach the SCP to the Developer OU
 
-#### Find the OU ID
-
-Use the AWS CLI to list your OUs and find the target OU ID:
+#### 🔍 Find the OU ID
 
 ```sh
 aws organizations list-organizational-units-for-parent \
   --parent-id <RootID>
 ```
 
-#### Attach the SCP
+#### 📎 Attach the SCP to the OU
 
 ```sh
 aws organizations attach-policy \
@@ -116,39 +128,49 @@ aws organizations attach-policy \
   --target-id <OU_ID>
 ```
 
-- **`PolicyID`**: The ID of the `AllowS3AndEC2` SCP.
-- **`OU_ID`**: The ID of the target organizational unit.
+- `PolicyID`: The ID returned when you created the SCP.
+- `OU_ID`: The ID of the `DeveloperOU`.
 
 ---
 
-### **Step 3: Validate SCP Application**
+### 🔍 Step 4: Test the SCP Safely
 
-1. Go to the **AWS Management Console**:
+1. **Keep `FullAWSAccess` attached** so normal dev workflows aren't blocked.
+2. **Test access**:
+   - ❌ Try using `iam:CreateUser` or `billing:ViewBilling` → Should fail.
+   - ✅ Use services like `s3`, `ec2`, `lambda`, `dynamodb` → Should succeed.
+3. Use a test IAM user in a sandbox account under the same OU.
 
-   - Navigate to **Organizations** > **Policies** > **Service Control Policies**.
-   - Verify that the SCP is attached to the target OU or account.
+---
 
-2. Test user permissions:
-   - Try accessing a service outside the allowed actions (e.g., RDS). The request should be denied.
-   - Access S3 or EC2 services. The request should succeed.
+### 📊 Step 5: Track Changes and Logs
+
+- Enable **AWS CloudTrail** to monitor:
+  - SCP changes (`CreatePolicy`, `AttachPolicy`)
+  - Denied events (`Deny` from SCPs appear in CloudTrail logs)
+
+```bash
+aws cloudtrail lookup-events \
+  --lookup-attributes AttributeKey=EventName,AttributeValue=AttachPolicy
+```
 
 ---
 
 ## **Best Practices for SCPs**
 
-1. **Start with Defaults**:
+1. **1️⃣ Start with Defaults**:
 
    - Use the default `FullAWSAccess` SCP to prevent unintended restrictions during initial setup.
 
-2. **Least Privilege**:
+2. **2️⃣ Least Privilege**:
 
    - Gradually apply restrictive SCPs to ensure minimal access is granted.
 
-3. **Test Policies**:
+3. **3️⃣ Test Policies**:
 
    - Always test new SCPs in a non-production environment before applying them broadly.
 
-4. **Monitor SCP Changes**:
+4. **4️⃣ Monitor SCP Changes**:
    - Use AWS CloudTrail to log changes to SCPs and track who modified policies.
 
 ---

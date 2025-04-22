@@ -5,7 +5,7 @@ Amazon Polly is a **Text-to-Speech (TTS)** cloud service that converts written t
 ---
 
 <div style="text-align: center;">
-    <img src="images/amazon-poly.png" alt="Amazon Polly">
+    <img src="images/amazon-poly.png" alt="Amazon Polly" style="border-radius: 10px;">
 </div>
 
 ---
