@@ -1,8 +1,8 @@
 # AWS SSM
 
-![alt text](image-3.png)
+![ssm-agent-connectivity](images/ssm-agent-connectivity.png)
 
-![alt text](image-2.png)
+![ssm-features](images/ssm-overview.png)
 
 ---
 

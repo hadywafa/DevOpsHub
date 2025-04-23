@@ -1,6 +1,6 @@
 # Run Command
 
-![alt text](image-4.png)
+![ssm-run-command](images/ssm-run-command.png)
 
 ---
 
