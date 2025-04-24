@@ -1,3 +1,0 @@
-# CodeCatalyst
-
-Integrated DevOps Service
