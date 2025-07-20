@@ -67,11 +67,11 @@ Think of an AWS route table like a map that helps network traffic know where to 
 
 Here's what a route table might look like in AWS, with an explanation for each part:
 
-| Destination | Target       | Status  | Propagated |
-|-------------|--------------|---------|------------|
-| 0.0.0.0/0   | igw-12345678 | active  | no         |
-| 10.0.1.0/24 | local        | active  | no         |
-| 10.0.2.0/24 | nat-87654321 | active  | no         |
+| Destination | Target       | Status | Propagated |
+| ----------- | ------------ | ------ | ---------- |
+| 0.0.0.0/0   | igw-12345678 | active | no         |
+| 10.0.1.0/24 | local        | active | no         |
+| 10.0.2.0/24 | nat-87654321 | active | no         |
 
 - **0.0.0.0/0 -> igw-12345678**: Traffic going anywhere in the world (0.0.0.0/0) should use the internet gateway (igw-12345678). This lets your servers talk to the internet.
 - **10.0.1.0/24 -> local**: Traffic going to the 10.0.1.x network stays within the VPC.
@@ -107,9 +107,10 @@ A route table in AWS VPC is a critical component that directs network traffic wi
 ## Firewalls in AWS VPC
 
 - NACL vs Sg
-![alt text](images/nacl-sg.png)
+  ![alt text](images/nacl-sg.png)
 
 - NACL
+
   - Network Access Control List
   - Stateless
   - Applied at subnet level
