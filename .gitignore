@@ -354,3 +354,12 @@ Applications/TestHTTPS/obj/Debug/net8.0/TestHTTPS.AssemblyInfoInputs.cache
 # **/*.tfstate
 # **/*.tfstate.*
 
+# Terraform state
+*.tfstate
+*.tfstate.backup
+.terraform/
+terraform.tfstate.lock.info
+
+# Local-only override files
+*.auto.tfvars
+*.tfvars
