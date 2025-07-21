@@ -348,3 +348,9 @@ healthchecksdb
 /Backend/TeamHub.UploadResource.API/Logs/internal-nlog.txt
 Applications/TestHTTPS/obj/Debug/net8.0/TestHTTPS.AssemblyInfoInputs.cache
 Applications/TestHTTPS/obj/Debug/net8.0/TestHTTPS.AssemblyInfoInputs.cache
+
+
+# **/.terraform
+# **/*.tfstate
+# **/*.tfstate.*
+
