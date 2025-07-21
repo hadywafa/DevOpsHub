@@ -6,7 +6,7 @@
     "**/CVS": false,
     "**/.DS_Store": false,
     "**/Thumbs.db": false,
-    "**/.terraform/*": true,
+    // "**/.terraform/*": true,
   },
   "explorerExclude.backup": {},
   "cSpell.words": [
