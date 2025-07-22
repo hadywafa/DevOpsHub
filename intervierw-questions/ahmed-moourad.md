@@ -29,11 +29,15 @@
 ![image](https://github.com/Ahmed-Moourad/DevOps-Interview-Questions-for-Juniors/assets/112473376/f1cd6e00-8218-4d26-9f0e-066be57576e8)
 </b></details>
 
+---
+
 <details><summary>
  2. What’s VPC?</summary><br><b>
 
 A VPC is a virtual network that closely resembles a traditional network that you'd operate in your own data center.
 </b></details>
+
+---
 
 <details><summary>
 3. What’s S3 bucket and what types of it?</summary><br><b>
@@ -48,6 +52,8 @@ Amazon S3 is an object storage service that stores data as objects within bucket
 
 </b></details>
 
+---
+
 <details><summary>
 4. Is there a difference between SG and NACL?</summary><br><b>
 
@@ -56,12 +62,16 @@ A security group can be understood as a firewall to protect EC2 instances.
 NACL can be understood as the firewall or protection for the subnet. (stateless)
 </b></details>
 
+---
+
 <details><summary>
 5. What’s the difference between Public Subnet and Private Subnet?</summary><br><b>
 
 The instances in the public subnet can send outbound traffic directly to the internet.(Via Internet Gatway).
 Whereas the instances in the private subnet can't. Instead, the instances in the private subnet can access the internet by using a network address translation (NAT) gateway that resides in the public subnet.
 </b></details>
+
+---
 
 <details><summary>
 6. How can an application access Internet without receiving requests from the internet?</summary><br><b>
@@ -70,12 +80,16 @@ Using NAT configured in the Routing Table.
 The database servers can connect to the internet for software updates using the NAT gateway, but the internet cannot establish connections to the database servers.
 </b></details>
 
+---
+
 <details><summary>  
 7. Design Architecture for web application contains 3 tiers: Frontend, Backend, and Database?</summary><br><b>
 
 ![image](https://github.com/Ahmed-Moourad/DevOps-Interview-Questions-for-Juniors/assets/112473376/cc5d5560-885f-42a0-8a9c-371baff370ac)
 
 </b></details>
+
+---
 
 <details><summary>
 8. How you can cost optimize  your infrastructure?</summary><br><b>
@@ -92,6 +106,8 @@ obtaining the best pricing and terms for IT purchases, standardizing, simplifyin
 
 </b></details>
 
+---
+
 <details><summary>
 9. What are the types of Database engines on AWS?</summary><br><b>
 
@@ -100,6 +116,8 @@ obtaining the best pricing and terms for IT purchases, standardizing, simplifyin
 Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, and SQL Server. - Ledger: Amazon Quantum Ledger Database (Amazon QLDB) - Document: Amazon DocumentDB (with MongoDB compatibility) - No SQL: DynamoDB - In-memory: Amazon ElastiCache - Graph: Amazon Neptune
 
 </b></details>
+
+---
 
 <details><summary>
 10. What’s the difference between AWS Shield vs AWS WAF vs AWS Guard-Duty?</summary><br><b>
@@ -116,6 +134,8 @@ Your subscription to Shield Advanced covers the basic AWS WAF fees for web ACLs,
 
 </b></details>
 
+---
+
 <details><summary>
 11. What’s the difference between S3 vs EBS vs EFS?</summary><br><b>
 
@@ -123,6 +143,8 @@ Your subscription to Shield Advanced covers the basic AWS WAF fees for web ACLs,
 **EBS**: File System Storage (Connected to one EC2) scalable network file storage
 **EFS**: scalable network file storage (Can be connected to many EC2)
 </b></details>
+
+---
 
 <details><summary>
 12. Is it possible to host an application on S3?</summary><br><b>
@@ -132,12 +154,16 @@ by configuring your bucket for website hosting and then uploading your content t
 
 </b></details>
 
+---
+
 <details><summary>
 13. What’s SSM ?</summary><br><b>
 
 Amazon EC2 Simple Systems Manager (SSM) is a tool that allows an IT professional to automatically configure virtual servers in a cloud or in an on-premises data center. Need to install an agent.
 
 </b></details>
+
+---
 
 <details><summary>
 14. What is the difference between Latency Based Routing and Geo DNS in Route53?</summary><br><b>
@@ -146,12 +172,16 @@ Amazon maps out typical latency between IP addresses and AWS regions. - Choose L
 
 </b></details>
 
+---
+
 <details><summary>
 15. What is RTO and RPO in AWS?</summary><br><b>
 
 **RTO** (Recovery Time Objective): is a measure of how quickly can your application recover after an outage
 **RPO** (Recovery Point Objective): is a measure of the maximum amount of data loss that your application can tolerate.
 </b></details>
+
+---
 
 <details><summary>
 16.  What are DevOps tools on AWS?</summary><br><b>
@@ -184,6 +214,8 @@ Amazon maps out typical latency between IP addresses and AWS regions. - Choose L
   containers abstract application layer, vm abstract os
 
 </b></details>
+
+---
 
 <details><summary>
 18. What are Docker Image layers?</summary><br><b>
@@ -224,6 +256,8 @@ This creates layers like:
 
 </b></details>
 
+---
+
 <details><summary>  
 19. What’s the difference between Entrypoint and CMD?</summary><br>
 
@@ -245,6 +279,8 @@ CMD ["app.py"]
 > So `ENTRYPOINT` locks in the command, while `CMD` sets defaults you can change at runtime.
 
 </b></details>
+
+---
 
 <details><summary>
 20. What are multiple base images on Dockerfile?</summary><br>
@@ -299,6 +335,8 @@ RUN chmod +x /usr/local/bin/demo
 
 </br> </details>
 
+---
+
 <details><summary>
 21. What are types of Docker volumes?</summary><br><b>
 
@@ -350,6 +388,8 @@ docker volume create --driver rexray myvolume
 > 💡 Each type has its strengths. For example, **bind mounts** are great for development, while **named volumes** shine in production.
 
 </b></details>
+
+---
 
 <details><summary>
 22. What are the types of Docker networks?</summary><br>
@@ -446,6 +486,8 @@ There are **two perspectives** when we talk about containers binding to the host
 So when you bind `8080:80` in bridge mode, you're **creating a port-forwarding rule**, but the container still lives on a different IP.
 </br></details>
 
+---
+
 <details><summary>
 23. What’s the difference between COPY and ADD?</summary><br>
 
@@ -483,6 +525,8 @@ Downloads and **extracts** the archive automatically.
 > Use `ADD` **only** if you need to **extract archives** or **download from URLs**.
 
 </br></details>
+
+---
 
 <details><summary>
 24. How could you secure your Dockerfile?</summary><br>
@@ -583,6 +627,8 @@ FROM node:20-alpine@sha256:abc123...
 
 </br></details>
 
+---
+
 <details><summary>
 25. What are the Stages of DevSecOps?</summary><br><b>
 
@@ -657,6 +703,8 @@ Imagine a user visits `example.com`:
 Tip 7 – Configure HTTP/2 Support.
 </b></details>
 
+---
+
 <details><summary>
 28. How can list all processes?</summary><br><b>
 
@@ -669,6 +717,8 @@ ps -e
 
 </b></details>
 
+---
+
 <details><summary>
 29. How can list live processes?</summary><br><b>
 
@@ -677,6 +727,8 @@ ps -aux | less
 ```
 
 </b></details>
+
+---
 
 <details><summary>
 30. How could you check memory space?</summary><br><b>
@@ -688,6 +740,8 @@ cat /proc/meminfo
 
 </b></details>
 
+---
+
 <details><summary>
 31. How could you check storage space?</summary><br><b>
 
@@ -695,12 +749,16 @@ cat /proc/meminfo
 
 </b></details>
 
+---
+
 <details><summary>  
 32. What’s file management in Linux?</summary><br><b>
 
     In Linux, most of the operations are performed on files. And to handle these files Linux has directories also known as folders which are maintained in a tree-like structure. Though, these directories are also a type of file themselves
 
 </b></details>
+
+---
 
 <details><summary>  
 33. What’s LVM and how can using it?</summary><br>
@@ -798,6 +856,8 @@ This creates a snapshot of your volume—great for backups or testing changes.
 
 </br></details>
 
+---
+
 <details><summary style="color: #fc4545ff">
 34. How could you mount a volume in Linux?</summary><br><b>
 
@@ -808,6 +868,8 @@ This creates a snapshot of your volume—great for backups or testing changes.
     5. Check the drive has been mounted by re-running lsblk.
 
 </b></details>
+
+---
 
 <details><summary style="color: #fc4545ff">
 35. What are Linux bootstrap processes?</summary><br><b>
@@ -822,6 +884,8 @@ Bootstrapping in computer science is **the technique for producing a self-compil
 
 </b></details>
 
+---
+
 <details><summary style="color: #fc4545ff">
 36. Tell me about Linux file systems.</summary><br><b>
 
@@ -831,6 +895,8 @@ Bootstrapping in computer science is **the technique for producing a self-compil
 
 </b></details>
 
+---
+
 <details><summary style="color: #fc4545ff">
 37. What’s WAF in Linux ?</summary><br><b>
 
@@ -838,12 +904,16 @@ Bootstrapping in computer science is **the technique for producing a self-compil
 
 </b></details>
 
+---
+
 <details><summary style="color: #fc4545ff">
 38. What’s Selinux and how can use it?</summary><br><b>
 
 SELinux defines access controls for the applications, processes, and files on a system. It uses security policies, which are a set of rules that tell SELinux what can or can't be accessed, to enforce the access allowed by a policy
 
 </b></details>
+
+---
 
 <details><summary>
 39. What’s the /dev/null directory?</summary><br><b>
@@ -933,11 +1003,15 @@ Q: You notice a sudden spike in server CPU utilization. How would you troublesho
 A: I would check CPU usage using `top` or `htop`, identify the culprit process with `ps` or `pidstat`, analyze logs for events, and optimize or scale resources accordingly.
 </b></details>
 
+---
+
 <details><summary>
 Q: A critical application on your Linux server is unresponsive. Walk me through the steps you would take to diagnose and resolve the issue.</summary><br><b>
 
 A: I'd use `ps` and `top` to identify the hung process, check logs for errors, restart the application or services, and monitor for improvements.
 </b></details>
+
+---
 
 <details><summary>
 Q: You need to deploy a new version of a web application on a Linux server without causing downtime. Explain the steps you would take to achieve a zero-downtime deployment.</summary><br><b>
@@ -945,11 +1019,15 @@ Q: You need to deploy a new version of a web application on a Linux server witho
 A: Implement a load balancer, deploy the new version on one server at a time, validate each step, and update the load balancer to include new servers.
 </b></details>
 
+---
+
 <details><summary>
 Q: A team member accidentally deleted important files on a Linux server. How would you recover the lost data?</summary><br><b>
 
 A: I'd use file recovery tools like `extundelete` or `photorec`, avoid writing new data to prevent overwriting, and restore from backups if available.
 </b></details>
+
+---
 
 <details><summary>
 Q: Your Linux server is running out of disk space. What steps would you take to identify and resolve the issue, considering both short-term and long-term solutions?</summary><br><b>
@@ -957,11 +1035,15 @@ Q: Your Linux server is running out of disk space. What steps would you take to 
 A: Identify large files with `du` and `df`, remove unnecessary files, implement log rotation, and consider long-term solutions like additional storage.
 </b></details>
 
+---
+
 <details><summary>
 Q: Explain how you would set up and configure a basic firewall on a Linux server to enhance its security.</summary><br><b>
 
 A: Use `iptables` or `firewalld` to set up rules, allow only necessary ports and services, and regularly review and update firewall rules.
 </b></details>
+
+---
 
 <details><summary>
 Q: Your team is working on a collaborative project, and you want to implement version control using Git on a Linux server. How would you set up and manage the Git repository?</summary><br><b>
@@ -969,11 +1051,15 @@ Q: Your team is working on a collaborative project, and you want to implement ve
 A: Initialize a Git repository with `git init`, add and commit files, push to a central repository, and collaborate using branches and pull requests.
 </b></details>
 
+---
+
 <details><summary>
 Q: You want to monitor the performance of your Linux server over time. What tools and techniques would you use for performance monitoring and analysis?</summary><br><b>
 
 A: Use tools like `sar`, `vmstat`, and `iostat` for monitoring, set up alerts for abnormal behavior, and consider long-term solutions like Prometheus.
 </b></details>
+
+---
 
 <details><summary>
 Q: You are responsible for securing a Linux server. Outline the security measures and best practices you would implement to protect against potential threats.</summary><br><b>
@@ -995,6 +1081,8 @@ The main componehnts of a Kubernetes cluster include: **Nodes, Image Registry, P
 **Node components include: (Worker Node)** - **kubelet**: Every node has an agent called kubelet. It ensures that the container described in PodSpecs is up and running properly. - **kube-proxy**: A network proxy on each node that maintains network nodes that allow for the communication from Pods to network sessions, whether inside or outside the cluster, using operating system (OS) packet filtering if available. - **container runtime**: Software responsible for running the containerized applications. Although Docker is the most popular, Kubernetes supports any runtime that adheres to the Kubernetes CRI (Container Runtime Interface).
 </b></details>
 
+---
+
 <details><summary>
 41. What’s the difference between Master and Worker Node?</summary><br><b>
 
@@ -1007,6 +1095,8 @@ The main componehnts of a Kubernetes cluster include: **Nodes, Image Registry, P
     - Consist of **4** components: etcd, kube controller manager, kube-API-server, kube-schedular
 
 </b></details>
+
+---
 
 <details><summary>
 42. What are service types?</summary><br><b>
@@ -1034,6 +1124,8 @@ The main componehnts of a Kubernetes cluster include: **Nodes, Image Registry, P
 
 </b></details>
 
+---
+
 <details><summary>
 43. What’s the difference between deployment vs DaemonSet vs StatfulSet?</summary><br><b>
 
@@ -1051,12 +1143,16 @@ The main componehnts of a Kubernetes cluster include: **Nodes, Image Registry, P
 
 </b></details>
 
+---
+
 <details><summary>
 44. What’s the difference between ReplicaController and ReplicaSet?</summary><br><b>
 
 The rolling-update command works with Replication Controllers, but won't work with a Replica Set.
 
 </b></details>
+
+---
 
 <details><summary>
 45. What is the difference between ReplicaSet and Deployment?</summary><br><b>
@@ -1065,6 +1161,8 @@ The rolling-update command works with Replication Controllers, but won't work wi
     - **Deployment** is a higher-level concept that manages ReplicaSets and provides declarative updates to Pods along with a lot of other useful features.
 
 </b></details>
+
+---
 
 <details><summary>
 46. How can create a variable for your deployment and how can secure it?</summary><br><b>
@@ -1075,6 +1173,8 @@ Secrets can also be used by other parts of the system, without being directly ex
 
 </b></details>
 
+---
+
 <details><summary>
 47. Is it possible to create multiple containers in one pod?</summary><br><b>
 
@@ -1082,6 +1182,8 @@ YES – but better be one container/Pod
 because each container should do one task so if you have 2 containers in a pod and you are near to increase one container because its service/task has a lot of traffic ... then k8s will create a new pod with two containers that the second is not doing anything so you are wasting your compute capacity.
 
 </b></details>
+
+---
 
 <details><summary>
 48. What’s a Sidecar container?</summary><br><b>
@@ -1092,6 +1194,8 @@ because each container should do one task so if you have 2 containers in a pod a
 
 </b></details>
 
+---
+
 <details><summary>
 49. What’s CustomResourcesDefination (CRD)?</summary><br><b>
 
@@ -1099,12 +1203,16 @@ API resource allows you to define custom resources. Defining a CRD object create
 
 </b></details>
 
+---
+
 <details><summary>
 50. What’s kube-proxy?</summary><br><b>
 
 a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept. kube-proxy maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster
 
 </b></details>
+
+---
 
 <details><summary>
 51. What’s the difference between liveness vs readiness vs startup probes?</summary><br><b>
@@ -1115,6 +1223,8 @@ a network proxy that runs on each node in your cluster, implementing part of the
 **Startup Prob**e: Checks the initial startup readiness of a container, helping differentiate slow starts from unresponsive containers.
 </b></details>
 
+---
+
 <details><summary>
 52. What’s the operator of the Database?</summary><br><b>
 
@@ -1122,12 +1232,16 @@ The DB Operator eases the pain of managing PostgreSQL and MySQL instances for ap
 
 </b></details>
 
+---
+
 <details><summary>
 53. What are the static pods?</summary><br><b>
 
 Static Pods are managed directly by the kubelet daemon on a specific node, without the API server observing them
 
 </b></details>
+
+---
 
 <details><summary>
 54. What are helm and helm charts?</summary><br><b>
@@ -1137,12 +1251,16 @@ Helm uses a packaging format called charts. A chart is a collection of files tha
 
 </b></details>
 
+---
+
 <details><summary>
 55. What’s custom resources in K8s?</summary><br><b>
 
 A custom resource is an **extension of the Kubernetes API** that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular
 
 </b></details>
+
+---
 
 <details><summary>
 56. What’s the difference between Ingress and IngressPolicy?</summary><br><b>
@@ -1155,6 +1273,8 @@ The Ingress concept lets you map traffic to different backends based on rules yo
 
 ## **General Questions:**
 
+---
+
 <details><summary>
 57. What’s CICD?</summary><br><b>
 
@@ -1163,6 +1283,8 @@ continuous integration, continuous delivery, and continuous deployment.
 
 </b></details>
 
+---
+
 <details><summary>
 58. What’s Jenkins pipeline?</summary><br><b>
 
@@ -1170,12 +1292,16 @@ a suite of plugins that supports implementing and integrating continuous deliver
 
 </b></details>
 
+---
+
 <details><summary>
 59. What’s Jenkins Master and Slave?</summary><br><b>
 
 The Jenkins master acts to schedule the jobs, assign slaves, and send builds to slaves to execute the jobs. It will also monitor the slave state (offline or online) and get back the build result responses from slaves and display build results on the console output.
 
 </b></details>
+
+---
 
 <details><summary>
 60. What’s Jenkins Shared Library?</summary><br><b>
@@ -1185,12 +1311,16 @@ A shared library in Jenkins is a collection of Groovy scripts shared between dif
 Each shared library requires users to define a name and a method of retrieving source code.
 </b></details>
 
+---
+
 <details><summary>
 61. What’s Java Spring Boot?</summary><br><b>
 
 Java Spring Boot (Spring Boot) is a tool that makes developing web applications and microservices with Spring Framework faster and easier through three core capabilities: Autoconfiguration. An opinionated approach to configuration. The ability to create standalone applications.
 
 </b></details>
+
+---
 
 <details><summary>
 62. What’s the difference between Rolling Strategy and Blue-Green Strategy?</summary><br><b>
@@ -1199,6 +1329,8 @@ Java Spring Boot (Spring Boot) is a tool that makes developing web applications 
 **Blue-green deployments** involve creating a rigorously-tested second environment before completely shifting the current instance to the new environment.
 </b></details>
 
+---
+
 <details><summary>
 63. What’s SonarQube?</summary><br><b>
 
@@ -1206,12 +1338,16 @@ empowers all developers to write cleaner and safer code
 Code Quality Assurance tool that collects and analyzes source code, and provides reports for the code quality of your project
 </b></details>
 
+---
+
 <details><summary>
 64. What’s API?</summary><br><b>
 
 a set of functions and procedures allowing the creation of applications that access the features or data of an operating system, application, or another service
 
 </b></details>
+
+---
 
 <details><summary>
 65. How can writing a bash script?</summary><br><b>
@@ -1224,6 +1360,8 @@ a set of functions and procedures allowing the creation of applications that acc
 
 </b></details>
 
+---
+
 <details><summary>
 66. What’s the difference between `awk` vs `sed`?</summary><br><b>
 
@@ -1232,11 +1370,15 @@ a set of functions and procedures allowing the creation of applications that acc
 
 </b></details>
 
+---
+
 <details><summary>
 67. How can create variables in Ansible?</summary><br><b>
 
 define a variable dynamically when you run a playbook, **use the --extra-vars option along with the key and value of the variable you want to define**. In this example, the key is my_var because that's the string referenced in the playbook, and the value is any string you want the variable to contain
 </b></details>
+
+---
 
 <details><summary>
 68. What are modules and tasks in Ansible playbook?</summary><br><b>
@@ -1249,6 +1391,8 @@ Ansible Playbooks are **lists of tasks that automatically execute against hosts*
 
 </b></details>
 
+---
+
 <details><summary>
 69. Difference between Dynamic Inventory and Multiple Inventory?</summary><br><b>
 
@@ -1259,12 +1403,16 @@ Multiple Inventory:You may need to track hosts from multiple sources: cloud prov
 
 </b></details>
 
+---
+
 <details><summary>
 70. What’s the path of ansible configuration?</summary><br><b>
 
 /etc/ansible/ansible. cfg
 
 </b></details>
+
+---
 
 <details><summary>
 71. What’s the difference between ansible and chef?</summary><br><b>
@@ -1274,11 +1422,15 @@ Chef and Puppet: uses Ruby (Difficult), needs an agent and updates are a headach
 
 </b></details>
 
+---
+
 <details><summary>
 72. What’s privilege escalation in Ansible?</summary><br><b>
 
 Ansible uses existing privilege escalation systems to execute tasks with root privileges or with another user’s permissions. Because this feature allows you to ‘become’ another user, different from the user that logged into the machine (remote user), we call it become. The become keyword uses existing privilege escalation tools like _sudo_, _su_, _pfexec_, _doas_, _pbrun_, _dzdo_, _ksu_, _runas_, _machinectl_ and others.
 </b></details>
+
+---
 
 <details><summary>
 73. What’s Azure DevOps?</summary><br><b>
@@ -1288,6 +1440,8 @@ Azure DevOps supports a collaborative culture and set of processes that bring to
 ![image](https://github.com/Ahmed-Moourad/DevOps-Interview-Questions-for-Juniors/assets/112473376/d18bb3ef-b8c2-4fbc-a400-1a62fafde352)
 </b></details>
 
+---
+
 <details><summary>
 74. What’s Git forking?</summary><br><b>
 
@@ -1296,6 +1450,8 @@ A fork in Git is simply a copy of an existing repository in which the new owner 
 
 </b></details>
 
+---
+
 <details><summary>
 75. Is it better to fork or clone in Git?</summary><br><b>
 
@@ -1303,6 +1459,8 @@ If you would like to make changes directly to a repository you have permission t
 If you don't have permission to contribute to the repository but would like to implement changes anyway, a **fork** is the way to go.
 
 </b></details>
+
+---
 
 <details><summary>
 76. What’s the difference between stateful vs stateless?</summary><br><b>
@@ -1315,6 +1473,8 @@ If you don't have permission to contribute to the repository but would like to i
 
 </b></details>
 
+---
+
 <details><summary>
 77. What’s a message broker? Or message queue (MQ)</summary><br><b>
 
@@ -1323,12 +1483,16 @@ A message broker is a software that enables applications, systems, and services 
 
 </b></details>
 
+---
+
 <details><summary>
 78. What’s CDN?</summary><br><b>
 
 A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content. Ex: Amazon CloudFront.
 
 </b></details>
+
+---
 
 <details><summary>
 79. What are types of API?</summary><br><b>
@@ -1340,6 +1504,8 @@ Five types of APIs are:
 3. Internal API 5) Low-level API
 
 </b></details>
+
+---
 
 <details><summary>
 80. What is Web APIs ?</summary><br><b>
@@ -1353,6 +1519,8 @@ Five types of APIs are:
 - SOAP.
 
 </b></details>
+
+---
 
 <details><summary>  
 81. What’s the terraform state?</summary><br><b>
