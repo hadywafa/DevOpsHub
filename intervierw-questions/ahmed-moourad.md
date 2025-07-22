@@ -1273,8 +1273,6 @@ The Ingress concept lets you map traffic to different backends based on rules yo
 
 ## **General Questions:**
 
----
-
 <details><summary>
 57. What’s CICD?</summary><br><b>
 
