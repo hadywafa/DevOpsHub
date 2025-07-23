@@ -2,7 +2,7 @@
 
 ## Definition
 
-[NGINX](https://nginx.org/) is a high-performance, open-source web server and reverse proxy server. It is known for its efficiency, scalability, and ability to handle concurrent connections efficiently. Originally designed to address the C10k problem (supporting thousands of concurrent connections), NGINX has evolved into a versatile solution for various web serving and proxying needs.
+[NGINX](https://nginx.org/) is a high-performance, open-source `web server` and `reverse proxy server`. It is known for its efficiency, scalability, and ability to handle concurrent connections efficiently. Originally designed to address the C10k problem (supporting thousands of concurrent connections), NGINX has evolved into a versatile solution for various web serving and proxying needs.
 
 ## Key Features
 

@@ -2,7 +2,11 @@
 
 ## Deployment Evolution
 
-![alt text](images/containers.png)
+<div style="text-align: center">
+    <img src="images/containers.png" alt="Containers" style="width: 80%; border-radius: 10px" />
+</div>
+
+---
 
 ### Traditional Deployment
 
