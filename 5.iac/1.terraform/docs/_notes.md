@@ -1,5 +1,9 @@
 # Notes
 
+```bash
+aws ec2 describe-instances --endpoint http://aws:4566  --filters "Name=image-id,Values=ami-082b3eca746b12a89" | jq -r '.Reservations[].Instances[].InstanceId'
+```
+
 ## Route Table in AWS VPC
 
 A route table in AWS VPC (Virtual Private Cloud) is a set of rules, called routes, that are used to determine where network traffic is directed. Each subnet in your VPC must be associated with a route table, which controls the routing for that subnet. A route table contains a set of rules, known as routes, that are used to determine where network traffic from your subnet or gateway is directed.
