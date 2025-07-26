@@ -456,3 +456,9 @@ Terraform downloads modules in two main ways:
 ## Q209
 
 ![1753548476940](image/notes/1753548476940.png)
+
+---
+
+## Q210
+
+![1753548638889](image/notes/1753548638889.png)
