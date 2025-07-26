@@ -257,3 +257,192 @@ resource "aws_security_group" "example" {
 - Deep nesting should be used only when really needed for readability.
 
 ---
+
+## Q204
+
+![1753544064239](image/notes/1753544064239.png)
+
+---
+
+### ✅ Correct answer: `module composition`
+
+---
+
+### 💡 Explanation
+
+The example shows **multiple modules used side by side**, like building blocks, each doing one job — this is called **flat module composition**.
+
+```ini
+module "network" {
+  source = "./modules/aws-network"
+  ...
+}
+
+module "consul_cluster" {
+  source = "./modules/aws-consul-cluster"
+  ...
+}
+```
+
+This approach is:
+
+- 🧱 Flat — no module nesting
+- ⚙️ Composed — each module does a specific task
+- 🔄 Reusable — modules can be combined in various ways
+
+---
+
+### ❌ Why others are wrong
+
+- `dependency inversion` → Not a Terraform term (comes from software architecture)
+- `module gathering` → Not a real Terraform concept
+- `None of the above` → Incorrect because “module composition” is valid
+
+---
+
+## Q205
+
+![1753544183168](image/notes/1753544183168.png)
+
+---
+
+### ✅ Correct answer: `root`
+
+---
+
+### 💡 Explanation
+
+The **root module** is the **entry point** of your Terraform configuration — usually your main `.tf` files in the top directory.
+
+It can:
+
+- Call **child modules**
+- Pass **input variables** to them
+- Capture **outputs** from one module and pass to another
+
+---
+
+### 🔗 Example: Connecting modules in the root module
+
+```ini
+# main.tf (Root module)
+module "network" {
+  source     = "./modules/network"
+  cidr_block = "10.0.0.0/16"
+}
+
+module "app_server" {
+  source     = "./modules/app"
+  subnet_id  = module.network.subnet_id  # 👈 output from network module
+}
+```
+
+#### Inside `modules/network/outputs.tf`:
+
+```ini
+output "subnet_id" {
+  value = aws_subnet.main.id
+}
+```
+
+✔️ The root module glues everything together.
+
+---
+
+### ❌ Why others are wrong
+
+- `default` → No such module type in Terraform
+- `child` → Child modules **cannot** call other modules
+- `provider` → Providers configure infrastructure, not module orchestration
+
+---
+
+## Q206
+
+![1753544301057](image/notes/1753544301057.png)
+
+---
+
+### ❌ Why `Both` is wrong
+
+You selected `Both`, but **only one option is correct**. The first one (`/root/ is the root module`) is incorrect — **Terraform doesn’t require or care about any directory named `/root/`**.
+
+---
+
+### ✅ Correct answer:
+
+`The current terraform configuration directory consisting of .tf files forms the root module.`
+
+---
+
+### 💡 Explanation
+
+In Terraform:
+
+- The **root module** = the **directory where you run `terraform init/plan/apply`**
+- It includes all `.tf` and `.tf.json` files in that directory.
+
+✅ Example:
+
+```bash
+📁 /project/
+├── main.tf
+├── variables.tf
+├── outputs.tf
+└── modules/
+     └── vpc/
+         └── main.tf
+```
+
+If you run Terraform inside `/project`, it’s your **root module**, and `modules/vpc` is a **child module**.
+
+---
+
+### 🛑 `/root/` confusion
+
+`/root/` is just a Linux path — it has **nothing to do with Terraform modules**. Terraform never expects that name.
+
+---
+
+## Q207
+
+![1753544361694](image/notes/1753544361694.png)
+
+---
+
+### ❌ Why `terraform module pull` is wrong
+
+You selected `terraform module pull`, but that command **does not exist** in Terraform CLI.
+There's **no such command** — it’s made up. Terraform will throw an error if you try it.
+
+---
+
+### ✅ Correct answers:
+
+- `terraform init` ✅
+- `terraform get` ✅
+
+---
+
+### 💡 Explanation
+
+Terraform downloads modules in two main ways:
+
+#### ✅ `terraform init`
+
+- Downloads **providers and modules**
+- Automatically fetches modules from `source =` blocks
+
+#### ✅ `terraform get`
+
+- Explicitly downloads modules (usually used in automation/scripts)
+- Only useful if you're **not using `init` yet**
+
+---
+
+### ❌ Invalid choices
+
+- `terraform module pull` → ❌ Not a real command
+- `terraform pull` → ❌ Used for [Terraform Cloud state pull](https://developer.hashicorp.com/terraform/cli/commands/pull), not for modules
+
+---
