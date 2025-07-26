@@ -62,3 +62,5 @@ module "my_module" {
 ![1753532832908](image/notes/1753532832908.png)
 
 ![1753533059343](image/notes/1753533059343.png)
+
+![1753537267008](image/notes/1753537267008.png)
