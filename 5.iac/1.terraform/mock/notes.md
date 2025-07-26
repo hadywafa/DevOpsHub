@@ -446,3 +446,13 @@ Terraform downloads modules in two main ways:
 - `terraform pull` → ❌ Used for [Terraform Cloud state pull](https://developer.hashicorp.com/terraform/cli/commands/pull), not for modules
 
 ---
+
+## Q208
+
+![1753548141840](image/notes/1753548141840.png)
+
+---
+
+## Q209
+
+![1753548476940](image/notes/1753548476940.png)
