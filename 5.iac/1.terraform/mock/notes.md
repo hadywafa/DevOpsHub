@@ -30,3 +30,35 @@ module "my_module" {
 ![1753478862140](image/notes/1753478862140.png)
 
 ![1753478957411](image/notes/1753478957411.png)
+
+![1753484276296](image/notes/1753484276296.png)
+
+![1753518766933](image/notes/1753518766933.png)
+
+![1753518844543](image/notes/1753518844543.png)
+
+![1753523135825](image/notes/1753523135825.png)
+
+![1753523295366](image/notes/1753523295366.png)
+
+![1753523578250](image/notes/1753523578250.png)
+
+![1753525727853](image/notes/1753525727853.png)
+
+![1753527969735](image/notes/1753527969735.png)
+
+![1753528158417](image/notes/1753528158417.png)
+
+![1753528439132](image/notes/1753528439132.png)
+
+![1753528499979](image/notes/1753528499979.png)
+
+> You can set TF_LOG to one of the log levels (in order of decreasing verbosity) TRACE, DEBUG, INFO, WARN or ERROR to change the verbosity of the logs. Also if we set TF_LOG to JSON, it output logs at the TRACE level or higher, and uses a parseable JSON encoding as the formatting.
+
+![1753528545233](image/notes/1753528545233.png)
+
+![1753532272813](image/notes/1753532272813.png)
+
+![1753532832908](image/notes/1753532832908.png)
+
+![1753533059343](image/notes/1753533059343.png)
