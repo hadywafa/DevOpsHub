@@ -177,7 +177,7 @@ Excellent follow-up questions! Let's go through each one in a clean, structured,
 
 ### 📦 Example module layout:
 
-```
+```ini
 terraform-aws-vpc/
 ├── main.tf
 ├── variables.tf
@@ -269,7 +269,3 @@ Terraform CLI **can still run locally** — it just **connects to HCP** to store
 > - Auto-apply vs. manual apply
 > - Plan only on specific branches or paths
 > - Notifications via Slack/email
-
----
-
-Let me know if you want a visual workflow diagram for Terraform HCP + GitHub CI/CD pipeline!
