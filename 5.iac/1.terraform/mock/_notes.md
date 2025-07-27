@@ -1,20 +1,54 @@
 # Notes
 
+## 📌 Q01
+
 ![1753469745926](image/notes/1753469745926.png)
+
+---
+
+## 📌 Q01
 
 ![1753469981226](image/notes/1753469981226.png)
 
+---
+
+## 📌 Q01
+
 ![1753470600394](image/notes/1753470600394.png)
+
+---
+
+## 📌 Q01
 
 ![1753470941301](image/notes/1753470941301.png)
 
+---
+
+## 📌 Q01
+
 ![1753472771232](image/notes/1753472771232.png)
+
+---
+
+## 📌 Q01
 
 ![1753474945231](image/notes/1753474945231.png)
 
+---
+
+## 📌 Q01
+
 ![1753475192393](image/notes/1753475192393.png)
 
+---
+
+## 📌 Q01
+
 ![1753478002757](image/notes/1753478002757.png)
+
+---
+
+## 📌 Q01
 
 ![1753478386707](image/notes/1753478386707.png)
 
@@ -27,47 +61,125 @@ module "my_module" {
 }
 ```
 
+---
+
+## 📌 Q01
+
 ![1753478862140](image/notes/1753478862140.png)
+
+---
+
+## 📌 Q01
 
 ![1753478957411](image/notes/1753478957411.png)
 
+---
+
+## 📌 Q01
+
 ![1753484276296](image/notes/1753484276296.png)
+
+---
+
+## 📌 Q01
 
 ![1753518766933](image/notes/1753518766933.png)
 
+---
+
+## 📌 Q01
+
 ![1753518844543](image/notes/1753518844543.png)
+
+---
+
+## 📌 Q01
 
 ![1753523135825](image/notes/1753523135825.png)
 
+---
+
+## 📌 Q01
+
 ![1753523295366](image/notes/1753523295366.png)
+
+---
+
+## 📌 Q01
 
 ![1753523578250](image/notes/1753523578250.png)
 
+---
+
+## 📌 Q01
+
 ![1753525727853](image/notes/1753525727853.png)
+
+---
+
+## 📌 Q01
 
 ![1753527969735](image/notes/1753527969735.png)
 
+---
+
+## 📌 Q01
+
 ![1753528158417](image/notes/1753528158417.png)
 
+---
+
+## 📌 Q01
+
 ![1753528439132](image/notes/1753528439132.png)
+
+---
+
+## 📌 Q01
 
 ![1753528499979](image/notes/1753528499979.png)
 
 > You can set TF_LOG to one of the log levels (in order of decreasing verbosity) TRACE, DEBUG, INFO, WARN or ERROR to change the verbosity of the logs. Also if we set TF_LOG to JSON, it output logs at the TRACE level or higher, and uses a parseable JSON encoding as the formatting.
 
+---
+
+## 📌 Q01
+
 ![1753528545233](image/notes/1753528545233.png)
+
+---
+
+## 📌 Q01
 
 ![1753532272813](image/notes/1753532272813.png)
 
+---
+
+## 📌 Q01
+
 ![1753532832908](image/notes/1753532832908.png)
+
+---
+
+## 📌 Q01
 
 ![1753533059343](image/notes/1753533059343.png)
 
+---
+
+## 📌 Q01
+
 ![1753537267008](image/notes/1753537267008.png)
+
+---
+
+## 📌 Q01
 
 ![1753538550333](image/notes/1753538550333.png)
 
-## Q200
+---
+
+## 📌 Q200
 
 ![1753538593217](image/notes/1753538593217.png)
 
@@ -109,7 +221,7 @@ Generate dynamic files **outside** Terraform (e.g. in a script **before** `terra
 
 ---
 
-## Q201
+## 📌 Q201
 
 ![1753538907990](image/notes/1753538907990.png)
 
@@ -148,7 +260,7 @@ Without `...`, you'd pass a **list** (`[1,2,3]`) instead of **multiple arguments
 
 ---
 
-## Q202
+## 📌 Q202
 
 ![1753542464383](image/notes/1753542464383.png)
 
@@ -206,7 +318,7 @@ locals {
 
 ---
 
-## Q203
+## 📌 Q203
 
 ![1753542695831](image/notes/1753542695831.png)
 
@@ -258,7 +370,7 @@ resource "aws_security_group" "example" {
 
 ---
 
-## Q204
+## 📌 Q204
 
 ![1753544064239](image/notes/1753544064239.png)
 
@@ -300,7 +412,7 @@ This approach is:
 
 ---
 
-## Q205
+## 📌 Q205
 
 ![1753544183168](image/notes/1753544183168.png)
 
@@ -357,7 +469,7 @@ output "subnet_id" {
 
 ---
 
-## Q206
+## 📌 Q206
 
 ![1753544301057](image/notes/1753544301057.png)
 
@@ -404,7 +516,7 @@ If you run Terraform inside `/project`, it’s your **root module**, and `module
 
 ---
 
-## Q207
+## 📌 Q207
 
 ![1753544361694](image/notes/1753544361694.png)
 
@@ -447,30 +559,30 @@ Terraform downloads modules in two main ways:
 
 ---
 
-## Q208
+## 📌 Q208
 
 ![1753548141840](image/notes/1753548141840.png)
 
 ---
 
-## Q209
+## 📌 Q209
 
 ![1753548476940](image/notes/1753548476940.png)
 
 ---
 
-## Q210
+## 📌 Q210
 
 ![1753548638889](image/notes/1753548638889.png)
 
 ---
 
-## Q211
+## 📌 Q211
 
 ![1753552643442](image/notes/1753552643442.png)
 
 ---
 
-## Q212
+## 📌 Q212
 
 ![1753552908910](image/notes/1753552908910.png)
