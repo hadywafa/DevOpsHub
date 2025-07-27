@@ -1,6 +1,6 @@
 # Exam 1
 
-## Q46
+## 📌 Q46
 
 ![1753552197950](image/kodekloud-exam-1/1753552197950.png)
 
@@ -48,14 +48,16 @@ They **don’t** take a list — using a list there would cause a syntax error.
 
 ---
 
-## Q18
+## 📌 Q18
 
 ![1753555218819](image/kodekloud-exam-1/1753555218819.png)
 
+> 😔 BLUEPRINT === PLAN
+
 ---
 
-## Q09
+## 📌 Q09
 
 ![1753555452953](image/kodekloud-exam-1/1753555452953.png)
 
-[References](https://developer.hashicorp.com/terraform/cli/commands/init)
+> 📖 [References](https://developer.hashicorp.com/terraform/cli/commands/init)
