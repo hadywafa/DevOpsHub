@@ -344,13 +344,13 @@ Docker volumes come in a few flavors, each suited to different use cases. Here's
 
 📦 Types of Docker Volumes
 
-| Type                 | Description                                            | Use Case Example                             |
-| -------------------- | ------------------------------------------------------ | -------------------------------------------- |
-| **Named Volume**     | Managed by Docker, stored in `/var/lib/docker/volumes` | Persisting database data across restarts     |
-| **Anonymous Volume** | Like named volumes but without a user-defined name     | Temporary storage for short-lived containers |
-| **Bind Mount**       | Maps a specific host path into the container           | Live code editing during development         |
-| **Tmpfs Mount**      | Stored in memory, not on disk                          | Sensitive data or caching during runtime     |
-| **Volume Plugin**    | External storage via plugins (e.g. Amazon EBS, NFS)    | Shared storage across multiple hosts         |
+| Type                    | Description                                            | Use Case Example                             |
+| ----------------------- | ------------------------------------------------------ | -------------------------------------------- |
+| **1. Named Volume**     | Managed by Docker, stored in `/var/lib/docker/volumes` | Persisting database data across restarts     |
+| **2. Anonymous Volume** | Like named volumes but without a user-defined name     | Temporary storage for short-lived containers |
+| **3. Bind Mount**       | Maps a specific host path into the container           | Live code editing during development         |
+| **4. Tmpfs Mount**      | Stored in memory, not on disk                          | Sensitive data or caching during runtime     |
+| **5. Volume Plugin**    | External storage via plugins (e.g. Amazon EBS, NFS)    | Shared storage across multiple hosts         |
 
 ### 🧪 Examples
 
@@ -395,11 +395,11 @@ docker volume create --driver rexray myvolume
 22. What are the types of Docker networks?</summary><br>
 
 1. bridge
-2. overlay
-3. host
-4. none
-5. macvlan
-6. ipvlan
+2. host
+3. none
+4. macvlan
+5. ipvlan
+6. overlay
 
 ---
 
@@ -428,15 +428,7 @@ docker volume create --driver rexray myvolume
 
 ---
 
-### 🕸️ 4. **Overlay Network**
-
-- Connects containers across **multiple Docker hosts**.
-- Used in **Docker Swarm** for distributed apps.
-- Enables secure multi-host communication.
-
----
-
-### 🧬 5. **Macvlan Network**
+### 🧬 4. **Macvlan Network**
 
 - Container gets its own **MAC address** and IP on the LAN.
 - Appears as a physical device on the network.
@@ -444,11 +436,19 @@ docker volume create --driver rexray myvolume
 
 ---
 
-### 🧪 6. **IPvlan Network**
+### 🧪 5. **IPvlan Network**
 
 - Similar to Macvlan but uses host’s MAC address.
 - Efficient for high-density environments.
 - Offers fine-grained control over IP routing.
+
+---
+
+### 🕸️ 6. **Overlay Network**
+
+- Connects containers across **multiple Docker hosts**.
+- Used in **Docker Swarm** for distributed apps.
+- Enables secure multi-host communication.
 
 ---
 
