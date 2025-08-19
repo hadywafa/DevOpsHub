@@ -1529,8 +1529,8 @@ but it can also be stored remotely, which works better in a team environment.
 <style>
 summary {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
-  color: #adc8d8ff;
+  /* color: rgba(216, 216, 173, 1); */
 }
 </style>
