@@ -16,14 +16,16 @@
    - Inspecting an Existing CRD
    - Viewing Schema and Properties
 7. **Creating a Resource from an Existing CRD**
+
    - Example Resource Creation
    - Applying the Custom Resource
+
 8. **Validation and Schema Definition in CRDs**
 9. **Versioning CRDs**
 10. **Advanced CRD Features**
 
-- Subresources
-- Additional Printer Columns
+    - Subresources
+    - Additional Printer Columns
 
 11. **CRDs and Operators**
 12. **CRD Lifecycle Management**
@@ -60,6 +62,7 @@ A CRD consists of the following key elements:
 - **Group, Version, and Scope:** Organize resources logically
 - **Names:** Singular, Plural, Kind, Short Names  
   Example:
+
   ```yaml
   names:
     plural: databases
@@ -141,6 +144,7 @@ schema:
    ```
 
 3. **Verify the CRD**:
+
    ```bash
    kubectl get crds
    kubectl describe crd databases.example.com
@@ -163,9 +167,11 @@ schema:
    ```
 
 3. **Inspect the Schema of a CRD**:
+
    ```bash
    kubectl get crd <crd-name> -o yaml
    ```
+
    - Check for `spec.schema.openAPIV3Schema` to identify required properties.
 
 ---
@@ -194,6 +200,7 @@ schema:
    ```
 
 4. **Verify the Resource**:
+
    ```bash
    kubectl get databases
    kubectl describe database my-database
@@ -205,6 +212,7 @@ schema:
 
 - Use **OpenAPI v3 schema** to validate input.
 - Example schema with validation:
+
   ```yaml
   schema:
     openAPIV3Schema:
@@ -245,6 +253,7 @@ schema:
    ```
 
 2. **Additional Printer Columns**:
+
    ```yaml
    additionalPrinterColumns:
      - name: Engine
@@ -270,6 +279,7 @@ schema:
    ```
 
 2. **Delete a CRD**:
+
    ```bash
    kubectl delete crd <crd-name>
    ```
