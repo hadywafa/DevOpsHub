@@ -1,24 +1,18 @@
-Perfect 🔥 — now you’re diving into **advanced Docker CLI territory** where you don’t just run containers, but also **observe, debug, and manage** what’s happening behind the scenes.
-
-Let’s go through the **“docker system” commands** — including the famous `docker system events` — in a **simple, structured, and visual way** so you’ll understand what each does, why it exists, and when to use it 🚀
-
----
-
 # 🧭 Overview — `docker system` Command Family
 
 `docker system` commands are **admin-level tools** to inspect, clean, and monitor the Docker engine itself —
-not individual containers or images, but the *whole Docker environment*.
+not individual containers or images, but the _whole Docker environment_.
 
 They mainly help with:
 
-* Checking system usage (disk, memory)
-* Monitoring live events
-* Cleaning up unused data
-* Debugging daemon activity
+- Checking system usage (disk, memory)
+- Monitoring live events
+- Cleaning up unused data
+- Debugging daemon activity
 
 ---
 
-# ⚙️ Command List (Quick Summary)
+## ⚙️ Command List (Quick Summary)
 
 | Command                | Purpose                                        |
 | ---------------------- | ---------------------------------------------- |
@@ -26,85 +20,12 @@ They mainly help with:
 | `docker system info`   | Display detailed Docker daemon info            |
 | `docker system events` | Stream real-time Docker events                 |
 | `docker system prune`  | Delete unused data (cleanup)                   |
-| `docker system df -v`  | Detailed view with object breakdown            |
 
 We’ll go one by one 👇
 
 ---
 
-## 🧮 1️⃣ `docker system df` — Disk Usage Overview
-
-Shows how much space Docker objects are using on disk.
-
-```bash
-docker system df
-```
-
-Example output:
-
-```
-TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
-Images          10        3         2.35GB    1.9GB (80%)
-Containers      5         1         300MB     250MB (83%)
-Local Volumes   3         2         1.1GB     800MB (72%)
-Build Cache     4                   350MB     300MB (85%)
-```
-
-### 💡 Notes:
-
-* “Reclaimable” means Docker could free that space if you prune.
-* Add `-v` for **verbose** mode to see individual image/container paths:
-
-  ```bash
-  docker system df -v
-  ```
-
----
-
-## 🧹 2️⃣ `docker system prune` — Cleanup Command
-
-Deletes **all unused**:
-
-* Stopped containers
-* Dangling images (untagged)
-* Unused networks
-* Build cache
-* (Optionally) unused volumes
-
-```bash
-docker system prune
-```
-
-You’ll see:
-
-```
-WARNING! This will remove:
-  - all stopped containers
-  - all networks not used by at least one container
-  - all dangling images
-  - all build cache
-Are you sure you want to continue? [y/N]
-```
-
-To skip confirmation:
-
-```bash
-docker system prune -f
-```
-
-To include **unused volumes** too:
-
-```bash
-docker system prune -a --volumes
-```
-
-### ⚠️ Be careful
-
-It can free up gigabytes — but can also delete things you still need.
-
----
-
-## 🧾 3️⃣ `docker system info` — Engine Health and Environment
+## 1️⃣ `docker system info` — Engine Health and Environment
 
 Shows complete details about the **Docker daemon** and host system.
 
@@ -114,7 +35,7 @@ docker system info
 
 Example output:
 
-```
+```ini
 Client:
  Context: default
  Debug Mode: false
@@ -142,13 +63,85 @@ Server:
 
 ### 💡 Notes:
 
-* Great for verifying daemon setup
-* Shows **cgroup driver**, **storage driver**, and **network plugins**
-* Useful in troubleshooting daemon startup issues
+- Great for verifying daemon setup
+- Shows **cgroup driver**, **storage driver**, and **network plugins**
+- Useful in troubleshooting daemon startup issues
 
 ---
 
-## ⚡ 4️⃣ `docker system events` — Live Event Stream (Real-Time Monitoring)
+## 2️⃣ `docker system df` — Disk Usage Overview
+
+Shows how much space Docker objects are using on disk.
+
+```bash
+docker system df
+```
+
+Example output:
+
+```ini
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          10        3         2.35GB    1.9GB (80%)
+Containers      5         1         300MB     250MB (83%)
+Local Volumes   3         2         1.1GB     800MB (72%)
+Build Cache     4                   350MB     300MB (85%)
+```
+
+### 💡 Notes:
+
+- “Reclaimable” means Docker could free that space if you prune.
+- Add `-v` for **verbose** mode to see individual image/container paths:
+
+  ```bash
+  docker system df -v
+  ```
+
+---
+
+## 3️⃣ `docker system prune` — Cleanup Command
+
+Deletes **all unused**:
+
+1. Stopped containers
+2. Dangling images (untagged)
+3. Unused networks
+4. Build cache
+5. (Optionally) unused volumes
+
+```bash
+docker system prune
+```
+
+You’ll see:
+
+```ini
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all build cache
+Are you sure you want to continue? [y/N]
+```
+
+To skip confirmation:
+
+```bash
+docker system prune -f
+```
+
+To include **unused volumes** too:
+
+```bash
+docker system prune -a --volumes
+```
+
+### ⚠️ Be careful
+
+It can free up gigabytes — but can also delete things you still need.
+
+---
+
+## 4️⃣ `docker system events` — Live Event Stream (Real-Time Monitoring)
 
 This is one of Docker’s **most powerful hidden gems** ⚡
 
@@ -165,7 +158,7 @@ docker system events
 
 You’ll see a **live feed** of events such as:
 
-```
+```ini
 2025-10-11T11:15:02.563594437Z container create 3f7b4a8e12c7 (image=nginx, name=test)
 2025-10-11T11:15:02.682973219Z network connect 3f7b4a8e12c7 (network=bridge, name=test)
 2025-10-11T11:15:03.785332894Z container start 3f7b4a8e12c7 (image=nginx, name=test)
@@ -227,9 +220,9 @@ docker system events --filter 'container=myapp'
 
 ### 🧠 Why It’s Useful
 
-* Real-time auditing — see who/what triggers Docker actions
-* Debugging — detect containers being killed or restarted unexpectedly
-* Monitoring — feed these events into systems like **Prometheus**, **ELK**, or **Datadog**
+- Real-time auditing — see who/what triggers Docker actions
+- Debugging — detect containers being killed or restarted unexpectedly
+- Monitoring — feed these events into systems like **Prometheus**, **ELK**, or **Datadog**
 
 You can even stream them to a file:
 
@@ -241,9 +234,9 @@ docker system events > /var/log/docker-events.log
 
 ### ⚙️ Under the Hood
 
-* These events come directly from the **Docker Daemon’s event subsystem**.
-* Internally, the daemon emits events whenever state changes (container create, image pull, volume mount, etc.).
-* The CLI just streams them over the Docker API.
+- These events come directly from the **Docker Daemon’s event subsystem**.
+- Internally, the daemon emits events whenever state changes (container create, image pull, volume mount, etc.).
+- The CLI just streams them over the Docker API.
 
 Equivalent REST API:
 
@@ -253,7 +246,7 @@ curl --unix-socket /var/run/docker.sock http://localhost/events
 
 ---
 
-# 🧠 5️⃣ Bonus — `docker events` (alias)
+## 5️⃣ Bonus — `docker events` (alias)
 
 `docker system events` and `docker events` are **identical**.
 Both point to the same daemon API.
@@ -267,7 +260,7 @@ docker events
 
 ---
 
-# 💡 Practical Example (Try This)
+## 💡 Practical Example (Try This)
 
 Open two terminals:
 
@@ -286,7 +279,7 @@ docker stop $(docker ps -q)
 
 Back in Terminal 1 — you’ll see:
 
-```
+```ini
 container create <id> (image=nginx)
 container start <id>
 container die <id>
@@ -297,28 +290,24 @@ This helps you **understand the exact order** of Docker’s lifecycle events.
 
 ---
 
-# 🧾 TL;DR Summary
+## 🧾 TL;DR Summary
 
 | Command                | Purpose                | Common Options                   |
 | ---------------------- | ---------------------- | -------------------------------- |
 | `docker system df`     | Show disk usage        | `-v` for detailed                |
 | `docker system prune`  | Cleanup unused data    | `-a`, `--volumes`, `-f`          |
-| `docker system info`   | System and daemon info | *(none)*                         |
+| `docker system info`   | System and daemon info | _(none)_                         |
 | `docker system events` | Real-time event stream | `--since`, `--filter`, `--until` |
 
 ---
 
-# ⚡ Mnemonic to Remember
+## ⚡ Mnemonic to Remember
 
 > **“Docker System = Doctor’s Stethoscope 🩺”**
 
 It lets you **hear and clean** the Docker engine’s heartbeat:
 
-* **df** → Diagnose disk
-* **info** → Inspect system
-* **events** → Hear live logs
-* **prune** → Purge junk
-
----
-
-Would you like me next to show you **how to interpret and react programmatically** to Docker system events (for example, using Python or Bash to auto-restart or log actions)? That’s how many monitoring tools are built under the hood.
+- **df** → Diagnose disk
+- **info** → Inspect system
+- **events** → Hear live logs
+- **prune** → Purge junk
