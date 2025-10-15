@@ -108,15 +108,15 @@ kubectl create secret generic <secret_name> \
 kubectl create job <job_name> \
 --image=<image_name>
 
-# Create job from cronjob
-kubectl create job <job_name> \
---from=cronjob/<cronjob-name>
-
 # Create cronjob
 kubectl create cronjob \
 --image=<image_name> \
 --schedule='<cron-syntax>' \
 -- <command> <args>
+
+# Create job from cronjob
+kubectl create job <job_name> \
+--from=cronjob/<cronjob-name>
 ```
 
 ## Node Commands:-
