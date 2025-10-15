@@ -2,7 +2,7 @@
 
 ## Deployment Evolution
 
-<div style="text-align: center">
+<div align="center" style="background-color:#fff; border-radius: 10px; border: 2px solid">
     <img src="images/containers.png" alt="Containers" style="width: 80%; border-radius: 10px" />
 </div>
 
