@@ -3,6 +3,9 @@ apiVersion: kind.x-k8s.io/v1alpha4
 name: demo
 nodes:
   - role: control-plane
+  - role: worker
+  - role: worker
+    # Add the ingress-ready label (later used to make sure ingress controller pod run on that node)
     kubeadmConfigPatches:
       - |
         kind: InitConfiguration
@@ -17,5 +20,5 @@ nodes:
       - containerPort: 443 # (optional) expose 443
         hostPort: 443
         protocol: TCP
-  - role: worker
-  - role: worker
+# if label not added, please use this command
+# kubectl label node demo-worker2 ingress-ready=true

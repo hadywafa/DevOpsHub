@@ -28,6 +28,10 @@ apiVersion: kind.x-k8s.io/v1alpha4
 name: demo
 nodes:
   - role: control-plane
+  - role: worker
+  - role: worker
+    # Add the ingress-ready label (later used to make sure ingress controller pod run on that node)
+
     kubeadmConfigPatches:
       - |
         kind: InitConfiguration
@@ -42,8 +46,8 @@ nodes:
       - containerPort: 443 # (optional) expose 443
         hostPort: 443
         protocol: TCP
-  - role: worker
-  - role: worker
+# if label not added, please use this command
+# kubectl label node demo-worker2 ingress-ready=true
 ```
 
 ---
@@ -61,10 +65,14 @@ kubectl get nodes
 
 ```bash
 # install the ingress (nginx) controller in the kind cluster
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml  --type='merge' -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"}}}}}'
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-# “Wait up to 3 minutes for all NGINX Ingress Controller pods in the ingress-nginx namespace to become Ready
+kubectl apply -f ./2.ingress-nginx.yaml
+# make sure you have
+# ingress-ready: "true"
+# under deployment.spec.template.spec.nodeSelector
 #####
+# “Wait up to 3 minutes for all NGINX Ingress Controller pods in the ingress-nginx namespace to become Ready
 # It’s a way to pause scripts or automation (like CI/CD or Helm installs) until the Ingress Controller is actually running and healthy.
 kubectl -n ingress-nginx wait --for=condition=ready pod -l app.kubernetes.io/component=controller --timeout=180s
 ```
@@ -172,25 +180,27 @@ metadata:
   name: web
   namespace: demo
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-    - host: local.test
+    - host: local.com
       http:
         paths:
-          - path: /api/?(.*)
+          - path: /api
             pathType: Prefix
             backend:
               service:
                 name: api
-                port: { number: 80 }
-          - path: /(.*)
+                port:
+                  number: 80
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: frontend
-                port: { number: 80 }
+                port:
+                  number: 80
 ```
 
 Apply:
@@ -207,14 +217,14 @@ kubectl -n demo rollout status deploy/api
 
 ```bash
 # Frontend home:
-curl -s http://local.test/ | sed -n '1,3p'
+curl -s http://local.com/ | sed -n '1,3p'
 
 # API at /api/:
-curl -s http://local.test/api/
+curl -s http://local.com/api/
 # expect: hello-from-api
 ```
 
-Open a browser to `http://local.test/`.
+Open a browser to `http://local.com/`.
 
 ---
 
