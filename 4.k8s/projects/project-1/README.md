@@ -1,0 +1,241 @@
+# Tiny prereqs (one-time)
+
+**Add local hostnames:**
+
+- **Ubuntu**
+
+```bash
+echo '127.0.0.1 local.test' | sudo tee -a /etc/hosts
+```
+
+- **Windows (PowerShell as Admin)**
+
+```powershell
+Add-Content -Path "C:\Windows\System32\drivers\etc\hosts" -Value "`n127.0.0.1 local.test"
+```
+
+You need Docker running, plus `kubectl` and `kind` installed.
+
+---
+
+## 1. Create a small multi-node Kind cluster (with Ingress ports)
+
+Create `kind.yaml`:
+
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: demo
+nodes:
+  - role: control-plane
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+
+    extraPortMappings:
+      - containerPort: 80 # expose ingress 80 -> localhost:80
+        hostPort: 80
+        protocol: TCP
+      - containerPort: 443 # (optional) expose 443
+        hostPort: 443
+        protocol: TCP
+  - role: worker
+  - role: worker
+```
+
+---
+
+Create it:
+
+```bash
+kind create cluster --config kind.yaml
+kubectl get nodes
+```
+
+---
+
+## 2. Install the Ingress controller (nginx)
+
+```bash
+# install the ingress (nginx) controller in the kind cluster
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml  --type='merge' -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"}}}}}'
+
+# “Wait up to 3 minutes for all NGINX Ingress Controller pods in the ingress-nginx namespace to become Ready
+#####
+# It’s a way to pause scripts or automation (like CI/CD or Helm installs) until the Ingress Controller is actually running and healthy.
+kubectl -n ingress-nginx wait --for=condition=ready pod -l app.kubernetes.io/component=controller --timeout=180s
+```
+
+---
+
+## 3. Minimal app + ingress (frontend + api)
+
+Create `stack.yaml`:
+
+```yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo
+
+# ===== API (echo) =====
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: demo
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: api } }
+  template:
+    metadata: { labels: { app: api } }
+    spec:
+      containers:
+        - name: http-echo
+          image: hashicorp/http-echo
+          args: ["-text=hello-from-api", "-listen=:5678"]
+          ports: [{ containerPort: 5678 }]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: demo
+spec:
+  selector: { app: api }
+  ports:
+    - port: 80
+      targetPort: 5678
+
+# ===== Frontend (static html) =====
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-html
+  namespace: demo
+data:
+  index.html: |
+    <html>
+      <body style="font-family:sans-serif">
+        <h1>Hello from Frontend (Kind)</h1>
+        <p>Try the API at <code>/api/</code></p>
+      </body>
+    </html>
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: demo
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: frontend } }
+  template:
+    metadata: { labels: { app: frontend } }
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          ports: [{ containerPort: 80 }]
+          volumeMounts:
+            - name: web
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: web
+          configMap: { name: frontend-html }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: demo
+spec:
+  selector: { app: frontend }
+  ports:
+    - port: 80
+      targetPort: 80
+
+# ===== Ingress (paths) =====
+# host: local.test
+#   /api/ -> api
+#   /     -> frontend
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  namespace: demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: local.test
+      http:
+        paths:
+          - path: /api/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: api
+                port: { number: 80 }
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port: { number: 80 }
+```
+
+Apply:
+
+```bash
+kubectl apply -f stack.yaml
+kubectl -n demo rollout status deploy/frontend
+kubectl -n demo rollout status deploy/api
+```
+
+---
+
+## 4. Quick test
+
+```bash
+# Frontend home:
+curl -s http://local.test/ | sed -n '1,3p'
+
+# API at /api/:
+curl -s http://local.test/api/
+# expect: hello-from-api
+```
+
+Open a browser to `http://local.test/`.
+
+---
+
+## 5. Clean up
+
+```bash
+kind delete cluster --name demo
+```
+
+---
+
+## That’s it
+
+You now have the **simplest possible** local setup that still looks like real life:
+
+- multi-node Kind
+- nginx Ingress
+- path-based routing (`/` → frontend, `/api/` → API)
+
+When you’re ready, we can plug in Redis/RabbitMQ or switch to a real `LoadBalancer` emulator — but this is the cleanest starting point.
+
+- <https://kind.sigs.k8s.io/docs/user/quick-start/#kind-with-nginx-ingress>
+- <https://kind.sigs.k8s.io/docs/user/quick-start/#kind-with-nginx-ingress>
+- <https://kind.sigs.k8s.io/docs/user/quick-start/#kind-with-nginx-ingress>
