@@ -507,6 +507,8 @@ spec:
       dnsPolicy: ClusterFirst
       nodeSelector:
         kubernetes.io/os: linux
+        # This for kind only to make sure the ingress controller is running on the same node that will access it
+        ingress-ready: "true"
       serviceAccountName: ingress-nginx
       terminationGracePeriodSeconds: 0
       tolerations:

@@ -25,9 +25,29 @@ Create `kind.yaml`:
 ```yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: project1
+name: project2
 nodes:
   - role: control-plane
+  - role: worker
+  - role: worker
+    # Add the ingress-ready label (later used to make sure ingress controller pod run on that node)
+
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+
+    extraPortMappings:
+      - containerPort: 80 # expose ingress 80 -> localhost:80
+        hostPort: 80
+        protocol: TCP
+      - containerPort: 443 # (optional) expose 443
+        hostPort: 443
+        protocol: TCP
+# if label not added, please use this command
+# kubectl label node project2-worker2 ingress-ready=true
 ```
 
 ---
@@ -44,10 +64,15 @@ kubectl get nodes
 ## 2. Install the Ingress controller (nginx)
 
 ```bash
-# 1️⃣
-kubectl apply -f ./2.ingress-nginx.yaml
+# install the ingress (nginx) controller in the kind cluster
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-# 2️⃣ “Wait up to 3 minutes for all NGINX Ingress Controller pods in the ingress-nginx namespace to become Ready
+kubectl apply -f ./2.ingress-nginx.yaml
+# make sure you have
+# ingress-ready: "true"
+# under deployment.spec.template.spec.nodeSelector
+#####
+# “Wait up to 3 minutes for all NGINX Ingress Controller pods in the ingress-nginx namespace to become Ready
 # It’s a way to pause scripts or automation (like CI/CD or Helm installs) until the Ingress Controller is actually running and healthy.
 kubectl -n ingress-nginx wait --for=condition=ready pod -l app.kubernetes.io/component=controller --timeout=180s
 ```
@@ -63,7 +88,7 @@ Create `stack.yaml`:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: project1
+  name: project2
 
 # ===== API (echo) =====
 ---
@@ -71,7 +96,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api
-  namespace: project1
+  namespace: project2
 spec:
   replicas: 1
   selector: { matchLabels: { app: api } }
@@ -88,7 +113,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: api
-  namespace: project1
+  namespace: project2
 spec:
   selector: { app: api }
   ports:
@@ -101,7 +126,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: frontend-html
-  namespace: project1
+  namespace: project2
 data:
   index.html: |
     <html>
@@ -115,7 +140,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: project1
+  namespace: project2
 spec:
   replicas: 1
   selector: { matchLabels: { app: frontend } }
@@ -137,7 +162,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend
-  namespace: project1
+  namespace: project2
 spec:
   selector: { app: frontend }
   ports:
@@ -153,7 +178,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: web
-  namespace: project1
+  namespace: project2
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -182,8 +207,8 @@ Apply:
 
 ```bash
 kubectl apply -f stack.yaml
-kubectl -n project1 rollout status deploy/frontend
-kubectl -n project1 rollout status deploy/api
+kubectl -n project2 rollout status deploy/frontend
+kubectl -n project2 rollout status deploy/api
 ```
 
 ---
@@ -206,7 +231,7 @@ Open a browser to `http://local.com/`.
 ## 5. Clean up
 
 ```bash
-kind delete cluster --name project1
+kind delete cluster --name project2
 ```
 
 ---
