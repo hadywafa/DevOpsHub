@@ -4,7 +4,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 1) **Pods** — 6 docs
+## 1. **Pods** — 6 docs
 
 1. **Pods 101: Creation, Inspection & Lifecycle (Admin Essentials)**
    `kubectl run/apply`, YAML anatomy, labels/annotations, lifecycle phases, restart policy, multi-container pods, init containers, sidecars, ephemerals, port-forward.
@@ -21,7 +21,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 2) **ReplicaSets** — 2 docs
+## 2. **ReplicaSets** — 2 docs
 
 1. **ReplicaSets in Practice: Scaling & Consistency**
    desired vs current replicas, label selectors, adoption/orphaning, surge/availability basics (as seen via Deployments).
@@ -30,7 +30,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 3) **Deployments** — 5 docs
+## 3. **Deployments** — 5 docs
 
 1. **Deployments 101: Spec, Strategy & Rollout Control**
    rollingUpdate config (maxUnavailable/maxSurge), pause/resume, canary-ish with multiple Deployments, image updates.
@@ -45,7 +45,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 4) **StatefulSets** — 4 docs
+## 4. **StatefulSets** — 4 docs
 
 1. **StatefulSets 101: Identity, Storage & Ordering**
    stable network IDs, ordered deployment/termination, PVC templates, Headless Services, partitioned updates.
@@ -58,7 +58,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 5) **DaemonSets** — 3 docs
+## 5. **DaemonSets** — 3 docs
 
 1. **DaemonSets 101: Cluster-Wide Agents**
    scheduling on all/selected nodes, tolerations for masters, host networking/paths, update strategies.
@@ -69,7 +69,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 6) **Jobs & CronJobs** — 3 docs
+## 6. **Jobs & CronJobs** — 3 docs
 
 1. **Jobs 101: Completions, Parallelism & Retries**
    backoffLimit, activeDeadlineSeconds, parallel workers, idempotence patterns.
@@ -80,7 +80,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 7) **Services** — 3 docs
+## 7. **Services** — 3 docs
 
 1. **Services 101: ClusterIP/NodePort/LoadBalancer**
    selectors/endpoints, sessionAffinity, externalTrafficPolicy, health behavior.
@@ -91,7 +91,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 8) **Ingress (with a Controller like Traefik/Nginx)** — 4 docs
+## 8. **Ingress (with a Controller like Traefik/Nginx)** — 4 docs
 
 1. **Ingress 101: Rules, Hosts, Paths**
    pathType, annotations/CRDs, multiple backends, default backends.
@@ -104,7 +104,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 9) **ConfigMaps & Secrets** — 3 docs
+## 9. **ConfigMaps & Secrets** — 3 docs
 
 1. **Config Injection Patterns**
    env vars, volume mounts, projected configs, large configs, hot-reload patterns.
@@ -115,7 +115,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 10) **Persistent Volumes & Claims** — 4 docs
+## 10. **Persistent Volumes & Claims** — 4 docs
 
 1. **PV/PVC 101: Binding Models**
    static vs dynamic provisioning, reclaim policies, access modes, volumeModes.
@@ -128,7 +128,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 11) **Namespaces & Quotas** — 3 docs
+## 11. **Namespaces & Quotas** — 3 docs
 
 1. **Namespaces for Multi-Tenancy**
    creation, defaults, context switching, org structure, labels.
@@ -139,7 +139,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 12) **RBAC & ServiceAccounts** — 3 docs
+## 12. **RBAC & ServiceAccounts** — 3 docs
 
 1. **RBAC 101: Roles & Bindings**
    namespaced vs cluster, verbs/resources, least privilege.
@@ -150,7 +150,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 13) **Cluster Ops (Nodes & Maintenance)** — 4 docs
+## 13. **Cluster Ops (Nodes & Maintenance)** — 4 docs
 
 1. **Node Admin: Labels, Taints & Lifecycle**
    cordon/drain/uncordon, maintenance windows, upgrades interplay.
@@ -163,7 +163,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 14) **Autoscaling** — 2 docs
+## 14. **Autoscaling** — 2 docs
 
 1. **HPA in Production**
    metrics sources, stabilization windows, scale-to-zero patterns, readiness impact.
@@ -172,7 +172,7 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 
 ---
 
-## 15) **Helm & Release Operations** — 3 docs
+## 15. **Helm & Release Operations** — 3 docs
 
 1. **Helm 101: Install/Upgrade/Rollback**
    values, dependencies, chart structure, diff/verify.
@@ -200,7 +200,3 @@ Below I propose the **number of docs per topic** and **exact doc titles**. Each 
 5. **Cluster Ops (4)** → **Autoscaling (2)** → **Helm (3)**
 
 This gives you ~**54 total docs**—compact enough to finish, large enough to be authoritative.
-
----
-
-If you’re happy with this structure, I’ll start writing **Pods — Doc 1: _“Pods 101: Creation, Inspection & Lifecycle (Admin Essentials)”_** exactly in your preferred style (long, complete, hands-on).
