@@ -1,24 +1,26 @@
-# Built-in Variables in Helm
+# 🔡 **Built-in Variables in Helm**
 
-Helm provides a set of built-in objects and variables that you can use within your chart templates to access metadata, configuration values, and other contextual information. Understanding these built-in variables is essential for creating dynamic and flexible Helm charts. Below is a comprehensive overview of Helm's built-in variables, their properties, and examples of how to use them in your templates.
+Helm provides a set of **built-in** objects and variables that you can use within your chart templates to access metadata, configuration values, and other contextual information. Understanding these built-in variables is essential for creating dynamic and flexible Helm charts. Below is a comprehensive overview of Helm's built-in variables, their properties, and examples of how to use them in your templates.
 
-## Table of Contents
+## 📋 **Table of Contents**
 
-1. [`.Chart`](#chart)
-2. [`.Release`](#release)
-3. [`.Values`](#values)
-4. [`.Capabilities`](#capabilities)
-5. [`.Files`](#files)
-6. [`.Env`](#env)
-7. [`.Template`](#template)
-8. [`.Capabilities.KubeVersion`](#kube-version)
-9. [`.Template.BasePath`](#templatebasepath)
-10. [`.Chart.AppVersion`](#chartappversion)
-11. [`.Values` vs `.Chart` vs `.Release`](#values-vs-chart-vs-release)
-12. [Examples of Using Built-in Variables](#examples-of-using-built-in-variables)
-13. [Best Practices](#best-practices)
+1. [📌 `.Chart`](#1)
+2. [📌 `.Release`](#2)
+3. [📌 `.Values`](#3)
+4. [📌 `.Capabilities`](#4)
+5. [📌 `.Files`](#5)
+6. [📌 `.Env`](#6)
+7. [📌 `.Template`](#7)
+8. [📌 `.Capabilities.KubeVersion`](#8)
+9. [📌 `.Template.BasePath`](#9)
+10. [📌 `.Chart.AppVersion`](#10)
+11. [📌 `.Values` vs `.Chart` vs `.Release`](#11)
+12. [📌 Functions Provided by Sprig](#12)
+13. [📝 Examples of Using Built-in Variables](#13)
+14. [✅ Best Practices](#14)
+15. [🏁 Conclusion](#15)
 
-## `.Chart`
+## 📌 `.Chart` <a id="1"> </a>
 
 Represents the information about the chart itself. It contains metadata defined in the `Chart.yaml` file.
 
@@ -45,7 +47,7 @@ data:
   app-version: {{ .Chart.AppVersion }}
 ```
 
-## `.Release`
+## 📌 `.Release` <a id="2"> </a>
 
 Contains information about the current release of the chart. A release is a specific instance of a chart running in a Kubernetes cluster.
 
@@ -85,7 +87,7 @@ spec:
             - containerPort: 80
 ```
 
-## `.Values`
+## 📌 `.Values` <a id="3"> </a>
 
 Holds the configuration values provided by the user, typically defined in the `values.yaml` file or via the `--set` flag during installation.
 
@@ -109,7 +111,7 @@ replicas: { { .Values.replicaCount } }
 image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 ```
 
-## `.Capabilities`
+## 📌 `.Capabilities` <a id="4"> </a>
 
 Provides information about the Kubernetes cluster and the Helm client’s capabilities. It's useful for conditional logic based on Kubernetes API versions or features.
 
@@ -131,7 +133,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 ```
 
-## `.Files`
+## 📌 `.Files` <a id="5"> </a>
 
 Allows access to files in the chart package. Useful for embedding configuration files, scripts, or other resources.
 
@@ -154,7 +156,7 @@ data:
     {{ .Files.Get "files/config.yaml" | indent 4 }}
 ```
 
-## `.Env`
+## 📌 `.Env` <a id="6"> </a>
 
 Provides access to environment variables from the system where Helm is running.
 
@@ -172,7 +174,7 @@ data:
 
 **Note:** Use `.Env` cautiously, as it can expose sensitive information from the system environment.
 
-## `.Template`
+## 📌 `.Template` <a id="7"> </a>
 
 Contains functions and properties related to the template rendering process.
 
@@ -194,7 +196,7 @@ data:
   template-name: {{ .Template.Name }}
 ```
 
-## `.Capabilities.KubeVersion` <a id="kube-version"></a>
+## 📌 `.Capabilities.KubeVersion` <a id="8"> </a>
 
 Provides detailed information about the Kubernetes version, useful for conditional resource definitions.
 
@@ -214,7 +216,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 ```
 
-## `.Template.BasePath`
+## 📌 `.Template.BasePath` <a id="9"> </a>
 
 Represents the base path of the current template, useful for referencing other templates or files relative to the current one.
 
@@ -233,7 +235,7 @@ metadata:
   name: { { template "mychart.fullname" . } }
 ```
 
-## `.Chart.AppVersion`
+## 📌 `.Chart.AppVersion` <a id="10"> </a>
 
 Specifies the version of the application that the chart is deploying. It's defined in the `Chart.yaml` file and can be different from the chart's version.
 
@@ -257,7 +259,7 @@ data:
   app-version: {{ .Chart.AppVersion }}
 ```
 
-## `.Values` vs `.Chart` vs `.Release`
+## 📌 `.Values` vs `.Chart` vs `.Release` <a id="11"> </a>
 
 Understanding the differences between these three is crucial for effective Helm chart templating.
 
@@ -267,7 +269,44 @@ Understanding the differences between these three is crucial for effective Helm 
 | `.Chart`   | Metadata about the chart from `Chart.yaml`        | `{{ .Chart.Name }}`, `{{ .Chart.Version }}`       |
 | `.Release` | Information about the current release             | `{{ .Release.Name }}`, `{{ .Release.Namespace }}` |
 
-## Examples of Using Built-in Variables
+## 📌 **Functions Provided by Sprig** <a id="12"> </a>
+
+- **`default`**: Provides a default value if the specified value is not set.
+
+  ```yaml
+  replicas: { { .Values.replicaCount | default 1 } }
+  ```
+
+- **`required`**: Ensures that a value is provided, otherwise the template rendering will fail.
+
+  ```yaml
+  image: "{{ required "A valid image is required!" .Values.image.repository }}:{{ .Values.image.tag }}"
+  ```
+
+- **`toYaml`**: Converts a structure to YAML format.
+
+  ```yaml
+  { { .Values.someList | toYaml } }
+  ```
+
+- **`include` and `template`**: Used to include and render other templates or helper functions.
+
+  ```yaml
+  metadata:
+    name: { { include "mychart.fullname" . } }
+  ```
+
+- **`required`**: Makes sure that a value is provided.
+
+  ```yaml
+  image: "{{ required "An image is required" .Values.image.repository }}:{{ .Values.image.tag }}"
+  ```
+
+For a comprehensive list of available functions, refer to the [Sprig documentation](http://masterminds.github.io/sprig/).
+
+---
+
+## 📝 **Examples of Using Built-in Variables** <a id="13"> </a>
 
 ### 1. **Dynamic Naming with `.Release.Name`**
 
@@ -335,7 +374,7 @@ data:
   USER: { { .Env.USER } }
 ```
 
-## Best Practices
+## ✅ **Best Practices** <a id="14"> </a>
 
 1. **Leverage Built-in Variables for Consistency**
 
@@ -364,49 +403,6 @@ data:
 7. **Keep Templates Clean and Readable**
    - Use indentation and comments to make your templates easy to read and understand.
 
-## Additional Built-in Objects and Functions
-
-Helm's templating system is based on Go templates, augmented with additional functions provided by the [Sprig](http://masterminds.github.io/sprig/) library. Below are some additional built-in objects and useful functions:
-
-### **`.Secret` and `.ConfigMap` Objects**
-
-While not built-in variables, Helm provides ways to create secrets and config maps using the data from built-in variables.
-
-### **Functions Provided by Sprig**
-
-- **`default`**: Provides a default value if the specified value is not set.
-
-  ```yaml
-  replicas: { { .Values.replicaCount | default 1 } }
-  ```
-
-- **`required`**: Ensures that a value is provided, otherwise the template rendering will fail.
-
-  ```yaml
-  image: "{{ required "A valid image is required!" .Values.image.repository }}:{{ .Values.image.tag }}"
-  ```
-
-- **`toYaml`**: Converts a structure to YAML format.
-
-  ```yaml
-  { { .Values.someList | toYaml } }
-  ```
-
-- **`include` and `template`**: Used to include and render other templates or helper functions.
-
-  ```yaml
-  metadata:
-    name: { { include "mychart.fullname" . } }
-  ```
-
-- **`required`**: Makes sure that a value is provided.
-
-  ```yaml
-  image: "{{ required "An image is required" .Values.image.repository }}:{{ .Values.image.tag }}"
-  ```
-
-For a comprehensive list of available functions, refer to the [Sprig documentation](http://masterminds.github.io/sprig/).
-
-## Conclusion
+## 🏁 **Conclusion** <a id="15"> </a>
 
 Helm's built-in variables provide a powerful and flexible way to create dynamic Kubernetes manifests. By leveraging these variables effectively, you can create charts that are both reusable and adaptable to various environments and requirements. Always refer to the [official Helm documentation](https://helm.sh/docs/chart_template_guide/builtin_objects/) for the most up-to-date and detailed information on built-in objects and their usage.
