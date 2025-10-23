@@ -1,17 +1,15 @@
-Excellent — this is an important **KCNA governance question** often hidden in the “CNCF Ecosystem & Community” section 💡
+# 🧩 **Special Interest Groups (SIGs)**
 
----
+[🔗 References](https://www.youtube.com/watch?v=EoKuPoFXY-k&t=2s)
 
-## 🧩 What Are Special Interest Groups (SIGs)?
-
-### 🔹 Definition
+## 📖 **Definition**
 
 **Special Interest Groups (SIGs)** are **community-driven working groups** under the **Cloud Native Computing Foundation (CNCF)**.
 They bring together experts, contributors, and users who share a **common technical or domain interest** (like security, networking, or observability) — to collaborate, discuss best practices, and improve the cloud-native ecosystem.
 
 ---
 
-## ⚙️ Purpose of SIGs
+## ⚙️ **Purpose of SIGs**
 
 | Purpose                       | Description                                                                                                               |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -22,17 +20,17 @@ They bring together experts, contributors, and users who share a **common techni
 
 ---
 
-## 🧠 CNCF SIG Structure
+## 🧠 **CNCF SIG Structure**
 
 Each **SIG** has:
 
-* **Chairs and Technical Leads** — coordinate meetings and agendas
-* **Members** — open to anyone interested in contributing
-* **Public communication** — Slack channels, GitHub repos, and regular meetings
+- **Chairs and Technical Leads** — coordinate meetings and agendas
+- **Members** — open to anyone interested in contributing
+- **Public communication** — Slack channels, GitHub repos, and regular meetings
 
 ---
 
-## 🌐 Examples of CNCF SIGs
+## 🌐 **Examples of CNCF SIGs**
 
 | SIG Name              | Focus Area                                                         |
 | --------------------- | ------------------------------------------------------------------ |
@@ -45,7 +43,7 @@ Each **SIG** has:
 
 ---
 
-## 🧭 Difference Between CNCF SIGs and Kubernetes SIGs
+## 🧭 **Difference Between CNCF SIGs and Kubernetes SIGs**
 
 | Aspect      | CNCF SIGs                                             | Kubernetes SIGs                                 |
 | ----------- | ----------------------------------------------------- | ----------------------------------------------- |
@@ -55,10 +53,6 @@ Each **SIG** has:
 
 ---
 
-## ✅ Summary (Exam Hint)
+## ✅ **Summary**
 
 > **Special Interest Groups (SIGs)** are community-driven teams within CNCF that focus on specific technical or functional areas (e.g., Security, Networking, Observability) to enhance collaboration, share best practices, and guide project development.
-
----
-
-Would you like me to give you a **1-minute CNCF Governance Cheat Sheet** (covering TOC, TAGs, SIGs, and Working Groups) — this often appears as a “select all that apply” question in KCNA?
