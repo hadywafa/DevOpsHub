@@ -1,5 +1,9 @@
 # 🎙️ **Transcript-Style Answer**
 
+> Before i came, they were running a multi containers apps in VM in cloud provider in france called OVH and they was using docker swarm, i was responsible to migrate it to aws, so i build entire infrastructure using Iac using terraform , i used (EKS, Helm, ArgoCD, RabbitMQ, Redis)
+
+---
+
 > **Sure!**
 > In our current setup, we’re running a complete GitOps-driven CI/CD pipeline for our microservices hosted on **AWS EKS**.
 >
