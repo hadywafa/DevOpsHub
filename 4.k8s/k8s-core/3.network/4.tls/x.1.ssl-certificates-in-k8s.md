@@ -2,7 +2,7 @@
 
 ## Nginx controller with cert-manager and Let's Encrypt
 
-![alt text](images/nginx-controller-https.png)
+![alt text](image/nginx-controller-https.png)
 
 ### cert-manager
 
@@ -18,7 +18,7 @@
 
 ## Cloud controller (aws-elb) with ACM
 
-![alt text](images/aws-elb-https.png)
+![alt text](image/aws-elb-https.png)
 
 ### elb Load Balancer
 

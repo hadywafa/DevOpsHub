@@ -21,7 +21,7 @@ sudo apt update
 sudo apt install certbot
 ```
 
-For other operating systems, follow the instructions [here](https://certbot.eff.org/instructions).
+For other operating systems, follow the instructions [Click Me Here](https://certbot.eff.org/instructions).
 
 ---
 
@@ -63,17 +63,18 @@ with the following value:
 3. Go to the **Advanced DNS** tab.
 4. Under **Host Records**, click **Add New Record** and choose **TXT Record**.
 5. Enter the following details:
+
    - **Type**: TXT Record
    - **Host**: `_acme-challenge`
    - **Value**: The value provided by Certbot (e.g., `8rMB0swwy8OwjqyQrVzGzjJVPFL2ttWyYc4IF0XVGUE`)
    - **TTL**: Automatic
 
-It should look something like this:
+   It should look something like this:
 
-```ini
-Type        Host                Value                                        TTL
-TXT         _acme-challenge      8rMB0swwy8OwjqyQrVzGzjJVPFL2ttWyYc4IF0XVGUE  Automatic
-```
+   ```ini
+   Type        Host                Value                                        TTL
+   TXT         _acme-challenge      8rMB0swwy8OwjqyQrVzGzjJVPFL2ttWyYc4IF0XVGUE  Automatic
+   ```
 
 6. Save the DNS record.
 
