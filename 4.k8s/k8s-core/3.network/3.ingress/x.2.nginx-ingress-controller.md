@@ -8,11 +8,11 @@ In Kubernetes, an Ingress is an API object that manages external access to servi
 2. **Ingress Controller**: Implements the Ingress resources by configuring a load balancer to route traffic based on the Ingress rules.
 
 - Multiple sub domains can be used to route requests to different services inside the cluster.
-  ![alt text](images/ingress-controller-4.png)
+  ![alt text](image/ingress-controller-4.png)
 
 - Configure tls/ssl certificates for secure communication.
-  ![alt text](images/ingress-controller-5.png)
-  ![alt text](images/ingress-controller-6.png)
+  ![alt text](image/ingress-controller-5.png)
+  ![alt text](image/ingress-controller-6.png)
 
 ## Why Use Ingress?
 
@@ -321,7 +321,7 @@ spec:
 
 **Not Supported Directly:** An Ingress Resource **cannot** route to services in **other namespaces**.
 
-**Example of What **Doesn't Work:\*\*
+**Example of What Doesn't Work:**
 
 ```yaml
 apiVersion: networking.k8s.io/v1

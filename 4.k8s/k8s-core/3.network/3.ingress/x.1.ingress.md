@@ -8,16 +8,16 @@
 2. **Ingress Controller**: Implements the Ingress resources by configuring a load balancer to route traffic based on the Ingress rules.
 
 - Ingress is just routing to services inside cluster.  
-  ![alt text](images/ingress-controller-1.png)
+  ![alt text](image/ingress-controller-1.png)
 
 - Ingress vs Load Balancer:  
-  ![alt text](images/lb-disadvantage.png)
-  ![alt text](images/ingress-advantage.png)
+  ![alt text](image/lb-disadvantage.png)
+  ![alt text](image/ingress-advantage.png)
 - Load balancer is just a proxy server that forwards requests to services inside cluster.  
-  ![alt text](images/ingress-controller-2.png)
+  ![alt text](image/ingress-controller-2.png)
 
 - You can implement your own load balancer server (proxy server) either inside or outside the cluster using Bar Metal to route requests to services inside the cluster.
-  ![alt text](images/ingress-controller-3.png)
+  ![alt text](image/ingress-controller-3.png)
 
 ### Key Features of Ingress
 
