@@ -89,3 +89,17 @@
 </div>
 
 ---
+
+## ⁉️ Q14
+
+<div align="center" style="background-color:#fff; border-radius: 10px; border: 2px solid">
+  <img src="image/labs/1761787183423.png" alt="1761761644737" style="width: 80%">
+</div>
+
+---
+
+## ⁉️ Q15
+
+<div align="center" style="background-color:#fff; border-radius: 10px; border: 2px solid">
+  <img src="image/labs/1761787414031.png" alt="1761761644737" style="width: 80%">
+</div>
