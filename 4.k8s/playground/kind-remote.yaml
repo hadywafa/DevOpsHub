@@ -9,11 +9,6 @@ nodes:
         listenAddress: "0.0.0.0"
     kubeadmConfigPatches:
       - |
-        kind: InitConfiguration
-        nodeRegistration:
-          kubeletExtraArgs:
-            node-ip: "192.168.1.6"
-      - |
         kind: ClusterConfiguration
         apiServer:
           certSANs:
