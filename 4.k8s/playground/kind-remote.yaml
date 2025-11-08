@@ -1,0 +1,28 @@
+# kind-config.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 6443
+        hostPort: 6443
+        listenAddress: "0.0.0.0"
+    kubeadmConfigPatches:
+      - |
+        kind: ClusterConfiguration
+        apiServer:
+          certSANs:
+            - "192.168.1.6"
+
+## Steps
+
+## 1. Create a cluster
+### kind create cluster --config kind-remote.yaml
+## 2. Modify the kubeconfig
+### replace
+###   - cluster:
+###       server: https://127.0.0.1:random
+### with
+###   - cluster:
+###       server: https://192.168.1.6:6443
+
