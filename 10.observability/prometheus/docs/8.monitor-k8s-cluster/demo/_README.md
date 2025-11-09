@@ -1,5 +1,7 @@
 # Demo
 
+- [Prometheus on Kubernetes](https://rayanslim.com/course/prometheus-grafana-monitoring-course/prometheus-on-kubernetes)
+
 ## Deploy Prometheus in K8s
 
 ```bash
