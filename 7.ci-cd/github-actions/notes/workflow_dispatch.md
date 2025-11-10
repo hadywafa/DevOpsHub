@@ -15,6 +15,12 @@ This adds a **"Run workflow"** button in the GitHub Actions tab.
 
 ---
 
+<div align="center" style="background-color:#fff; border-radius: 10px; border: 2px solid">
+   <img src="image/1762763099483.png" alt="GitHub Actions Matrix Build" style="width: 80%">
+</div>
+
+--
+
 ## 🧪 Example: Manual Deploy Workflow
 
 ```yaml
