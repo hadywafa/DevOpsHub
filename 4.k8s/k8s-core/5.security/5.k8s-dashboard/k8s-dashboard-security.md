@@ -1,4 +1,4 @@
-# 🚀 **What Is Kubernetes Dashboard (2025)?**
+# 🚀 **What Is Kubernetes Dashboard?**
 
 Kubernetes Dashboard is a **web UI** that lets you:
 
@@ -23,7 +23,9 @@ You **must use Helm** to install it.
 
 ---
 
-![1763147225182](image/k8s-dashboard-security/1763147225182.png)
+<div align="center" style="background-color:#EBEBEB; border-radius: 10px; border: 2px solid">
+  <img src="image/1763147225182.png" alt="Install kubelet" style="width: 80%">
+</div>
 
 ---
 
