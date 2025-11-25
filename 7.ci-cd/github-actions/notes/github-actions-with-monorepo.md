@@ -1,4 +1,4 @@
-# 🧭 **Configuring GitHub Actions for Multi-Project Monorepos**
+# 🧭 **Configuring GitHub Actions for Monorepos**
 
 ## 📖 Overview
 
