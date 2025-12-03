@@ -17,3 +17,11 @@
 > 2. handler can be :
 >    - for gvisor -> `runsc`
 >    - for kata -> `kata` or `kata-fc`
+
+## Audit Logs
+
+[Auditing](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)
+
+> How to find this from docs:
+>
+> 1. Search -> Auditing -> Kubernetes Documentation -> Tasks -> Monitoring, Logging, and Debugging -> Troubleshooting Clusters -> Auditing
