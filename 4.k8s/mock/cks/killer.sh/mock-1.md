@@ -11,7 +11,15 @@
 ### Answer:
 
 ```bash
+k config get-contexts -o name > /opt/course/1/contexts
+```
 
+```bash
+k config view --raw \
+-ojsonpath="{@.users[2].user.client-certificate-data}" | base64 -d > /opt/course/1/cert
+# or with filtration
+k config view --raw \
+-ojsonpath="{@.users[?(.name == 'restricted@infra-prod')].user.client-certificate-data}" | base64 -d > /opt/course/1/cert
 ```
 
 ---
@@ -22,13 +30,25 @@
   <img src="image/mock-1/1764945215039.png" alt="Mock Exam 1 Question 1" style="width: 60%">
 </div>
 
-```bash
-egrep "CVE-2020-10878|CVE-2020-1967" ./result-1.json
-```
-
 ---
 
 ### Answer:
+
+```bash
+trivy image nginx:1.16.1-alpine -f json -output result-1.json
+trivy image k8s.gcr.io/kube-apiserver:v1.18.0 -f json -output result-2.json
+trivy image k8s.gcr.io/kube-controller-manager:v1.18.0 -f json -output result-3.json
+trivy image docker.io/weaveworks/weave-kube:2.7.0 -f json -output result-3.json
+```
+
+```bash
+egrep "CVE-2020-10878|CVE-2020-1967" ./result-1.json
+egrep "CVE-2020-10878|CVE-2020-1967" ./result-2.json
+egrep "CVE-2020-10878|CVE-2020-1967" ./result-3.json
+egrep "CVE-2020-10878|CVE-2020-1967" ./result-4.json
+```
+
+---
 
 ## 🟢 Q3
 
