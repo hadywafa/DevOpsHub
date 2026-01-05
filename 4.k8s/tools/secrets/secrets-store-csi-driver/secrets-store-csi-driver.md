@@ -13,7 +13,7 @@
 
 ## 📹 Architecture
 
-![1763882267987](image/secrets-store-csi-driver/1763882267987.png)
+![1763882267987](image/1763882267987.png)
 
 ## ❓ Why it is the Best Approach
 

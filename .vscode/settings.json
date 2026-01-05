@@ -22,5 +22,15 @@
     "userdel",
     "Yilmaz"
   ],
-  "python.analysis.extraPaths": ["./automation/configure-kodekloud-access-key/src"]
+  "python.analysis.extraPaths": [
+    "./automation/configure-kodekloud-access-key/src"
+  ],
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#FFFF00",
+    "editor.lineHighlightBackground": "#000000",
+    "editor.lineHighlightBorder": "#131316",
+    "editor.selectionHighlightBorder": "#000000",
+    "editor.selectionBackground": "#1900ff",
+    "editor.selectionHighlightBackground": "#1c249868"
+  }
 }
