@@ -7,3 +7,253 @@
 ## Reference
 
 - [Configure caches to speed up queries](https://grafana.com/docs/loki/latest/operations/caching/)
+
+## Why **write** and **backend** need disks in SSD mode
+
+In Loki SSD, you have 3 targets: **write**, **read**, **backend**. The reason disks show up is simple:
+
+- **Write needs disk** mainly for **WAL** (Write-Ahead Log) so ingesters can recover after pod/node restarts without losing data.
+- **Backend needs disk** mainly for **index-gateway caching** and **compactor working files** (temporary/operational state).
+- **Read usually doesn’t need disk** (it’s logically stateless), but Helm sometimes deploys it as a StatefulSet; you can keep its PVC small or avoid it depending on chart/version.
+
+---
+
+## 1) Write disk: what is stored there?
+
+### ✅ A) WAL (Write-Ahead Log) — the _real_ reason
+
+**Ingester** receives log entries, builds “chunks” in memory, and eventually flushes them to object storage.
+
+If the ingester dies before flushing, you risk losing the last minutes of logs unless you have WAL.
+
+**WAL writes incoming data to local disk first**, then ingester can replay it on restart and re-build in-memory state.
+
+**So disk on write = durability + faster recovery.**
+
+**Control via config**
+In Loki config:
+
+```yaml
+ingester:
+  wal:
+    enabled: true
+    dir: /var/loki/wal
+```
+
+**How much disk?**
+Depends on ingestion + how long data stays “unflushed” (and restart scenarios). This is why write PVC is the most important.
+
+### ✅ B) Ingester “chunks” directory (sometimes)
+
+Some ingester state and chunk files/markers may also use local storage depending on config and engine (boltdb-shipper vs TSDB), but WAL is the usual driver.
+
+---
+
+## 2) Backend disk: what is stored there?
+
+Backend bundles:
+
+- **Compactor**
+- **Index Gateway**
+- **Query Scheduler** (mostly memory)
+- (optionally Ruler, bloom experimental stuff)
+
+### ✅ A) Index Gateway cache / local index files
+
+Index Gateway exists to **avoid repeatedly pulling index data from object storage** on every query.
+
+Think of it like:
+
+> “Keep index parts locally so queries don’t keep re-downloading them.”
+
+So backend disk helps:
+
+- Reduce object-store GETs
+- Improve query latency
+- Smooth query spikes
+
+**Control via config (TSDB shipper style)**
+Often looks like:
+
+```yaml
+storage_config:
+  tsdb_shipper:
+    active_index_directory: /var/loki/index
+    cache_location: /var/loki/index_cache
+```
+
+(Exact stanza depends on whether you’re using TSDB vs boltdb-shipper and chart version, but concept is the same: **active index dir + cache location**.)
+
+### ✅ B) Compactor working directory
+
+Compactor periodically:
+
+- merges/compacts index blocks
+- handles retention deletes (depending on setup)
+- writes temporary files while compacting
+
+That needs local disk as a **scratch space**.
+
+**Control via config**
+Typically:
+
+```yaml
+compactor:
+  working_directory: /var/loki/compactor
+```
+
+---
+
+## 3) How caching works in Loki (what is cached + why)
+
+Loki performance is dominated by two things:
+
+1. **Index lookups** (find which chunks might contain your logs)
+2. **Chunk fetch + decompression** (read the actual log data)
+
+Caching exists to reduce repeated work + reduce object storage calls.
+
+### Cache types you’ll see
+
+#### ✅ A) Index cache (high value)
+
+Caches “where to look” metadata so repeated queries don’t keep reading the same index objects.
+
+Where: commonly **Index Gateway / backend**.
+
+#### ✅ B) Chunk cache (can be huge value for repeated queries)
+
+Caches actual chunk data fetched from object storage.
+
+Where: can be external cache (memcached/redis) more than local disk.
+
+#### ✅ C) Results cache (query frontend)
+
+If you repeat the same query ranges (dashboards), Loki can cache results so it doesn’t re-run the whole query.
+
+Where: often external cache.
+
+---
+
+## 4) How to control caching from config (the knobs you care about)
+
+There are two layers:
+
+1. **Loki YAML config** (real behavior)
+2. **Helm values** (how config gets rendered + how caches are deployed)
+
+### A) Result cache (query-frontend)
+
+This improves dashboards a lot.
+
+Config pattern:
+
+```yaml
+query_range:
+  results_cache:
+    cache:
+      embedded_cache:
+        enabled: true
+        max_size_mb: 200
+        ttl: 1h
+```
+
+- **embedded_cache** = in-process memory (simple, good for small/medium)
+- For production, better to use **memcached/redis** to share cache across replicas.
+
+### B) Chunk cache
+
+Config pattern (conceptual):
+
+```yaml
+chunk_store_config:
+  chunk_cache_config:
+    embedded_cache:
+      enabled: true
+      max_size_mb: 500
+      ttl: 1h
+```
+
+Again: embedded = memory only. For shared scaling, use external cache.
+
+### C) Index gateway cache locations (disk paths)
+
+This is the backend PVC part:
+
+```yaml
+storage_config:
+  tsdb_shipper:
+    active_index_directory: /var/loki/index
+    cache_location: /var/loki/index_cache
+```
+
+### D) WAL (write PVC)
+
+```yaml
+ingester:
+  wal:
+    enabled: true
+    dir: /var/loki/wal
+```
+
+### E) Compactor scratch dir (backend PVC)
+
+```yaml
+compactor:
+  working_directory: /var/loki/compactor
+```
+
+---
+
+## 5) Practical “who needs disk” summary
+
+### Write needs disk because:
+
+✅ WAL (durability + recovery)
+✅ Stateful ingester behavior
+
+### Backend needs disk because:
+
+✅ Index gateway local index/cache
+✅ Compactor working dir (scratch files)
+
+### Read doesn’t “need” disk because:
+
+✅ Queries are stateless _by design_
+(but Helm may still use StatefulSet; disk can be tiny)
+
+---
+
+## 6) How you control disk usage (what you actually do)
+
+You control it by:
+
+### 1) Turning WAL on/off
+
+- Off = cheaper disks, but less durable on restart
+- On = production-grade behavior
+
+### 2) Choosing cache type (embedded vs external)
+
+- Embedded = easy, but each replica has its own cache (wasteful)
+- External (memcached/redis) = shared cache, better at scale
+
+### 3) Setting cache sizes + TTLs
+
+- `max_size_mb`
+- `ttl`
+
+### 4) Setting cache directories (for backend)
+
+- `active_index_directory`
+- `cache_location`
+- `working_directory`
+
+### 5) PVC sizes
+
+- Bigger PVC = more WAL/caching headroom
+- Smaller PVC = cheaper but risk of WAL filling / cache churn
+
+---
+
+If you paste your **current Loki `values.yaml` (or just the `loki:` config section)** and confirm whether you’re using **TSDB** or **boltdb-shipper**, I’ll point at the exact fields in _your config_ and tell you the best cache + WAL settings for your load (100GB/day, 30d retention).
