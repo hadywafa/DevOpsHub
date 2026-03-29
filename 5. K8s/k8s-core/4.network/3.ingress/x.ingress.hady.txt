@@ -1,0 +1,6 @@
+explain to me ingress controller using problem based solution like a history for acess web app in k8s cluster 
+and explain the ingress componnets in details 
+and last thing how to memorize it 
+for examlpe you can correct me 
+i can see ingress controller is not a controle plane controller manager as it was confused me 
+it just a pods groupd by deployment and accesed by ingress service and that service is exposed in every worker node as ndoe port , and outside can access it , and that pods contain nginx logic for routing to different internal services based on url rules , so the access of ingress pods is by put nodeip/nodeport whiches fixed for all other nodes , and to make it very usable we used an external ip like from aws that has custom domain for our website and distrubute traffic to thise worker nodes ip with that sepecif nodport 

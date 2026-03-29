@@ -1,0 +1,274 @@
+{
+  "main": {
+    "id": "88a063a68face533",
+    "type": "split",
+    "children": [
+      {
+        "id": "ffaf7a6a6981bd2e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8719ab7bfc9ab4a1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "7. GitOps/argo-cd/1.core/1.argocd.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1.argocd"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6d2c50990066a39c",
+    "type": "split",
+    "children": [
+      {
+        "id": "bc7f9f6c2a4dec56",
+        "type": "tabs",
+        "dimension": 55.91506572295247,
+        "children": [
+          {
+            "id": "fc7e321c07a48c53",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "custom",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "15a9c7ac71ca9ca4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0e80865fe896022d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      },
+      {
+        "id": "9ea64e74f782a673",
+        "type": "tabs",
+        "dimension": 44.08493427704752,
+        "children": [
+          {
+            "id": "909b13326ef9bd0f",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 251.5
+  },
+  "right": {
+    "id": "7c209669fec76014",
+    "type": "split",
+    "children": [
+      {
+        "id": "720ab6afe9e88d38",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "714c813c78e0f14b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Settings/Setup Theming.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Setup Theming"
+            }
+          },
+          {
+            "id": "12986bbca3d193af",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Settings/Setup Theming.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Setup Theming"
+            }
+          },
+          {
+            "id": "89c64f0632215787",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "282c3bd0b06434bc",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "ac81a368ca2230ef",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "7. GitOps/argo-cd/1.core/1.argocd.md",
+                "followCursor": true,
+                "showSearch": true,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 1.argocd"
+            }
+          },
+          {
+            "id": "ffdf69bbe0a11cda",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {},
+              "icon": "trident-custom",
+              "title": "Mermaid Toolbar"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": true,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": true,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": true,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-kanban:Create new board": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "vscode-editor:Create Code File": false,
+      "open-vscode:VS Code": false
+    }
+  },
+  "active": "fc7e321c07a48c53",
+  "lastOpenFiles": [
+    "Tools/hashiCorp-vault/references.md",
+    "Tools/hashiCorp-vault/hashiCorp-vault.md",
+    "Tools/aikido/Untitled.md",
+    "Tools/sonarqube/1.sonarqube.md",
+    "Tools/aikido",
+    "Tools/Code Quality",
+    "Tools/sops/sops.md",
+    "Tools/cloudflare/3.cloudflar-ssl-tls.md",
+    "Tools/cloudflare/2.cloudflare-services.md",
+    "Tools/cloudflare/1.cloudflare.md",
+    "6. CI&CD/core/1.design-ci-cd-pipelines/1.2.why-run-ci-again-after-merging.md",
+    "12.security/oauth/oauth2.md",
+    "Todo/2026-03-29.md",
+    "x/VIP.md",
+    "x",
+    "Boards",
+    "Boards/Untitled Kanban.md",
+    "Todo/2026-03-28.md",
+    "4. Reverse-proxy/My code file.cs",
+    "4. Reverse-proxy/My code file.json",
+    "4. Reverse-proxy/nginx/1.nginx.md",
+    "5. K8s/k8s-internals/ingress-controller/Summary.md",
+    "5. K8s/k8s-internals/dns-server/kube-dns-internals.md",
+    "5. K8s/k8s-extra/k8s-gpu-enabled-cluster/_ai-infra-job-requirement.md",
+    "5. K8s/k8s-extra/k8s-eks/eks-intro.md",
+    "Tools/Storage/minio/1.minio.md",
+    "Canvas/Canvas-1.canvas",
+    "Canvas/Canvas-2.canvas",
+    "Notes/Settings/Obsidian Plugins & Settings.md",
+    "Notes/Settings/Setup Theming.md",
+    "Assets/Draw.io/Diagram.svg",
+    "Notes/General/Note 1.md",
+    "Notes/General",
+    "Assets/Draw.io",
+    "Assets",
+    "Assets/Excalidraw/Drawing 2026-03-24 04.41.43.excalidraw.md",
+    "x/data-structure/docs/1.core/2.array.md",
+    "x/data-structure/docs/1.core/images/big-o-notation-1.png",
+    "Assets/Excalidraw/Drawing 2026-03-28 15.48.26.excalidraw.md",
+    "OneNote/Hady's Notebook/Quick Notes/asdasd - Ink.svg",
+    "OneNote/Hady's Notebook/Quick Notes",
+    "Untitled Diagram.svg",
+    "x/data-structure/docs/5.graphs/images/directed-graph.png",
+    "x/data-structure/docs/5.graphs/images/adjacent-matrix.png",
+    "x/data-structure/docs/5.graphs/images/adjacent-list.png",
+    "x/data-structure/docs/5.graphs/images/adjacent-list-vs-array.png",
+    "x/data-structure/docs/4.tries/images/tries.png",
+    "x/data-structure/docs/4.tries/images/tries-explanation.png",
+    "Obsidian/Untitled.canvas",
+    "Untitled 1.canvas"
+  ]
+}

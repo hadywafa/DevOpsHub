@@ -1,0 +1,28 @@
+# index
+
+- `00:00` Introduction:
+- `01:20` History:  of Unix/Linux
+- `29:55` Linux:  Distributions
+- `48:45` Installation:
+- `56:17` Basic:  Commands
+- `01:29:07`:  Text Files
+- `01:42:55`:  Unix Philosophy
+- `02:06:53`:  More on Text Files
+- `02:09:45`:  Terminal vs Shell
+- `02:37:36`:  Shell Expansion
+- `02:34:12`:  Shell Variables
+- `03:07:32`:  Pipes, Filters and Redirection
+- `03:24:55`:  grep command
+- `03:41:41`:  tr and cut commands
+- `03:50:38`:  User and Group Management
+- `04:40:35`:  File Management
+- `04:58:53`:  Filesystem Hierarchy Specifications (FHS)
+- `05:26:11`:  File types, head, tail, more, less, mkdir, rmdir, rm
+- `05:36:34`:  Finding files
+- `05:48:39`:  File Archive and Compression
+- `06:04:33`:  File Ownership and Permissions
+- `06:34:38`:  Managing Linux Processes
+- `07:20:10`:  Package Management
+- `08:07:20`:  Connecting to Remote Servers (ssh, wget, curl, etc.)
+- `09:21:50`:  Introduction to Shell Scripts
+- `11:18:20`:  Last Words

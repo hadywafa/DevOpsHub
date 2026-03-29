@@ -1,0 +1,7 @@
+public domain () {
+
+
+    asd
+
+    
+}

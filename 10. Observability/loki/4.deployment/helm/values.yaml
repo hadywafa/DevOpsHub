@@ -1,0 +1,98 @@
+deploymentMode: SimpleScalable
+
+loki:
+  auth_enabled: false
+
+  commonConfig:
+    replication_factor: 1
+
+  memberlist:
+    join_members:
+      - loki-memberlist.logging.svc.cluster.local
+
+  ingester:
+    lifecycler:
+      ring:
+        kvstore:
+          store: memberlist
+
+  distributor:
+    ring:
+      kvstore:
+        store: memberlist
+
+  index_gateway:
+    ring:
+      kvstore:
+        store: memberlist
+
+  # Required by v6+ chart validation: schemaConfig must exist
+  schemaConfig:
+    configs:
+      - from: "2024-04-01"
+        store: tsdb
+        object_store: s3
+        schema: v13
+        index:
+          prefix: loki_index_
+          period: 24h
+
+  # Recommended knobs from official install docs (safe for dev)
+  pattern_ingester:
+    enabled: true
+
+  limits_config:
+    allow_structured_metadata: true
+    volume_enabled: true
+
+  # IMPORTANT: This section is what the Helm chart renders into Loki config
+  storage:
+    type: s3
+
+    bucketNames:
+      chunks: logs-dev
+      ruler: logs-dev
+      admin: logs-dev
+
+    s3:
+      endpoint: http://minio.logging.svc.cluster.local:9000
+      region: us-east-1
+
+      # MinIO-specific
+      s3ForcePathStyle: true
+      insecure: true
+
+      # CRITICAL: provide credentials HERE so Loki never tries IMDS
+      accessKeyId: minioadmin
+      secretAccessKey: minioadmin123
+
+# ====================================================
+
+# Dev sizing
+write:
+  replicas: 1
+read:
+  replicas: 1
+backend:
+  replicas: 1
+
+# Avoid extra components that can fail on small clusters
+chunksCache:
+  enabled: false
+resultsCache:
+  enabled: false
+
+# Optional: if you want public access for testing via Azure LB
+gateway:
+  service:
+    type: ClusterIP
+
+indexGateway:
+  enabled: true
+
+compactor:
+  enabled: true
+
+service:
+  memberlist:
+    enabled: true
