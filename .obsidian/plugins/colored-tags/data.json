@@ -9,10 +9,7 @@
   "accessibility": {
     "highTextContrast": false
   },
-  "knownTags": {
-    "active": 1,
-    "new": 2
-  },
+  "knownTags": {},
   "tagColors": {},
   "_version": 4
 }
