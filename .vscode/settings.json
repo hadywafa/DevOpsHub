@@ -33,6 +33,15 @@
     "editor.selectionBackground": "#1900ff",
     "editor.selectionHighlightBackground": "#1c249868",
     "statusBar.noFolderBackground": "#464F0E",
-    "statusBar.noFolderForeground": "#F9FBEA"
+    "statusBar.noFolderForeground": "#F9FBEA",
+    "activityBar.background": "#464F0E",
+    "titleBar.activeBackground": "#626F13",
+    "titleBar.activeForeground": "#F9FBEA",
+    "titleBar.inactiveBackground": "#464F0E",
+    "titleBar.inactiveForeground": "#F9FBEA",
+    "statusBar.background": "#464F0E",
+    "statusBar.foreground": "#F9FBEA",
+    "statusBar.debuggingBackground": "#464F0E",
+    "statusBar.debuggingForeground": "#F9FBEA"
   }
 }

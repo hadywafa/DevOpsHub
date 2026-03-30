@@ -2,8 +2,7 @@
   "customOrder": {
     "/": {
       "children": [
-        "Todo",
-        "Boards",
+        "TaskNotes",
         "1. Networking",
         "2. Linux",
         "3. Containers",
@@ -907,7 +906,40 @@
     },
     "4. Reverse-proxy/nginx": {
       "children": [
-        "4. Reverse-proxy/nginx/1.nginx.md"
+        "4. Reverse-proxy/nginx/assets",
+        "4. Reverse-proxy/nginx/nginx core",
+        "4. Reverse-proxy/nginx/nginx advanced",
+        "4. Reverse-proxy/nginx/nginx for k8s"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/assets": {
+      "children": [
+        "4. Reverse-proxy/nginx/assets/Pasted image 20260330224306.png",
+        "4. Reverse-proxy/nginx/assets/Pasted image 20260330220224.png",
+        "4. Reverse-proxy/nginx/assets/Pasted image 20260330220111.png"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/nginx advanced": {
+      "children": [
+        "4. Reverse-proxy/nginx/nginx advanced/advanced options in nginx.md"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/nginx core": {
+      "children": [
+        "4. Reverse-proxy/nginx/nginx core/introduction to nginx.md",
+        "4. Reverse-proxy/nginx/nginx core/nginx architecture.md",
+        "4. Reverse-proxy/nginx/nginx core/nginx basic config.md"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/nginx for k8s": {
+      "children": [
+        "4. Reverse-proxy/nginx/nginx for k8s/nginx for kubernates.md",
+        "4. Reverse-proxy/nginx/nginx for k8s/nginx-ingress-controller.md",
+        "4. Reverse-proxy/nginx/nginx for k8s/nginx-gateway-fabric.md"
       ],
       "sortOrder": "custom"
     },
@@ -4434,16 +4466,20 @@
       ],
       "sortOrder": "custom"
     },
-    "Boards": {
+    "TaskNotes": {
       "children": [
-        "Boards/Untitled Kanban.md"
+        "TaskNotes/Views"
       ],
       "sortOrder": "custom"
     },
-    "Todo": {
+    "TaskNotes/Views": {
       "children": [
-        "Todo/2026-03-29.md",
-        "Todo/2026-03-28.md"
+        "TaskNotes/Views/agenda-default.base",
+        "TaskNotes/Views/calendar-default.base",
+        "TaskNotes/Views/kanban-default.base",
+        "TaskNotes/Views/mini-calendar-default.base",
+        "TaskNotes/Views/relationships.base",
+        "TaskNotes/Views/tasks-default.base"
       ],
       "sortOrder": "custom"
     },
@@ -4466,6 +4502,12 @@
         "Tools/taskfile",
         "Tools/terragrunt",
         "Tools/trivy"
+      ],
+      "sortOrder": "custom"
+    },
+    "Tools/aikido": {
+      "children": [
+        "Tools/aikido/Untitled.md"
       ],
       "sortOrder": "custom"
     },
@@ -4833,6 +4875,19 @@
       ],
       "sortOrder": "custom"
     },
+    "Tools/sonarqube": {
+      "children": [
+        "Tools/sonarqube/1.sonarqube.md",
+        "Tools/sonarqube/2.1.sonarqube-with-azure-devops.md",
+        "Tools/sonarqube/2.2.azure-devops-sonarqube-tasks.md",
+        "Tools/sonarqube/2.3.1.questions-1.md",
+        "Tools/sonarqube/2.3.2.questions-2.md",
+        "Tools/sonarqube/2.4.demo.md",
+        "Tools/sonarqube/3.1.sonarqube-in-github-actions.md",
+        "Tools/sonarqube/resources.md"
+      ],
+      "sortOrder": "custom"
+    },
     "Tools/sops": {
       "children": [
         "Tools/sops/sops.md"
@@ -4891,25 +4946,6 @@
     "x": {
       "children": [
         "x/VIP.md"
-      ],
-      "sortOrder": "custom"
-    },
-    "Tools/sonarqube": {
-      "children": [
-        "Tools/sonarqube/1.sonarqube.md",
-        "Tools/sonarqube/2.1.sonarqube-with-azure-devops.md",
-        "Tools/sonarqube/2.2.azure-devops-sonarqube-tasks.md",
-        "Tools/sonarqube/2.3.1.questions-1.md",
-        "Tools/sonarqube/2.3.2.questions-2.md",
-        "Tools/sonarqube/2.4.demo.md",
-        "Tools/sonarqube/3.1.sonarqube-in-github-actions.md",
-        "Tools/sonarqube/resources.md"
-      ],
-      "sortOrder": "custom"
-    },
-    "Tools/aikido": {
-      "children": [
-        "Tools/aikido/Untitled.md"
       ],
       "sortOrder": "custom"
     }

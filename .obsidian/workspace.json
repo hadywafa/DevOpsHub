@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "fc2a5591014c1798",
+        "id": "b55494a6ad6f3174",
         "type": "tabs",
         "children": [
           {
-            "id": "c13c768ad07cc35a",
+            "id": "52b008388bc162a5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "4. Reverse-proxy/nginx/nginx core/nginx architecture.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "nginx architecture"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 251.5
+    "width": 294.5110321044922
   },
   "right": {
     "id": "7c209669fec76014",
@@ -151,12 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "4. Reverse-proxy/nginx/nginx core/nginx architecture.md",
                 "followCursor": true,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of nginx architecture"
             }
           },
           {
@@ -190,11 +195,12 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 203.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,48 +208,47 @@
       "graph:Open graph view": false,
       "canvas:Create new canvas": true,
       "open-vscode:VS Code": false,
-      "daily-notes:Open today's daily note": false,
       "templates:Insert template": true,
       "command-palette:Open command palette": true,
       "bases:Create new base": true,
       "obsidian-excalidraw-plugin:New drawing": true,
-      "obsidian-kanban:Create new board": false,
       "table-editor-obsidian:Advanced Tables Toolbar": true,
-      "mermaid-tools:Open Mermaid Toolbar": true,
-      "vscode-editor:Create Code File": false,
-      "tasknotes:Open mini calendar": false,
-      "tasknotes:Open advanced calendar": false,
-      "tasknotes:Open task list": false,
-      "tasknotes:Open agenda": false,
-      "tasknotes:Open kanban board": false,
-      "tasknotes:Open pomodoro": false,
-      "tasknotes:Open pomodoro stats": false,
-      "tasknotes:Create new task": false
+      "mermaid-tools:Open Mermaid Toolbar": true
     }
   },
-  "active": "c13c768ad07cc35a",
+  "active": "52b008388bc162a5",
   "lastOpenFiles": [
+    "4. Reverse-proxy/nginx/nginx core/nginx basic config.md",
+    "4. Reverse-proxy/nginx/nginx advanced/advanced options in nginx.md",
+    "4. Reverse-proxy/nginx/nginx core/introduction to nginx.md",
+    "4. Reverse-proxy/nginx/nginx core/nginx architecture.md",
+    "Pasted image 20260330224539.png",
+    "4. Reverse-proxy/nginx/assets/Pasted image 20260330224306.png",
+    "4. Reverse-proxy/nginx/assets/Pasted image 20260330220224.png",
+    "4. Reverse-proxy/nginx/nginx for k8s/nginx-ingress-controller.md",
+    "4. Reverse-proxy/nginx/assets/Pasted image 20260330220111.png",
+    "4. Reverse-proxy/nginx/assets",
+    "4. Reverse-proxy/nginx/nginx for k8s/nginx for kubernates.md",
+    "4. Reverse-proxy/nginx/nginx for k8s/nginx-gateway-fabric.md",
+    "4. Reverse-proxy/nginx/nginx advanced",
+    "4. Reverse-proxy/nginx/nginx core",
+    "4. Reverse-proxy/nginx/nginx for k8s",
     "Excalidraw/Drawing 2026-03-29 14.30.37.excalidraw.md",
     "TaskNotes/Views/kanban-default.base",
     "Excalidraw",
     "Boards/Untitled Kanban.md",
-    "Untitled.md",
     "Todo/2026-03-29.md",
     "Todo/2026-03-28.md",
     "TaskNotes/Views/calendar-default.base",
     "TaskNotes/Views/tasks-default.base",
     "TaskNotes/Views/agenda-default.base",
     "TaskNotes/Views/mini-calendar-default.base",
-    "TaskNotes/Views/relationships.base",
-    "TaskNotes/Views",
-    "TaskNotes",
     "Kodekloud nginx course @{2026-03-30} @@{12 00}.md",
     "7. GitOps/argo-cd/1.core/1.argocd.md",
     "Tools/hashiCorp-vault/references.md",
     "Tools/hashiCorp-vault/hashiCorp-vault.md",
     "Tools/aikido/Untitled.md",
     "Tools/sonarqube/1.sonarqube.md",
-    "Tools/aikido",
     "Tools/sops/sops.md",
     "Tools/cloudflare/3.cloudflar-ssl-tls.md",
     "Tools/cloudflare/2.cloudflare-services.md",
@@ -251,25 +256,15 @@
     "6. CI&CD/core/1.design-ci-cd-pipelines/1.2.why-run-ci-again-after-merging.md",
     "12.security/oauth/oauth2.md",
     "x/VIP.md",
-    "4. Reverse-proxy/nginx/1.nginx.md",
     "5. K8s/k8s-internals/ingress-controller/Summary.md",
-    "5. K8s/k8s-internals/dns-server/kube-dns-internals.md",
-    "5. K8s/k8s-extra/k8s-gpu-enabled-cluster/_ai-infra-job-requirement.md",
-    "5. K8s/k8s-extra/k8s-eks/eks-intro.md",
-    "Tools/Storage/minio/1.minio.md",
     "Canvas/Canvas-1.canvas",
     "Canvas/Canvas-2.canvas",
-    "Notes/Settings/Obsidian Plugins & Settings.md",
     "Assets/Draw.io/Diagram.svg",
     "x/data-structure/docs/1.core/images/big-o-notation-1.png",
     "OneNote/Hady's Notebook/Quick Notes/asdasd - Ink.svg",
     "Untitled Diagram.svg",
     "x/data-structure/docs/5.graphs/images/directed-graph.png",
     "x/data-structure/docs/5.graphs/images/adjacent-matrix.png",
-    "x/data-structure/docs/5.graphs/images/adjacent-list.png",
-    "x/data-structure/docs/5.graphs/images/adjacent-list-vs-array.png",
-    "x/data-structure/docs/4.tries/images/tries.png",
-    "x/data-structure/docs/4.tries/images/tries-explanation.png",
     "Obsidian/Untitled.canvas",
     "Untitled 1.canvas"
   ]

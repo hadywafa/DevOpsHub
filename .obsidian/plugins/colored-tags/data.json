@@ -9,7 +9,9 @@
   "accessibility": {
     "highTextContrast": false
   },
-  "knownTags": {},
+  "knownTags": {
+    "nginx": 1
+  },
   "tagColors": {},
   "_version": 4
 }
