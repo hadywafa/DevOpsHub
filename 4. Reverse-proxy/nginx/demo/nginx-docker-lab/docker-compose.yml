@@ -1,0 +1,61 @@
+services:
+  setup:
+    image: alpine:3.20
+    container_name: nginx-lab-setup
+    working_dir: /work
+    command: >-
+      sh -c "apk add --no-cache openssl >/dev/null &&
+      mkdir -p /work/certs /work/auth &&
+      if [ ! -f /work/certs/localhost.crt ] || [ ! -f /work/certs/localhost.key ]; then
+      openssl req -x509 -nodes -newkey rsa:2048 -days 365 -keyout /work/certs/localhost.key -out /work/certs/localhost.crt -subj '/C=AE/ST=Dubai/L=Dubai/O=DevOpsHub/CN=localhost'; fi &&
+      printf 'student:%s\\n' \"$(openssl passwd -apr1 nginx123)\" > /work/auth/.htpasswd"
+    volumes:
+      - ./nginx/runtime:/work
+
+  app1:
+    build:
+      context: ./apps/echo
+    container_name: nginx-lab-app1
+    environment:
+      APP_NAME: app1
+      APP_COLOR: steelblue
+      APP_PORT: 8000
+
+  app2:
+    build:
+      context: ./apps/echo
+    container_name: nginx-lab-app2
+    environment:
+      APP_NAME: app2
+      APP_COLOR: seagreen
+      APP_PORT: 8000
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: nginx-lab
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+      app1:
+        condition: service_started
+      app2:
+        condition: service_started
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/html:/usr/share/nginx/html:ro
+      - ./nginx/runtime/certs:/etc/nginx/certs:ro
+      - ./nginx/runtime/auth:/etc/nginx/auth:ro
+      - nginx_cache:/var/cache/nginx
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/healthz || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+volumes:
+  nginx_cache:

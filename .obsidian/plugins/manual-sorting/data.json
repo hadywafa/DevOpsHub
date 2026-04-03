@@ -909,12 +909,14 @@
         "4. Reverse-proxy/nginx/assets",
         "4. Reverse-proxy/nginx/nginx core",
         "4. Reverse-proxy/nginx/nginx advanced",
-        "4. Reverse-proxy/nginx/nginx for k8s"
+        "4. Reverse-proxy/nginx/nginx for k8s",
+        "4. Reverse-proxy/nginx/demo"
       ],
       "sortOrder": "custom"
     },
     "4. Reverse-proxy/nginx/assets": {
       "children": [
+        "4. Reverse-proxy/nginx/assets/Pasted image 20260330224539.png",
         "4. Reverse-proxy/nginx/assets/Pasted image 20260330224306.png",
         "4. Reverse-proxy/nginx/assets/Pasted image 20260330220224.png",
         "4. Reverse-proxy/nginx/assets/Pasted image 20260330220111.png"
@@ -929,9 +931,9 @@
     },
     "4. Reverse-proxy/nginx/nginx core": {
       "children": [
-        "4. Reverse-proxy/nginx/nginx core/introduction to nginx.md",
-        "4. Reverse-proxy/nginx/nginx core/nginx architecture.md",
-        "4. Reverse-proxy/nginx/nginx core/nginx basic config.md"
+        "4. Reverse-proxy/nginx/nginx core/1.introduction to nginx.md",
+        "4. Reverse-proxy/nginx/nginx core/2.nginx architecture.md",
+        "4. Reverse-proxy/nginx/nginx core/3.nginx basic config.md"
       ],
       "sortOrder": "custom"
     },
@@ -4946,6 +4948,106 @@
     "x": {
       "children": [
         "x/VIP.md"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/README.md",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/docker-compose.yml",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/apps"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/nginx.conf",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/privkey.pem",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/auth"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.crt",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.key"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/auth": {
+      "children": [],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/index.html",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/static",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/guide",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/static": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/static/style.css"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/guide": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/guide/rewrite.html"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors/50x.html",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors/404.html"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d/snippets",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d/20-https.conf",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d/10-http.conf",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d/00-upstreams.conf"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d/snippets": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d/snippets/proxy-common.conf",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/conf.d/snippets/common-locations.conf"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/apps": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/apps/echo"
+      ],
+      "sortOrder": "custom"
+    },
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/apps/echo": {
+      "children": [
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/apps/echo/Dockerfile",
+        "4. Reverse-proxy/nginx/demo/nginx-docker-lab/apps/echo/app.py"
       ],
       "sortOrder": "custom"
     }
