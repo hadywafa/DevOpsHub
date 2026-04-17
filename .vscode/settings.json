@@ -32,7 +32,7 @@
     "editor.selectionHighlightBorder": "#000000",
     "editor.selectionBackground": "#1900ff",
     "editor.selectionHighlightBackground": "#1c249868",
-    "statusBar.noFolderBackground": "#464F0E",
-    "statusBar.noFolderForeground": "#F9FBEA"
+    "statusBar.noFolderBackground": "#511C1C",
+    "statusBar.noFolderForeground": "#FEFBFB"
   }
 }
