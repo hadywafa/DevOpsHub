@@ -342,16 +342,16 @@ Apply this to each namespace to ensure every new pod gets at least a minimum req
 
 ## 8. Quick Reference — Which Tool for Which Question
 
-|Question|Tool|Command/Action|
-|---|---|---|
-|How much memory is **actually free** on the node?|`kubectl top nodes` or Azure Monitor|`kubectl top nodes`|
-|How much memory is each **pod actually using**?|`kubectl top pods` or K9s|`kubectl top pods -A --sort-by=memory`|
-|How much memory has the **scheduler reserved**?|`kubectl describe node`|Check "Allocated resources" section|
-|Which pods have **no resource requests**?|kubectl or K9s|`kubectl get pods -A -o json \| jq ...`|
-|What **should** my requests be set to?|VPA or Prometheus|Deploy VPA in recommendation mode|
-|Real-time interactive monitoring?|**K9s**|`:top pod`, `:top node`|
-|Historical trends and dashboards?|**Grafana + Prometheus**|Use built-in dashboards|
-|Side-by-side requests vs actual?|**kubectl resource-capacity**|`kubectl resource-capacity --util`|
+| Question                                          | Tool                                 | Command/Action                          |
+| ------------------------------------------------- | ------------------------------------ | --------------------------------------- |
+| How much memory is **actually free** on the node? | `kubectl top nodes` or Azure Monitor | `kubectl top nodes`                     |
+| How much memory is each **pod actually using**?   | `kubectl top pods` or K9s            | `kubectl top pods -A --sort-by=memory`  |
+| How much memory has the **scheduler reserved**?   | `kubectl describe node`              | Check "Allocated resources" section     |
+| Which pods have **no resource requests**?         | kubectl or K9s                       | `kubectl get pods -A -o json \| jq ...` |
+| What **should** my requests be set to?            | VPA or Prometheus                    | Deploy VPA in recommendation mode       |
+| Real-time interactive monitoring?                 | **K9s**                              | `:top pod`, `:top node`                 |
+| Historical trends and dashboards?                 | **Grafana + Prometheus**             | Use built-in dashboards                 |
+| Side-by-side requests vs actual?                  | **kubectl resource-capacity**        | `kubectl resource-capacity --util`      |
 
 ---
 
