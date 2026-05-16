@@ -31,6 +31,8 @@
     "editor.lineHighlightBorder": "#131316",
     "editor.selectionHighlightBorder": "#000000",
     "editor.selectionBackground": "#1900ff",
-    "editor.selectionHighlightBackground": "#1c249868"
+    "editor.selectionHighlightBackground": "#1c249868",
+    "statusBar.noFolderBackground": "#A02C18",
+    "statusBar.noFolderForeground": "#FEF9F9"
   }
 }
