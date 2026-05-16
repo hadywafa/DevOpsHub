@@ -1,1 +1,0 @@
-https://grafana.com/docs/tempo/latest/operations/caching/

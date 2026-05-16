@@ -1,0 +1,28 @@
+version: '3'  # Docker Compose file format version
+
+services:  # Define your services here
+  web:
+    image: nginx:latest  # Docker image to use
+    ports:
+      - "8080:80"  # Map host port 8080 to container port 80
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d  # Mount a local directory to a container directory
+    environment:
+      - NGINX_HOST=example.com
+      - NGINX_PORT=80
+
+  app:
+    image: my-app:latest  # Docker image for your application
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://dbuser:dbpassword@db:5432/mydatabase
+
+  db:
+    image: postgres:latest  # PostgreSQL database image
+    environment:
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=dbpassword
+      - POSTGRES_DB=mydatabase

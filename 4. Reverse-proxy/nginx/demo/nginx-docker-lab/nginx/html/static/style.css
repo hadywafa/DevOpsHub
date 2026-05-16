@@ -1,0 +1,125 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f3eb;
+  --panel: rgba(255, 255, 255, 0.8);
+  --text: #1d2935;
+  --muted: #586574;
+  --line: rgba(29, 41, 53, 0.12);
+  --accent: #c35c2c;
+  --accent-dark: #8e3f1a;
+  --shadow: 0 20px 60px rgba(29, 41, 53, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(195, 92, 44, 0.16), transparent 30%),
+    linear-gradient(180deg, #f4efe3 0%, #f6f3eb 60%, #efe8d8 100%);
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+.page {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+.narrow {
+  width: min(720px, calc(100% - 32px));
+}
+
+.hero {
+  padding: 32px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+.lead {
+  max-width: 64ch;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.actions a {
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow);
+}
+
+ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+pre, code {
+  background: rgba(29, 41, 53, 0.07);
+  border-radius: 8px;
+}
+
+pre {
+  padding: 12px;
+  overflow: auto;
+}
+
+code {
+  padding: 2px 6px;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding-top: 24px;
+  }
+
+  .hero,
+  .card {
+    border-radius: 18px;
+  }
+}

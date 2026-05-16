@@ -1,0 +1,8 @@
+/* Make Excalidraw embeds full page width */
+.markdown-preview-view .internal-embed[src$=".excalidraw"] {
+    display: block;
+    width: 100vw !important;        /* full viewport width */
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw);  /* shift left to align with page edge */
+    margin-right: 0 !important;
+}

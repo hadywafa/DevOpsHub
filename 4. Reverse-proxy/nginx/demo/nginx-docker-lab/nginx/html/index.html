@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nginx Docker Lab</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Docker Compose + Nginx playground</p>
+      <h1>Nginx learning lab</h1>
+      <p class="lead">
+        This project is a hands-on sandbox for reverse proxy, load balancing, TLS,
+        static files, caching, rate limiting, rewrites, custom errors, and basic auth.
+      </p>
+      <div class="actions">
+        <a href="/api/">Test load balancing</a>
+        <a href="/cache/">Test caching</a>
+        <a href="/basic/">Test basic auth</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Main routes</h2>
+        <ul>
+          <li><a href="/app1/">/app1/</a> -> direct proxy to backend 1</li>
+          <li><a href="/app2/">/app2/</a> -> direct proxy to backend 2</li>
+          <li><a href="/api/">/api/</a> -> upstream with load balancing</li>
+          <li><a href="/cache/">/cache/</a> -> proxy cache enabled</li>
+          <li><a href="/rate/">/rate/</a> -> rate limiting enabled</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Infrastructure routes</h2>
+        <ul>
+          <li><a href="/healthz">/healthz</a> -> Nginx health endpoint</li>
+          <li><a href="/status">/status</a> -> Nginx stub status</li>
+          <li><a href="/old-docs">/old-docs</a> -> redirect example</li>
+          <li><a href="/rewrite-demo/headers">/rewrite-demo/headers</a> -> rewrite example</li>
+          <li><a href="https://localhost:8443/">HTTPS on port 8443</a></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Security demo</h2>
+        <p>Basic auth credentials:</p>
+        <pre>username: student
+password: nginx123</pre>
+        <p>Open <a href="/basic/">/basic/</a> to test protected content.</p>
+      </article>
+
+      <article class="card">
+        <h2>Learning files</h2>
+        <ul>
+          <li><code>docker-compose.yml</code></li>
+          <li><code>nginx/nginx.conf</code></li>
+          <li><code>nginx/conf.d/00-upstreams.conf</code></li>
+          <li><code>nginx/conf.d/snippets/common-locations.conf</code></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

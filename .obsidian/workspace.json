@@ -1,0 +1,272 @@
+{
+  "main": {
+    "id": "88a063a68face533",
+    "type": "split",
+    "children": [
+      {
+        "id": "b55494a6ad6f3174",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "52b008388bc162a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Quick Notes/Kubernetes Resource Monitoring.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Kubernetes Resource Monitoring"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6d2c50990066a39c",
+    "type": "split",
+    "children": [
+      {
+        "id": "bc7f9f6c2a4dec56",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fc7e321c07a48c53",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "custom",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "15a9c7ac71ca9ca4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0e80865fe896022d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 294.5110321044922
+  },
+  "right": {
+    "id": "7c209669fec76014",
+    "type": "split",
+    "children": [
+      {
+        "id": "720ab6afe9e88d38",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "714c813c78e0f14b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Settings/Setup Theming.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Setup Theming"
+            }
+          },
+          {
+            "id": "12986bbca3d193af",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "89c64f0632215787",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "282c3bd0b06434bc",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "ac81a368ca2230ef",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "4. Reverse-proxy/nginx/nginx core/nginx architecture.md",
+                "followCursor": true,
+                "showSearch": true,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of nginx architecture"
+            }
+          },
+          {
+            "id": "ffdf69bbe0a11cda",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "mermaid-toolbar-view"
+            }
+          },
+          {
+            "id": "52df6e039edd8bb4",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "reminder-list"
+            }
+          },
+          {
+            "id": "11c7925f7b1cff42",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 203.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": true,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": true,
+      "templates:Insert template": true,
+      "command-palette:Open command palette": true,
+      "bases:Create new base": true,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "open-vscode:VS Code": false
+    }
+  },
+  "active": "52b008388bc162a5",
+  "lastOpenFiles": [
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/README.md",
+    "Quick Notes/Kubernetes Resource Monitoring.md",
+    "Quick Notes",
+    "4. Reverse-proxy/nginx/nginx advanced/advanced options in nginx.md",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.crt",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.key",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/privkey.pem",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/auth",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/static/style.css",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors/50x.html",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/guide/rewrite.html",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors/404.html",
+    "4. Reverse-proxy/nginx/nginx core/3.nginx basic config.md",
+    "4. Reverse-proxy/nginx/nginx core/2.nginx architecture.md",
+    "4. Reverse-proxy/nginx/nginx core/1.introduction to nginx.md",
+    "4. Reverse-proxy/nginx/assets/Pasted image 20260330224539.png",
+    "4. Reverse-proxy/nginx/assets/Pasted image 20260330224306.png",
+    "4. Reverse-proxy/nginx/assets/Pasted image 20260330220224.png",
+    "4. Reverse-proxy/nginx/nginx for k8s/nginx-ingress-controller.md",
+    "4. Reverse-proxy/nginx/assets/Pasted image 20260330220111.png",
+    "4. Reverse-proxy/nginx/nginx for k8s/nginx for kubernates.md",
+    "4. Reverse-proxy/nginx/nginx for k8s/nginx-gateway-fabric.md",
+    "Excalidraw/Drawing 2026-03-29 14.30.37.excalidraw.md",
+    "Boards/Untitled Kanban.md",
+    "Todo/2026-03-29.md",
+    "Todo/2026-03-28.md",
+    "Kodekloud nginx course @{2026-03-30} @@{12 00}.md",
+    "7. GitOps/argo-cd/1.core/1.argocd.md",
+    "Tools/hashiCorp-vault/references.md",
+    "Tools/hashiCorp-vault/hashiCorp-vault.md",
+    "Tools/aikido/Untitled.md",
+    "Tools/sonarqube/1.sonarqube.md",
+    "Tools/sops/sops.md",
+    "Tools/cloudflare/3.cloudflar-ssl-tls.md",
+    "Tools/cloudflare/2.cloudflare-services.md",
+    "Tools/cloudflare/1.cloudflare.md",
+    "6. CI&CD/core/1.design-ci-cd-pipelines/1.2.why-run-ci-again-after-merging.md",
+    "12.security/oauth/oauth2.md",
+    "x/VIP.md",
+    "Canvas/Canvas-1.canvas",
+    "Canvas/Canvas-2.canvas",
+    "Assets/Draw.io/Diagram.svg",
+    "x/data-structure/docs/1.core/images/big-o-notation-1.png",
+    "OneNote/Hady's Notebook/Quick Notes/asdasd - Ink.svg",
+    "Untitled Diagram.svg",
+    "x/data-structure/docs/5.graphs/images/directed-graph.png",
+    "x/data-structure/docs/5.graphs/images/adjacent-matrix.png",
+    "Obsidian/Untitled.canvas",
+    "Untitled 1.canvas"
+  ]
+}
