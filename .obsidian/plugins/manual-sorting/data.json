@@ -2,6 +2,7 @@
   "customOrder": {
     "/": {
       "children": [
+        "tmux-commands-cheat-sheet.pdf",
         "TaskNotes",
         "Quick Notes",
         "1. Networking",
@@ -15,6 +16,7 @@
         "9. Config management",
         "10. Observability",
         "Tools",
+        "Important",
         "x"
       ],
       "sortOrder": "custom"
@@ -4569,6 +4571,25 @@
       ],
       "sortOrder": "custom"
     },
+    "Important": {
+      "children": [
+        "Important/HomeLab",
+        "Important/SSL Certificates"
+      ],
+      "sortOrder": "custom"
+    },
+    "Important/HomeLab": {
+      "children": [
+        "Important/HomeLab/Roadmap.md"
+      ],
+      "sortOrder": "custom"
+    },
+    "Important/SSL Certificates": {
+      "children": [
+        "Important/SSL Certificates/README.md.md"
+      ],
+      "sortOrder": "custom"
+    },
     "Quick Notes": {
       "children": [
         "Quick Notes/Kubernetes Resource Monitoring.md"
@@ -4594,6 +4615,7 @@
     },
     "Tools": {
       "children": [
+        "Tools/tmux",
         "Tools/aikido",
         "Tools/sonarqube",
         "Tools/cloudflare",
@@ -5046,6 +5068,16 @@
       ],
       "sortOrder": "custom"
     },
+    "Tools/tmux": {
+      "children": [
+        "Tools/tmux/assets",
+        "Tools/tmux/summary.canvas",
+        "Tools/tmux/summary.md",
+        "Tools/tmux/tmux.conf.md",
+        "Tools/tmux/tmux Cheat Sheet.md"
+      ],
+      "sortOrder": "custom"
+    },
     "Tools/trivy": {
       "children": [
         "Tools/trivy/trivy.md"
@@ -5056,6 +5088,10 @@
       "children": [
         "x/VIP.md"
       ],
+      "sortOrder": "custom"
+    },
+    "Tools/tmux/assets": {
+      "children": [],
       "sortOrder": "custom"
     }
   },

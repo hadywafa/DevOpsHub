@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "b55494a6ad6f3174",
+        "id": "169a43a534c2d9d8",
         "type": "tabs",
         "children": [
           {
-            "id": "52b008388bc162a5",
+            "id": "85bdcaae7f00ead8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Quick Notes/Kubernetes Resource Monitoring.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Kubernetes Resource Monitoring"
+              "title": "New tab"
             }
           }
         ]
@@ -216,21 +212,37 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "52b008388bc162a5",
+  "active": "85bdcaae7f00ead8",
   "lastOpenFiles": [
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/README.md",
+    "Tools/tmux/assets/tmux-commands-cheat-sheet.pdf",
+    "Tools/tmux/tmux.conf.md",
+    "Tools/tmux/tmux Cheat Sheet.md",
+    "Tools/tmux/summary.canvas",
+    "Tools/tmux/assets",
+    "Tools/tmux",
+    "Important/SSL Certificates/README.md.md",
+    "Important/HomeLab/Roadmap.md",
+    "Important/SSL Certificates",
+    "Important/HomeLab",
+    "Important",
+    "10.observability/loki/integration/image/with-otel/1770480283479.png",
+    "10.observability/loki/integration/image/with-otel",
+    "10.observability/opentelemetry/with_loki/2.md",
+    "10.observability/opentelemetry/with_loki/1.md",
+    "10.observability/opentelemetry/logs/separate-clollector.md",
+    "10.observability/opentelemetry/logs/pod-logs-vial-otel.md",
+    "10.observability/opentelemetry/logs/ignore-namespaced.md",
+    "10.observability/opentelemetry/logs/control-logs-format-per-app-in-one-collector.md",
+    "10.observability/loki/integration/with-otel.md",
+    "10.observability/loki/integration/image",
+    "10.observability/opentelemetry/with_loki",
+    "10.observability/opentelemetry/logs",
+    "10.observability/loki/integration",
+    "Tools/istio/1.core/1.service-mesh.md",
+    "Tools/tmux/summary.md",
     "Quick Notes/Kubernetes Resource Monitoring.md",
-    "Quick Notes",
+    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/README.md",
     "4. Reverse-proxy/nginx/nginx advanced/advanced options in nginx.md",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.crt",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.key",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/privkey.pem",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/auth",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/static/style.css",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors/50x.html",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/guide/rewrite.html",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/html/errors/404.html",
     "4. Reverse-proxy/nginx/nginx core/3.nginx basic config.md",
     "4. Reverse-proxy/nginx/nginx core/2.nginx architecture.md",
     "4. Reverse-proxy/nginx/nginx core/1.introduction to nginx.md",
@@ -244,20 +256,6 @@
     "Excalidraw/Drawing 2026-03-29 14.30.37.excalidraw.md",
     "Boards/Untitled Kanban.md",
     "Todo/2026-03-29.md",
-    "Todo/2026-03-28.md",
-    "Kodekloud nginx course @{2026-03-30} @@{12 00}.md",
-    "7. GitOps/argo-cd/1.core/1.argocd.md",
-    "Tools/hashiCorp-vault/references.md",
-    "Tools/hashiCorp-vault/hashiCorp-vault.md",
-    "Tools/aikido/Untitled.md",
-    "Tools/sonarqube/1.sonarqube.md",
-    "Tools/sops/sops.md",
-    "Tools/cloudflare/3.cloudflar-ssl-tls.md",
-    "Tools/cloudflare/2.cloudflare-services.md",
-    "Tools/cloudflare/1.cloudflare.md",
-    "6. CI&CD/core/1.design-ci-cd-pipelines/1.2.why-run-ci-again-after-merging.md",
-    "12.security/oauth/oauth2.md",
-    "x/VIP.md",
     "Canvas/Canvas-1.canvas",
     "Canvas/Canvas-2.canvas",
     "Assets/Draw.io/Diagram.svg",
@@ -265,7 +263,6 @@
     "OneNote/Hady's Notebook/Quick Notes/asdasd - Ink.svg",
     "Untitled Diagram.svg",
     "x/data-structure/docs/5.graphs/images/directed-graph.png",
-    "x/data-structure/docs/5.graphs/images/adjacent-matrix.png",
     "Obsidian/Untitled.canvas",
     "Untitled 1.canvas"
   ]
