@@ -4587,6 +4587,7 @@
     },
     "Tools": {
       "children": [
+        "Tools/image signing",
         "Tools/tmux",
         "Tools/aikido",
         "Tools/sonarqube",
@@ -5059,6 +5060,20 @@
     },
     "Tools/tmux/assets": {
       "children": [],
+      "sortOrder": "custom"
+    },
+    "Tools/image signing": {
+      "children": [
+        "Tools/image signing/Introduction.md",
+        "Tools/image signing/Sigstore-cosign"
+      ],
+      "sortOrder": "custom"
+    },
+    "Tools/image signing/Sigstore-cosign": {
+      "children": [
+        "Tools/image signing/Sigstore-cosign/sigstore-cosign-with-azure.md",
+        "Tools/image signing/Sigstore-cosign/Sigstore-cosign.md"
+      ],
       "sortOrder": "custom"
     }
   },

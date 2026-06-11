@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Quick Notes/Kubernetes Resource Monitoring.md",
+                "file": "Tools/image signing/Sigstore-cosign/sigstore-cosign-with-azure.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kubernetes Resource Monitoring"
+              "title": "sigstore-cosign-with-azure"
             }
           }
         ]
@@ -216,8 +216,14 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "fc7e321c07a48c53",
+  "active": "52b008388bc162a5",
   "lastOpenFiles": [
+    "Tools/image signing/Sigstore-cosign/Sigstore-cosign.md",
+    "Tools/image signing/Sigstore-cosign/sigstore-cosign-with-azure.md",
+    "Tools/image signing/Introduction.md",
+    "Quick Notes/Kubernetes Resource Monitoring.md",
+    "Tools/image signing/Sigstore-cosign",
+    "Tools/image signing",
     "Tools/tmux/assets/tmux-commands-cheat-sheet.pdf",
     "Tools/tmux/tmux.conf.md",
     "Tools/tmux/tmux Cheat Sheet.md",
@@ -230,13 +236,9 @@
     "Important/HomeLab",
     "Important",
     "4. Reverse-proxy/nginx/demo/nginx-docker-lab/README.md",
-    "Quick Notes/Kubernetes Resource Monitoring.md",
     "Quick Notes",
     "4. Reverse-proxy/nginx/nginx advanced/advanced options in nginx.md",
     "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.crt",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs/localhost.key",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/privkey.pem",
-    "4. Reverse-proxy/nginx/demo/nginx-docker-lab/nginx/runtime/certs",
     "4. Reverse-proxy/nginx/nginx core/3.nginx basic config.md",
     "4. Reverse-proxy/nginx/nginx core/2.nginx architecture.md",
     "4. Reverse-proxy/nginx/nginx core/1.introduction to nginx.md",
@@ -257,8 +259,6 @@
     "Tools/hashiCorp-vault/hashiCorp-vault.md",
     "Tools/aikido/Untitled.md",
     "Tools/sonarqube/1.sonarqube.md",
-    "Tools/sops/sops.md",
-    "Tools/cloudflare/3.cloudflar-ssl-tls.md",
     "Canvas/Canvas-1.canvas",
     "Canvas/Canvas-2.canvas",
     "Assets/Draw.io/Diagram.svg",
