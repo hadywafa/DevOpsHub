@@ -2,7 +2,7 @@
   "customOrder": {
     "/": {
       "children": [
-        "10.observability",
+        "tmux-commands-cheat-sheet.pdf",
         "TaskNotes",
         "Quick Notes",
         "1. Networking",
@@ -16,6 +16,7 @@
         "9. Config management",
         "10. Observability",
         "Tools",
+        "Important",
         "x"
       ],
       "sortOrder": "custom"
@@ -4542,63 +4543,22 @@
       ],
       "sortOrder": "custom"
     },
-    "10.observability": {
+    "Important": {
       "children": [
-        "10.observability/loki",
-        "10.observability/opentelemetry"
+        "Important/HomeLab",
+        "Important/SSL Certificates"
       ],
       "sortOrder": "custom"
     },
-    "10.observability/loki": {
+    "Important/HomeLab": {
       "children": [
-        "10.observability/loki/6.cost-esitmate",
-        "10.observability/loki/integration"
+        "Important/HomeLab/Roadmap.md"
       ],
       "sortOrder": "custom"
     },
-    "10.observability/loki/6.cost-esitmate": {
-      "children": [],
-      "sortOrder": "custom"
-    },
-    "10.observability/loki/integration": {
+    "Important/SSL Certificates": {
       "children": [
-        "10.observability/loki/integration/image",
-        "10.observability/loki/integration/with-otel.md"
-      ],
-      "sortOrder": "custom"
-    },
-    "10.observability/loki/integration/image": {
-      "children": [
-        "10.observability/loki/integration/image/with-otel"
-      ],
-      "sortOrder": "custom"
-    },
-    "10.observability/loki/integration/image/with-otel": {
-      "children": [
-        "10.observability/loki/integration/image/with-otel/1770480283479.png"
-      ],
-      "sortOrder": "custom"
-    },
-    "10.observability/opentelemetry": {
-      "children": [
-        "10.observability/opentelemetry/logs",
-        "10.observability/opentelemetry/with_loki"
-      ],
-      "sortOrder": "custom"
-    },
-    "10.observability/opentelemetry/logs": {
-      "children": [
-        "10.observability/opentelemetry/logs/control-logs-format-per-app-in-one-collector.md",
-        "10.observability/opentelemetry/logs/ignore-namespaced.md",
-        "10.observability/opentelemetry/logs/pod-logs-vial-otel.md",
-        "10.observability/opentelemetry/logs/separate-clollector.md"
-      ],
-      "sortOrder": "custom"
-    },
-    "10.observability/opentelemetry/with_loki": {
-      "children": [
-        "10.observability/opentelemetry/with_loki/1.md",
-        "10.observability/opentelemetry/with_loki/2.md"
+        "Important/SSL Certificates/README.md.md"
       ],
       "sortOrder": "custom"
     },
@@ -4627,6 +4587,7 @@
     },
     "Tools": {
       "children": [
+        "Tools/tmux",
         "Tools/aikido",
         "Tools/sonarqube",
         "Tools/cloudflare",
@@ -5074,6 +5035,16 @@
       ],
       "sortOrder": "custom"
     },
+    "Tools/tmux": {
+      "children": [
+        "Tools/tmux/assets",
+        "Tools/tmux/summary.canvas",
+        "Tools/tmux/summary.md",
+        "Tools/tmux/tmux.conf.md",
+        "Tools/tmux/tmux Cheat Sheet.md"
+      ],
+      "sortOrder": "custom"
+    },
     "Tools/trivy": {
       "children": [
         "Tools/trivy/trivy.md"
@@ -5084,6 +5055,10 @@
       "children": [
         "x/VIP.md"
       ],
+      "sortOrder": "custom"
+    },
+    "Tools/tmux/assets": {
+      "children": [],
       "sortOrder": "custom"
     }
   },

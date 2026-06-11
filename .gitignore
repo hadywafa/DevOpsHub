@@ -363,3 +363,8 @@ terraform.tfstate.lock.info
 # Local-only override files
 *.auto.tfvars
 *.tfvars
+
+# Local generated certificates/private keys
+**/runtime/certs/*.key
+**/runtime/certs/*.pem
+**/runtime/*.pem
