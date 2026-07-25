@@ -1,0 +1,155 @@
+name: kafka-kraft-lab
+
+x-kafka-common: &kafka-common
+  image: apache/kafka:4.3.1
+  restart: unless-stopped
+  stop_grace_period: 60s
+  networks:
+    - kafka-net
+  depends_on:
+    volume-init:
+      condition: service_completed_successfully
+  healthcheck:
+    test:
+      - CMD-SHELL
+      - >-
+        /opt/kafka/bin/kafka-broker-api-versions.sh
+        --bootstrap-server localhost:19092 >/dev/null 2>&1
+    interval: 10s
+    timeout: 10s
+    retries: 15
+    start_period: 30s
+
+x-kafka-environment: &kafka-environment
+  CLUSTER_ID: "${KAFKA_CLUSTER_ID:?Run ./start.sh first or create .env}"
+
+  KAFKA_PROCESS_ROLES: "broker,controller"
+  KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-1:19093,2@kafka-2:19093,3@kafka-3:19093"
+  KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+
+  KAFKA_LISTENERS: "INTERNAL://:19092,CONTROLLER://:19093,EXTERNAL://:9092"
+  KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT"
+  KAFKA_INTER_BROKER_LISTENER_NAME: "INTERNAL"
+
+  KAFKA_LOG_DIRS: "/var/lib/kafka/data"
+  KAFKA_HEAP_OPTS: "-Xms512M -Xmx512M"
+
+  KAFKA_NUM_PARTITIONS: "3"
+  KAFKA_DEFAULT_REPLICATION_FACTOR: "3"
+  KAFKA_MIN_INSYNC_REPLICAS: "2"
+
+  KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: "3"
+  KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "3"
+
+  KAFKA_TRANSACTION_STATE_LOG_NUM_PARTITIONS: "3"
+  KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "3"
+  KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "2"
+
+  KAFKA_SHARE_COORDINATOR_STATE_TOPIC_NUM_PARTITIONS: "3"
+  KAFKA_SHARE_COORDINATOR_STATE_TOPIC_REPLICATION_FACTOR: "3"
+  KAFKA_SHARE_COORDINATOR_STATE_TOPIC_MIN_ISR: "2"
+
+  KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+  KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE: "false"
+  KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: "0"
+
+  # Seven days. This is a lab default, not a universal production value.
+  KAFKA_LOG_RETENTION_HOURS: "168"
+
+services:
+  volume-init:
+    image: busybox:1.37.0
+    user: "0:0"
+    command:
+      - sh
+      - -ec
+      - >-
+        chown -R 1000:1000
+        /data/kafka-1
+        /data/kafka-2
+        /data/kafka-3
+    volumes:
+      - kafka-1-data:/data/kafka-1
+      - kafka-2-data:/data/kafka-2
+      - kafka-3-data:/data/kafka-3
+    restart: "no"
+
+  kafka-1:
+    <<: *kafka-common
+    hostname: kafka-1
+    container_name: kafka-1
+    ports:
+      - "${KAFKA_BIND_ADDRESS:-127.0.0.1}:29092:9092"
+    environment:
+      <<: *kafka-environment
+      KAFKA_NODE_ID: "1"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka-1:19092,EXTERNAL://${KAFKA_EXTERNAL_HOST:-localhost}:29092"
+    volumes:
+      - kafka-1-data:/var/lib/kafka/data
+
+  kafka-2:
+    <<: *kafka-common
+    hostname: kafka-2
+    container_name: kafka-2
+    ports:
+      - "${KAFKA_BIND_ADDRESS:-127.0.0.1}:39092:9092"
+    environment:
+      <<: *kafka-environment
+      KAFKA_NODE_ID: "2"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka-2:19092,EXTERNAL://${KAFKA_EXTERNAL_HOST:-localhost}:39092"
+    volumes:
+      - kafka-2-data:/var/lib/kafka/data
+
+  kafka-3:
+    <<: *kafka-common
+    hostname: kafka-3
+    container_name: kafka-3
+    ports:
+      - "${KAFKA_BIND_ADDRESS:-127.0.0.1}:49092:9092"
+    environment:
+      <<: *kafka-environment
+      KAFKA_NODE_ID: "3"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka-3:19092,EXTERNAL://${KAFKA_EXTERNAL_HOST:-localhost}:49092"
+    volumes:
+      - kafka-3-data:/var/lib/kafka/data
+
+  kafbat-ui:
+    image: ghcr.io/kafbat/kafka-ui:v1.5.0
+    hostname: kafbat-ui
+    container_name: kafbat-ui
+    restart: unless-stopped
+    ports:
+      - "${KAFKA_UI_BIND_ADDRESS:-127.0.0.1}:${KAFKA_UI_PORT:-8080}:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: "local-kraft"
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka-1:19092,kafka-2:19092,kafka-3:19092"
+      DYNAMIC_CONFIG_ENABLED: "false"
+      SWAGGER_UI_ENABLED: "true"
+      LOGGING_LEVEL_ROOT: "INFO"
+      JAVA_TOOL_OPTIONS: "-Xms128M -Xmx512M"
+    depends_on:
+      kafka-1:
+        condition: service_healthy
+      kafka-2:
+        condition: service_healthy
+      kafka-3:
+        condition: service_healthy
+    networks:
+      - kafka-net
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - wget -qO- http://localhost:8080/actuator/health | grep -q '"status":"UP"'
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+networks:
+  kafka-net:
+    driver: bridge
+
+volumes:
+  kafka-1-data:
+  kafka-2-data:
+  kafka-3-data:
