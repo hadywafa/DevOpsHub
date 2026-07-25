@@ -116,9 +116,6 @@
     },
     "1. Networking/4.protocols": {
       "children": [
-        "1. Networking/4.protocols/1.1.TCP-IP",
-        "1. Networking/4.protocols/1.2.ARP",
-        "1. Networking/4.protocols/1.3.DHCP",
         "1. Networking/4.protocols/1.4.ICMP",
         "1. Networking/4.protocols/2.SSH",
         "1. Networking/4.protocols/3.TLS",
@@ -129,18 +126,6 @@
         "1. Networking/4.protocols/8.EVPN",
         "1. Networking/4.protocols/review"
       ],
-      "sortOrder": "custom"
-    },
-    "1. Networking/4.protocols/1.1.TCP-IP": {
-      "children": [],
-      "sortOrder": "custom"
-    },
-    "1. Networking/4.protocols/1.2.ARP": {
-      "children": [],
-      "sortOrder": "custom"
-    },
-    "1. Networking/4.protocols/1.3.DHCP": {
-      "children": [],
       "sortOrder": "custom"
     },
     "1. Networking/4.protocols/1.4.ICMP": {
@@ -1970,8 +1955,7 @@
     },
     "5. K8s/k8s-in-cloud/eks": {
       "children": [
-        "5. K8s/k8s-in-cloud/eks/1.cluster-access",
-        "5. K8s/k8s-in-cloud/eks/2.networking"
+        "5. K8s/k8s-in-cloud/eks/1.cluster-access"
       ],
       "sortOrder": "custom"
     },
@@ -1990,18 +1974,9 @@
     },
     "5. K8s/k8s-in-cloud/eks/1.cluster-access/image": {
       "children": [
-        "5. K8s/k8s-in-cloud/eks/1.cluster-access/image/2.2.eks-access-entry-internals",
         "5. K8s/k8s-in-cloud/eks/1.cluster-access/image/1761546372088.png",
         "5. K8s/k8s-in-cloud/eks/1.cluster-access/image/1761548867291.png"
       ],
-      "sortOrder": "custom"
-    },
-    "5. K8s/k8s-in-cloud/eks/1.cluster-access/image/2.2.eks-access-entry-internals": {
-      "children": [],
-      "sortOrder": "custom"
-    },
-    "5. K8s/k8s-in-cloud/eks/2.networking": {
-      "children": [],
       "sortOrder": "custom"
     },
     "5. K8s/k8s-internals": {
@@ -3871,8 +3846,7 @@
       "children": [
         "8. Iac/1.terraform/playground/2_provision-aws-resources/scripts",
         "8. Iac/1.terraform/playground/2_provision-aws-resources/main.tf",
-        "8. Iac/1.terraform/playground/2_provision-aws-resources/providers.tf",
-        "8. Iac/1.terraform/playground/2_provision-aws-resources/terraform.tfvars"
+        "8. Iac/1.terraform/playground/2_provision-aws-resources/providers.tf"
       ],
       "sortOrder": "custom"
     },
@@ -3890,7 +3864,6 @@
         "8. Iac/1.terraform/playground/3_provision-aws-environment-modules/outputs.tf",
         "8. Iac/1.terraform/playground/3_provision-aws-environment-modules/providers.tf",
         "8. Iac/1.terraform/playground/3_provision-aws-environment-modules/README.md",
-        "8. Iac/1.terraform/playground/3_provision-aws-environment-modules/terraform.tfvars",
         "8. Iac/1.terraform/playground/3_provision-aws-environment-modules/variables.tf"
       ],
       "sortOrder": "custom"
@@ -3931,7 +3904,6 @@
         "8. Iac/1.terraform/playground/4_provision-eks-cluster/main.tf",
         "8. Iac/1.terraform/playground/4_provision-eks-cluster/providers.tf",
         "8. Iac/1.terraform/playground/4_provision-eks-cluster/README.md",
-        "8. Iac/1.terraform/playground/4_provision-eks-cluster/terraform.tfvars",
         "8. Iac/1.terraform/playground/4_provision-eks-cluster/variables.tf"
       ],
       "sortOrder": "custom"
@@ -4615,6 +4587,7 @@
     },
     "Tools": {
       "children": [
+        "Tools/image signing",
         "Tools/tmux",
         "Tools/aikido",
         "Tools/sonarqube",
@@ -4963,13 +4936,8 @@
     },
     "Tools/istio/2.installation/image": {
       "children": [
-        "Tools/istio/2.installation/image/1.installation",
         "Tools/istio/2.installation/image/1764432818612.png"
       ],
-      "sortOrder": "custom"
-    },
-    "Tools/istio/2.installation/image/1.installation": {
-      "children": [],
       "sortOrder": "custom"
     },
     "Tools/istio/3.security": {
@@ -5092,6 +5060,20 @@
     },
     "Tools/tmux/assets": {
       "children": [],
+      "sortOrder": "custom"
+    },
+    "Tools/image signing": {
+      "children": [
+        "Tools/image signing/Introduction.md",
+        "Tools/image signing/Sigstore-cosign"
+      ],
+      "sortOrder": "custom"
+    },
+    "Tools/image signing/Sigstore-cosign": {
+      "children": [
+        "Tools/image signing/Sigstore-cosign/sigstore-cosign-with-azure.md",
+        "Tools/image signing/Sigstore-cosign/Sigstore-cosign.md"
+      ],
       "sortOrder": "custom"
     }
   },
