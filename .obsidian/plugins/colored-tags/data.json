@@ -10,6 +10,7 @@
     "highTextContrast": false
   },
   "knownTags": {
+    "kafka": 2,
     "nginx": 1
   },
   "tagColors": {},
