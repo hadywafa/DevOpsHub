@@ -11,14 +11,12 @@
             "id": "20c548126593f99b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "11. kafka/playground/homelab/with-docker-compose/1.README.md",
-                "mode": "source",
-                "source": false
+                "file": "11. kafka/exam/images/Pasted image 20260725173016.png"
               },
-              "icon": "lucide-file",
-              "title": "1.README"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260725173016"
             }
           }
         ]
@@ -219,9 +217,11 @@
   },
   "active": "20c548126593f99b",
   "lastOpenFiles": [
-    "11. kafka/exam/images/Pasted image 20260725173016.png",
-    "11. kafka/playground/homelab/with-docker-compose/2.README.md",
     "11. kafka/playground/homelab/with-docker-compose/1.README.md",
+    "11. kafka/playground/homelab/with-docker-compose/2.README.md",
+    "11. kafka/playground/homelab/with-docker-compose/3.README.md",
+    "11. kafka/playground/homelab/with-docker-compose/1.READMEE.md",
+    "11. kafka/exam/images/Pasted image 20260725173016.png",
     "11. kafka/exam/images/Pasted image 20260725172342.png",
     "11. kafka/exam/images/Pasted image 20260725172334.png",
     "11. kafka/playground/homelab/with-docker-compose/README.md",
@@ -247,7 +247,6 @@
     "11. kafka/docs/1. kafka foundation/1.kafka101/assets/Pasted image 20260726014059.png",
     "11. kafka/docs/1. kafka foundation/1.kafka101/8.zookeeper.md",
     "11. kafka/docs/1. kafka foundation/1.kafka101/assets/Pasted image 20260726013855.png",
-    "11. kafka/docs/1. kafka foundation/1.kafka101/assets/Pasted image 20260726013640.png",
     "11. kafka/docs/1. kafka foundation/1.kafka101/7.Producer acks.md",
     "11. kafka/docs/1. kafka foundation/1.kafka101/6.Topic Replication.md",
     "11. kafka/docs/1. kafka foundation/1.kafka101/5.brokers.md",
@@ -264,7 +263,6 @@
     "11. kafka/docs/4. kafka security (SSL,SASL,ACL))/Untitled.md",
     "11. kafka/docs/3. kafka monitoring & operations/Untitled 1.md",
     "11. kafka/docs/2. kafka cluster setup & adminstration/Untitled.md",
-    "11. kafka/resources/Stephane Maarek (30 hr).md",
     "0. Tools/tmux/summary.canvas",
     "Canvas/Canvas-1.canvas",
     "Canvas/Canvas-2.canvas",
