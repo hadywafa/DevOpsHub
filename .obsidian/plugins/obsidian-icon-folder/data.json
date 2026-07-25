@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "📔",
+      "⏰",
+      "📡",
       "⭐",
-      "LiNotebook",
-      "🧰",
-      "🌐",
-      "LiShoppingBasket"
+      "LiNotebook"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -50,7 +50,10 @@
   "9. Config management": "TeAnsible",
   "10. Observability": "TeOpenTelemetry",
   "1. Networking": "🌐",
-  "Tools": "🧰",
   "TaskNotes": "LiListTodo",
-  "Quick Notes": "LiNotebook"
+  "Quick Notes": "LiNotebook",
+  "11. kafka": "📡",
+  "Coming soon": "⏰",
+  "0. Tools": "🧰",
+  "Temp": "📔"
 }
