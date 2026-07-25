@@ -11,10 +11,14 @@
             "id": "85bdcaae7f00ead8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "kafka/resources.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "resources"
             }
           }
         ]
@@ -214,6 +218,17 @@
   },
   "active": "85bdcaae7f00ead8",
   "lastOpenFiles": [
+    "kafka/resources.md",
+    "kafka",
+    "x/tools-to-learn.md",
+    "x/VIP.md",
+    "x",
+    "backlog/VIP.md",
+    "backlog",
+    "tips/install-py-package-offline.md",
+    "tips/install-py-offline.md",
+    "tips",
+    "Tips",
     "Tools/tmux/assets/tmux-commands-cheat-sheet.pdf",
     "Tools/tmux/tmux.conf.md",
     "Tools/tmux/tmux Cheat Sheet.md",
@@ -224,9 +239,7 @@
     "Important/HomeLab/Roadmap.md",
     "Important/SSL Certificates",
     "Important/HomeLab",
-    "Important",
     "10.observability/loki/integration/image/with-otel/1770480283479.png",
-    "10.observability/loki/integration/image/with-otel",
     "10.observability/opentelemetry/with_loki/2.md",
     "10.observability/opentelemetry/with_loki/1.md",
     "10.observability/opentelemetry/logs/separate-clollector.md",
@@ -234,10 +247,6 @@
     "10.observability/opentelemetry/logs/ignore-namespaced.md",
     "10.observability/opentelemetry/logs/control-logs-format-per-app-in-one-collector.md",
     "10.observability/loki/integration/with-otel.md",
-    "10.observability/loki/integration/image",
-    "10.observability/opentelemetry/with_loki",
-    "10.observability/opentelemetry/logs",
-    "10.observability/loki/integration",
     "Tools/istio/1.core/1.service-mesh.md",
     "Tools/tmux/summary.md",
     "Quick Notes/Kubernetes Resource Monitoring.md",
@@ -251,11 +260,6 @@
     "4. Reverse-proxy/nginx/assets/Pasted image 20260330220224.png",
     "4. Reverse-proxy/nginx/nginx for k8s/nginx-ingress-controller.md",
     "4. Reverse-proxy/nginx/assets/Pasted image 20260330220111.png",
-    "4. Reverse-proxy/nginx/nginx for k8s/nginx for kubernates.md",
-    "4. Reverse-proxy/nginx/nginx for k8s/nginx-gateway-fabric.md",
-    "Excalidraw/Drawing 2026-03-29 14.30.37.excalidraw.md",
-    "Boards/Untitled Kanban.md",
-    "Todo/2026-03-29.md",
     "Canvas/Canvas-1.canvas",
     "Canvas/Canvas-2.canvas",
     "Assets/Draw.io/Diagram.svg",
