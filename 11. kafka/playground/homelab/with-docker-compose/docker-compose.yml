@@ -63,7 +63,7 @@ services:
     command:
       - sh
       - -ec
-      - >-
+      - >- 
         chown -R 1000:1000
         /data/kafka-1
         /data/kafka-2

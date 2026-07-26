@@ -9,9 +9,9 @@
   "highlightr-plugin",
   "obsidian-diagrams-net",
   "code-styler",
-  "obsidian-plugin-prettier",
   "execute-code",
   "open-vscode",
   "obsidian-reminder-plugin",
-  "tasknotes"
+  "tasknotes",
+  "prettier"
 ]
