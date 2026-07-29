@@ -1,0 +1,161 @@
+name: kafka-ssl-lab
+
+x-kafka-common: &kafka-common
+  image: apache/kafka:4.3.1
+  restart: unless-stopped
+  stop_grace_period: 60s
+  networks:
+    - kafka-net
+  depends_on:
+    volume-init:
+      condition: service_completed_successfully
+  healthcheck:
+    test:
+      - CMD-SHELL
+      - >-
+        /opt/kafka/bin/kafka-broker-api-versions.sh
+        --bootstrap-server localhost:19093
+        --command-config /etc/kafka/secrets/client-docker.properties
+        >/dev/null 2>&1
+    interval: 10s
+    timeout: 10s
+    retries: 18
+    start_period: 45s
+
+x-kafka-environment: &kafka-environment
+  KAFKA_PROCESS_ROLES: "broker,controller"
+  KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-1:29094,2@kafka-2:29094,3@kafka-3:29094"
+  KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+  KAFKA_INTER_BROKER_LISTENER_NAME: "INTERNAL"
+
+  # Encrypt client, inter-broker, and KRaft controller traffic.
+  KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INTERNAL:SSL,EXTERNAL:SSL,CONTROLLER:SSL"
+  KAFKA_LISTENERS: "INTERNAL://:19093,CONTROLLER://:29094,EXTERNAL://:9093"
+  KAFKA_SECURITY_PROTOCOL: "SSL"
+
+  CLUSTER_ID: "${KAFKA_CLUSTER_ID:?Run ./start.sh first}"
+  KAFKA_LOG_DIRS: "/var/lib/kafka/data"
+
+  # TLS files are mounted under /etc/kafka/secrets.
+  KAFKA_SSL_KEYSTORE_CREDENTIALS: "keystore_creds"
+  KAFKA_SSL_KEY_CREDENTIALS: "key_creds"
+  KAFKA_SSL_TRUSTSTORE_FILENAME: "kafka.truststore.p12"
+  KAFKA_SSL_TRUSTSTORE_CREDENTIALS: "truststore_creds"
+  KAFKA_SSL_KEYSTORE_TYPE: "PKCS12"
+  KAFKA_SSL_TRUSTSTORE_TYPE: "PKCS12"
+  KAFKA_SSL_ENABLED_PROTOCOLS: "TLSv1.3,TLSv1.2"
+  KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: "https"
+
+  # One-way TLS: clients verify brokers; brokers do not require client certs.
+  KAFKA_SSL_CLIENT_AUTH: "none"
+
+  KAFKA_DEFAULT_REPLICATION_FACTOR: "3"
+  KAFKA_MIN_INSYNC_REPLICAS: "2"
+  KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "3"
+  KAFKA_OFFSETS_TOPIC_NUM_PARTITIONS: "3"
+  KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "3"
+  KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "2"
+  KAFKA_TRANSACTION_STATE_LOG_NUM_PARTITIONS: "3"
+  KAFKA_SHARE_COORDINATOR_STATE_TOPIC_REPLICATION_FACTOR: "3"
+  KAFKA_SHARE_COORDINATOR_STATE_TOPIC_MIN_ISR: "2"
+  KAFKA_SHARE_COORDINATOR_STATE_TOPIC_NUM_PARTITIONS: "3"
+  KAFKA_NUM_PARTITIONS: "3"
+  KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+  KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE: "false"
+  KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: "0"
+
+services:
+  volume-init:
+    image: busybox:1.37.0
+    user: "0:0"
+    command:
+      - sh
+      - -ec
+      - >-
+        chown -R 1000:1000
+        /data/kafka-1 /data/kafka-2 /data/kafka-3
+    volumes:
+      - kafka-1-data:/data/kafka-1
+      - kafka-2-data:/data/kafka-2
+      - kafka-3-data:/data/kafka-3
+    restart: "no"
+
+  kafka-1:
+    <<: *kafka-common
+    hostname: kafka-1
+    container_name: kafka-1
+    ports:
+      - "127.0.0.1:29093:9093"
+    environment:
+      <<: *kafka-environment
+      KAFKA_NODE_ID: "1"
+      KAFKA_SSL_KEYSTORE_FILENAME: "kafka-1.keystore.p12"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka-1:19093,EXTERNAL://localhost:29093"
+    volumes:
+      - kafka-1-data:/var/lib/kafka/data
+      - ./secrets:/etc/kafka/secrets:ro
+
+  kafka-2:
+    <<: *kafka-common
+    hostname: kafka-2
+    container_name: kafka-2
+    ports:
+      - "127.0.0.1:39093:9093"
+    environment:
+      <<: *kafka-environment
+      KAFKA_NODE_ID: "2"
+      KAFKA_SSL_KEYSTORE_FILENAME: "kafka-2.keystore.p12"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka-2:19093,EXTERNAL://localhost:39093"
+    volumes:
+      - kafka-2-data:/var/lib/kafka/data
+      - ./secrets:/etc/kafka/secrets:ro
+
+  kafka-3:
+    <<: *kafka-common
+    hostname: kafka-3
+    container_name: kafka-3
+    ports:
+      - "127.0.0.1:49093:9093"
+    environment:
+      <<: *kafka-environment
+      KAFKA_NODE_ID: "3"
+      KAFKA_SSL_KEYSTORE_FILENAME: "kafka-3.keystore.p12"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka-3:19093,EXTERNAL://localhost:49093"
+    volumes:
+      - kafka-3-data:/var/lib/kafka/data
+      - ./secrets:/etc/kafka/secrets:ro
+
+  kafbat-ui:
+    image: ghcr.io/kafbat/kafka-ui:v1.5.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - kafka-net
+    depends_on:
+      kafka-1:
+        condition: service_healthy
+      kafka-2:
+        condition: service_healthy
+      kafka-3:
+        condition: service_healthy
+    environment:
+      KAFKA_CLUSTERS_0_NAME: "local-kraft-tls"
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka-1:19093,kafka-2:19093,kafka-3:19093"
+      KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: "SSL"
+      KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_LOCATION: "/etc/kafkaui/secrets/kafka.truststore.p12"
+      KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD: "${KAFKA_SSL_PASSWORD:-changeit}"
+      KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_TYPE: "PKCS12"
+      KAFKA_CLUSTERS_0_PROPERTIES_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: "https"
+      DYNAMIC_CONFIG_ENABLED: "false"
+    volumes:
+      - ./secrets/kafka.truststore.p12:/etc/kafkaui/secrets/kafka.truststore.p12:ro
+
+networks:
+  kafka-net:
+    driver: bridge
+
+volumes:
+  kafka-1-data:
+  kafka-2-data:
+  kafka-3-data:
