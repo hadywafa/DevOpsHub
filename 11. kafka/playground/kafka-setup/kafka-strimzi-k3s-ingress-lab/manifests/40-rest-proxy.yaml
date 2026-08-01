@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-rest-proxy
+  labels:
+    app.kubernetes.io/name: kafka-rest-proxy
+    app.kubernetes.io/part-of: kafka-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kafka-rest-proxy
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kafka-rest-proxy
+        app.kubernetes.io/part-of: kafka-lab
+    spec:
+      enableServiceLinks: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      initContainers:
+        - name: wait-for-schema-registry
+          image: busybox:1.37.0
+          command:
+            - sh
+            - -ec
+            - |
+              until wget -qO- http://schema-registry:8081/subjects >/dev/null; do
+                echo "Waiting for Schema Registry..."
+                sleep 3
+              done
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 50m
+              memory: 32Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+      containers:
+        - name: kafka-rest-proxy
+          image: confluentinc/cp-kafka-rest:8.3.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8082
+          env:
+            - name: KAFKA_REST_HOST_NAME
+              value: kafka-rest-proxy
+            - name: KAFKA_REST_LISTENERS
+              value: http://0.0.0.0:8082
+            - name: KAFKA_REST_BOOTSTRAP_SERVERS
+              value: PLAINTEXT://lab-kafka-kafka-bootstrap:9092
+            - name: KAFKA_REST_CLIENT_SECURITY_PROTOCOL
+              value: PLAINTEXT
+            - name: KAFKA_REST_SCHEMA_REGISTRY_URL
+              value: http://schema-registry:8081
+            - name: KAFKA_REST_HEAP_OPTS
+              value: -Xms192m -Xmx384m
+          startupProbe:
+            httpGet:
+              path: /brokers
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 36
+          readinessProbe:
+            httpGet:
+              path: /brokers
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /brokers
+              port: http
+            periodSeconds: 20
+            timeoutSeconds: 5
+            failureThreshold: 6
+          resources:
+            requests:
+              cpu: 100m
+              memory: 384Mi
+            limits:
+              cpu: 500m
+              memory: 640Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-rest-proxy
+  labels:
+    app.kubernetes.io/name: kafka-rest-proxy
+    app.kubernetes.io/part-of: kafka-lab
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: kafka-rest-proxy
+  ports:
+    - name: http
+      port: 8082
+      targetPort: http

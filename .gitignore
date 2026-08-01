@@ -296,6 +296,7 @@ paket-files/
 .idea/
 *.sln.iml
 
+**/target/**
 # CodeRush personal settings
 .cr/personal
 

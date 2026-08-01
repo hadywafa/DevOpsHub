@@ -1,0 +1,61 @@
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaNodePool
+metadata:
+  name: dual-role
+  labels:
+    strimzi.io/cluster: lab-kafka
+spec:
+  replicas: 3
+  roles:
+    - controller
+    - broker
+  storage:
+    type: jbod
+    volumes:
+      - id: 0
+        type: persistent-claim
+        size: 5Gi
+        deleteClaim: false
+        kraftMetadata: shared
+  resources:
+    requests:
+      cpu: 200m
+      memory: 768Mi
+    limits:
+      cpu: "1"
+      memory: 1Gi
+  jvmOptions:
+    -Xms: 512m
+    -Xmx: 512m
+---
+apiVersion: kafka.strimzi.io/v1
+kind: Kafka
+metadata:
+  name: lab-kafka
+spec:
+  kafka:
+    version: 4.3.0
+    metadataVersion: 4.3-IV0
+    listeners:
+      # Kafka stays private to the cluster. HTTP services are exposed through
+      # the K3s Traefik ingress gateway. Kafka is not an HTTP protocol.
+      - name: plain
+        port: 9092
+        type: internal
+        tls: false
+    config:
+      num.partitions: 3
+      default.replication.factor: 3
+      min.insync.replicas: 2
+      offsets.topic.replication.factor: 3
+      transaction.state.log.replication.factor: 3
+      transaction.state.log.min.isr: 2
+      auto.create.topics.enable: false
+      unclean.leader.election.enable: false
+      group.initial.rebalance.delay.ms: 0
+      log.retention.hours: 168
+  entityOperator:
+    # Topic Operator is required for KafkaTopic resources.
+    # User Operator is intentionally omitted because this lightweight lab has
+    # no KafkaUser resources or client authentication.
+    topicOperator: {}

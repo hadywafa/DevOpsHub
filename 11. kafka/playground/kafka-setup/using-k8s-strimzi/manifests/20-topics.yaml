@@ -1,0 +1,25 @@
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: lab-events
+  labels:
+    strimzi.io/cluster: lab-kafka
+spec:
+  partitions: 3
+  replicas: 3
+  config:
+    min.insync.replicas: 2
+    retention.ms: 604800000
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: orders
+  labels:
+    strimzi.io/cluster: lab-kafka
+spec:
+  partitions: 3
+  replicas: 3
+  config:
+    min.insync.replicas: 2
+    retention.ms: 604800000

@@ -1,3 +1,0 @@
-com/example/producer/OrderProducer.class
-com/example/events/OrderCreated.class
-com/example/events/OrderCreated$Builder.class
