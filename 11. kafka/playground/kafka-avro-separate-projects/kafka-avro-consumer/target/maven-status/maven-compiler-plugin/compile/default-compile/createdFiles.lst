@@ -1,0 +1,3 @@
+com/example/events/OrderCreated.class
+com/example/consumer/OrderConsumer.class
+com/example/events/OrderCreated$Builder.class

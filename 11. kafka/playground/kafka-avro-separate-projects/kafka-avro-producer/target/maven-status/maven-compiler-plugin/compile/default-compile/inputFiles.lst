@@ -1,0 +1,2 @@
+/data/repos/Hubs/DevOpsHub/11. kafka/playground/kafka-avro-separate-projects/kafka-avro-producer/src/main/java/com/example/producer/OrderProducer.java
+/data/repos/Hubs/DevOpsHub/11. kafka/playground/kafka-avro-separate-projects/kafka-avro-producer/target/generated-sources/avro/com/example/events/OrderCreated.java

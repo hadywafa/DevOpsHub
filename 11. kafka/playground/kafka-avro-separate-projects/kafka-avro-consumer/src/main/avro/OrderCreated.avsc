@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "OrderCreated",
+  "namespace": "com.example.events",
+  "fields": [
+    { "name": "orderId", "type": "string" },
+    { "name": "amount", "type": "double" },
+    { "name": "currency", "type": "string", "default": "AED" }
+  ]
+}

@@ -1,5 +1,9 @@
 # Kafka Resources
 
+## Docs
+
+- [Apache Kafka Documentation](https://kafka.apache.org/43/getting-started/introduction/)
+
 ## Kafka Core
 
 - https://www.udemy.com/course/apache-kafka/learn/lecture/31409100#overview
