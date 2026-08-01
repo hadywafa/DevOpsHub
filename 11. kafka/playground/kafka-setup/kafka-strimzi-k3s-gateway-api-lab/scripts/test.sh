@@ -29,18 +29,10 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-for _ in $(seq 1 60); do
-  if curl -fsS "$SR_URL/subjects" >/dev/null 2>&1 \
-     && curl -fsS "$REST_URL/brokers" >/dev/null 2>&1; then
-    break
-  fi
-  sleep 2
-done
-
 curl -fsS "$SR_URL/subjects" >/dev/null
 curl -fsS "$REST_URL/brokers" >/dev/null
 
-echo "1. Producing one Avro record through the ingress and REST Proxy..."
+echo "1. Producing one Avro record through Gateway API and REST Proxy..."
 curl -fsS -X POST \
   -H 'Content-Type: application/vnd.kafka.avro.v2+json' \
   -H 'Accept: application/vnd.kafka.v2+json' \
@@ -52,7 +44,7 @@ curl -fsS -X POST \
     {
       "value": {
         "id": 1,
-        "message": "hello through the K3s ingress gateway"
+        "message": "hello through Gateway API and Envoy Gateway"
       }
     }
   ]

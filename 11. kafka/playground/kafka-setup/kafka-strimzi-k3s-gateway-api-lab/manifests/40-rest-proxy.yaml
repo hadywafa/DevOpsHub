@@ -62,7 +62,7 @@ spec:
             - name: KAFKA_REST_SCHEMA_REGISTRY_URL
               value: http://schema-registry:8081
             - name: KAFKA_REST_HEAP_OPTS
-              value: -Xms192m -Xmx384m
+              value: -Xms192m -Xmx320m
           startupProbe:
             httpGet:
               path: /brokers
@@ -86,11 +86,11 @@ spec:
             failureThreshold: 6
           resources:
             requests:
-              cpu: 100m
+              cpu: 75m
               memory: 384Mi
             limits:
               cpu: 500m
-              memory: 640Mi
+              memory: 512Mi
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

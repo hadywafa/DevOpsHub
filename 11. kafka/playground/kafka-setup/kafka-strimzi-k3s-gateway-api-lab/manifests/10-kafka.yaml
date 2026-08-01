@@ -19,14 +19,14 @@ spec:
         kraftMetadata: shared
   resources:
     requests:
-      cpu: 200m
-      memory: 768Mi
+      cpu: 150m
+      memory: 512Mi
     limits:
       cpu: "1"
-      memory: 1Gi
+      memory: 768Mi
   jvmOptions:
-    -Xms: 512m
-    -Xmx: 512m
+    -Xms: 384m
+    -Xmx: 384m
 ---
 apiVersion: kafka.strimzi.io/v1
 kind: Kafka
@@ -37,8 +37,7 @@ spec:
     version: 4.3.0
     metadataVersion: 4.3-IV0
     listeners:
-      # Kafka stays private to the cluster. HTTP services are exposed through
-      # the K3s Traefik ingress gateway. Kafka is not an HTTP protocol.
+      # Kafka remains cluster-internal. Gateway API exposes the HTTP services.
       - name: plain
         port: 9092
         type: internal
@@ -55,7 +54,4 @@ spec:
       group.initial.rebalance.delay.ms: 0
       log.retention.hours: 168
   entityOperator:
-    # Topic Operator is required for KafkaTopic resources.
-    # User Operator is intentionally omitted because this lightweight lab has
-    # no KafkaUser resources or client authentication.
     topicOperator: {}

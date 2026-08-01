@@ -1,0 +1,66 @@
+=== HOST ===
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+7.0.0-28-generic
+16
+               total        used        free      shared  buff/cache   available
+Mem:            31Gi        17Gi       4.2Gi       2.5Gi        13Gi        14Gi
+Swap:          7.5Gi       5.2Gi       2.3Gi
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p3  183G   92G   82G  53% /
+/dev/nvme0n1p3  183G   92G   82G  53% /
+/dev/nvme0n1p2  277G   45G  219G  17% /home
+=== NETWORK ===
+lo               UNKNOWN        127.0.0.1/8 
+wlp0s20f3        UP             192.168.70.102/24 
+mpqemubr0        DOWN           10.220.222.1/24 
+docker0          DOWN           172.17.0.1/16 
+flannel.1        UNKNOWN        10.42.0.0/32 
+cni0             UP             10.42.0.1/24 
+default via 192.168.70.1 dev wlp0s20f3 proto dhcp src 192.168.70.102 metric 600 
+10.42.0.0/24 dev cni0 proto kernel scope link src 10.42.0.1 
+10.220.222.0/24 dev mpqemubr0 proto kernel scope link src 10.220.222.1 linkdown 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+192.168.70.0/24 dev wlp0s20f3 proto kernel scope link src 192.168.70.102 metric 600 
+Current DNS Server: fe80::6b16:a0f8:6dc2:a7eb
+       DNS Servers: 192.168.70.1 fe80::6b16:a0f8:6dc2:a7eb
+
+Link 4 (mpqemubr0)
+=== MULTIPASS ===
+multipass   1.16.3
+multipassd  1.16.3
+No instances found.
+Name        Type       Description
+cni0        bridge     Network bridge
+docker0     bridge     Network bridge
+enp46s0     ethernet   Ethernet device
+mpqemubr0   bridge     Network bridge
+=== K8S / CONTAINER ===
+k3s        /usr/local/bin/k3s
+docker     /usr/bin/docker
+podman     
+kubectl    /usr/local/bin/kubectl
+helm       /usr/local/bin/helm
+helmfile   
+kustomize  
+argocd     
+sops       
+age        
+k3s version v1.35.5+k3s1 (6a4781ad)
+go version go1.25.9
+active
+inactive
+active
+CURRENT   NAME      CLUSTER   AUTHINFO   NAMESPACE
+*         default   default   default    kafka-lab
+NAME         STATUS   ROLES           AGE   VERSION        INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+ideapad-g3   Ready    control-plane   63d   v1.35.5+k3s1   192.168.70.102   <none>        Ubuntu 24.04.4 LTS   7.0.0-28-generic   containerd://2.2.3-k3s1
+NAME              STATUS   AGE
+default           Active   63d
+gpu-operator      Active   63d
+kube-node-lease   Active   63d
+kube-public       Active   63d
+kube-system       Active   63d
+=== MISC ===
+Status: inactive
+cgroup2fs

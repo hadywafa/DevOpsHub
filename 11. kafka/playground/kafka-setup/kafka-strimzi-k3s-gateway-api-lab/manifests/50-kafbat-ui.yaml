@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: schema-registry
+  name: kafbat-ui
   labels:
-    app.kubernetes.io/name: schema-registry
+    app.kubernetes.io/name: kafbat-ui
     app.kubernetes.io/part-of: kafka-lab
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: schema-registry
+      app.kubernetes.io/name: kafbat-ui
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: schema-registry
+        app.kubernetes.io/name: kafbat-ui
         app.kubernetes.io/part-of: kafka-lab
     spec:
       enableServiceLinks: false
@@ -21,57 +21,53 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       containers:
-        - name: schema-registry
-          image: confluentinc/cp-schema-registry:8.3.0
+        - name: kafbat-ui
+          image: ghcr.io/kafbat/kafka-ui:v1.5.0
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
-              containerPort: 8081
+              containerPort: 8080
           env:
-            - name: SCHEMA_REGISTRY_HOST_NAME
-              value: schema-registry
-            - name: SCHEMA_REGISTRY_LISTENERS
-              value: http://0.0.0.0:8081
-            - name: SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS
-              value: PLAINTEXT://lab-kafka-kafka-bootstrap:9092
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL
-              value: PLAINTEXT
-            - name: SCHEMA_REGISTRY_KAFKASTORE_TOPIC
-              value: _schemas
-            - name: SCHEMA_REGISTRY_KAFKASTORE_TOPIC_REPLICATION_FACTOR
-              value: "3"
-            - name: SCHEMA_REGISTRY_SCHEMA_COMPATIBILITY_LEVEL
-              value: BACKWARD
-            - name: SCHEMA_REGISTRY_HEAP_OPTS
-              value: -Xms192m -Xmx384m
+            - name: KAFKA_CLUSTERS_0_NAME
+              value: local-strimzi
+            - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
+              value: lab-kafka-kafka-bootstrap:9092
+            - name: KAFKA_CLUSTERS_0_SCHEMAREGISTRY
+              value: http://schema-registry:8081
+            - name: DYNAMIC_CONFIG_ENABLED
+              value: "false"
+            - name: SWAGGER_UI_ENABLED
+              value: "true"
+            - name: JAVA_TOOL_OPTIONS
+              value: -Xms128m -Xmx256m
           startupProbe:
             httpGet:
-              path: /subjects
+              path: /actuator/health
               port: http
             periodSeconds: 5
             timeoutSeconds: 3
             failureThreshold: 36
           readinessProbe:
             httpGet:
-              path: /subjects
+              path: /actuator/health
               port: http
             periodSeconds: 10
             timeoutSeconds: 3
             failureThreshold: 6
           livenessProbe:
             httpGet:
-              path: /subjects
+              path: /actuator/health
               port: http
             periodSeconds: 20
             timeoutSeconds: 5
             failureThreshold: 6
           resources:
             requests:
-              cpu: 100m
-              memory: 384Mi
+              cpu: 75m
+              memory: 256Mi
             limits:
               cpu: 500m
-              memory: 640Mi
+              memory: 384Mi
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -81,15 +77,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: schema-registry
+  name: kafbat-ui
   labels:
-    app.kubernetes.io/name: schema-registry
+    app.kubernetes.io/name: kafbat-ui
     app.kubernetes.io/part-of: kafka-lab
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: schema-registry
+    app.kubernetes.io/name: kafbat-ui
   ports:
     - name: http
-      port: 8081
+      port: 8080
       targetPort: http
