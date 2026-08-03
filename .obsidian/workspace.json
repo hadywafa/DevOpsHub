@@ -11,12 +11,14 @@
             "id": "fee711cec39460d2",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801145310.png"
+                "file": "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/send-request-to-REST-proxy.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260801145310"
+              "icon": "lucide-file",
+              "title": "send-request-to-REST-proxy"
             }
           }
         ]
@@ -76,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5086555480957,
-    "collapsed": true
+    "width": 507.5086555480957
   },
   "right": {
     "id": "7c209669fec76014",
@@ -217,6 +218,17 @@
   },
   "active": "fee711cec39460d2",
   "lastOpenFiles": [
+    "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/confluent-rest-proxy.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/send-request-to-REST-proxy.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/3.2.java-kafka-avro-producer-and-consumer-lab-backword.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/3.1.java-kafka-avro-producer-and-consumer-lab-forward.md",
+    "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab.zip",
+    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/notes.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/4.summary.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/2.2.java-kafka-avro-producer-and-consumer-lab.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/2.1.java-kafka-avro-producer-and-consumer-doc.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/1.console-kafka-avro-producer-and-consumer.md",
+    "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801145310.png",
     "11. kafka/playground/kafka-setup/using-k8s-strimzi/homelab-audit.txt",
     "12. storage/flashblade/README.md",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/config.env.example",
@@ -227,8 +239,6 @@
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts/kafka-shell.sh",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts/configure-hosts.sh",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts",
-    "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/restore-k3s-default-networking.sh",
-    "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/install.sh",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/README.md",
     "12. storage/portworx/README.md",
     "12. storage/flashblade/docs.md",
@@ -240,28 +250,18 @@
     "11. kafka/playground/kafka-setup/using-docker-compose/2.README.md",
     "11. kafka/playground/kafka-setup/using-docker-compose/1.README.md",
     "11. kafka/playground/kafka-broker-reference.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801145310.png",
     "11. kafka/playground/kafka-setup/with-k8s-strimzi/kafka-strimzi-lab/README.md",
     "11. kafka/playground/kafka-avro/README.md",
     "11. kafka/playground/kafka-ssl/README.md",
     "11. kafka/playground/kafka-setup/with-k8s-cfk-kraft/README.md",
-    "11. kafka/playground/kafka-setup/with-docker-compose/3.README.md",
-    "11. kafka/playground/kafka-setup/with-docker-compose/2.README.md",
-    "11. kafka/playground/kafka-setup/with-docker-compose/1.README.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/send-request-to-REST-proxy.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/confluent-rest-proxy.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801150602.png",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/4.summary.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142431.png",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/notes.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801094903.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142119.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142058.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801141548.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801141514.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801140326.png",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/2.1.Kafka Avro Producer and Consumer in Java.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/2.2.lab.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801095641.png",
     "0. Tools/tmux/summary.canvas",
     "Canvas/Canvas-1.canvas",
