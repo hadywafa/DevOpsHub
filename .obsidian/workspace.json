@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. CI&CD/AzureDevOps/Notes/Release Classic Pipeline.md",
+                "file": "0. Tools/k9s/k9s.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Release Classic Pipeline"
+              "title": "k9s"
             }
           }
         ]
@@ -218,17 +218,27 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "fee711cec39460d2",
+  "active": "fc7e321c07a48c53",
   "lastOpenFiles": [
+    "5. K8s/2026-03-24.md",
+    "0. Tools/k9s/Pasted image 20260808172039.png",
+    "Temp/SSL Certificates/README.md.md",
+    "Temp/HomeLab/Roadmap.md",
+    "Pasted image 20260815134306.png",
     "Temp/hadywafa-website/Template.md",
+    "Temp/Books/galary.md",
+    "Temp/Books/ncp-aio.md",
+    "Temp/Books/option-2.md",
+    "Temp/Books/option-1.md",
     "6. CI&CD/AzureDevOps/Notes/Release Classic Pipeline.md",
+    "Temp/Books",
+    "Temp/Untitled.canvas",
     "Temp/hadywafa-website",
-    "0. Tools/k8s/k8s.md",
+    "0. Tools/k9s/k9s.md",
     "6. CI&CD/AzureDevOps/Notes",
     "6. CI&CD/AzureDevOps",
-    "Pasted image 20260808172039.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/send-request-to-REST-proxy.md",
-    "0. Tools/k8s",
+    "0. Tools/k9s",
     "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/confluent-rest-proxy.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/3.2.java-kafka-avro-producer-and-consumer-lab-backword.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/3.1.java-kafka-avro-producer-and-consumer-lab-forward.md",
@@ -244,20 +254,12 @@
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/config.env.example",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts/test.sh",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts/status.sh",
-    "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts/render.sh",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/README.md",
     "12. storage/portworx/README.md",
     "12. storage/flashblade/docs.md",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-ingress-lab/README.md",
     "11. kafka/playground/kafka-setup/with-k8s-strimzi/README.md",
     "11. kafka/playground/kafka-setup/using-k8s-strimzi/README.md",
-    "11. kafka/playground/kafka-setup/using-k8s-cfk/README.md",
-    "11. kafka/playground/kafka-setup/using-docker-compose/3.README.md",
-    "11. kafka/playground/kafka-setup/using-docker-compose/2.README.md",
-    "11. kafka/playground/kafka-setup/using-docker-compose/1.README.md",
-    "11. kafka/playground/kafka-broker-reference.md",
-    "11. kafka/playground/kafka-setup/with-k8s-strimzi/kafka-strimzi-lab/README.md",
-    "11. kafka/playground/kafka-avro/README.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801150602.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142431.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801094903.png",
@@ -265,7 +267,6 @@
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142058.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801141548.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801141514.png",
-    "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801140326.png",
     "0. Tools/tmux/summary.canvas",
     "Canvas/Canvas-1.canvas",
     "Canvas/Canvas-2.canvas",
