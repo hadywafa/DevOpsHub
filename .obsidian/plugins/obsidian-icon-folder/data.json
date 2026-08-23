@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "💾",
+      "🧯",
       "LiHandbag",
       "📔",
-      "⏰",
-      "📡",
-      "⭐"
+      "⏰"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -56,5 +56,7 @@
   "Coming soon": "⏰",
   "0. Tools": "🧰",
   "Temp": "📔",
-  "Interview": "LiHandbag"
+  "Interview": "LiHandbag",
+  "13. Troubleshooting": "🧯",
+  "12. storage": "💾"
 }
