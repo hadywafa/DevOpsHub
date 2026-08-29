@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9e55e7d76c5ae784",
+        "id": "8565d97bb0cb2c74",
         "type": "tabs",
         "children": [
           {
-            "id": "fee711cec39460d2",
+            "id": "4291ff26f2760b94",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0. Tools/k9s/k9s.md",
+                "file": "6. CI&CD/gitlab-ci/summary.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "k9s"
+              "title": "summary"
             }
           }
         ]
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5086555480957
+    "width": 507.5086555480957,
+    "collapsed": true
   },
   "right": {
     "id": "7c209669fec76014",
@@ -218,8 +219,23 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "fc7e321c07a48c53",
+  "active": "4291ff26f2760b94",
   "lastOpenFiles": [
+    "6. CI&CD/gitlab-ci/8.Security, Identity & Enterprise CI-CD Design.md",
+    "6. CI&CD/gitlab-ci/summary.md",
+    "6. CI&CD/gitlab-ci/7.Deployments, Environments & GitOps.md",
+    "6. CI&CD/gitlab-ci/6.GitLab Runners & Enterprise Runner Architecture.md",
+    "6. CI&CD/gitlab-ci/5.Parent-Child & Multi-Project Pipelines.md",
+    "6. CI&CD/gitlab-ci/4.Reusable Pipelines & CI-CD Components.md",
+    "6. CI&CD/gitlab-ci/3.DAG Pipelines, Dependencies, Artifacts & Caching.md",
+    "6. CI&CD/gitlab-ci/2.Pipeline Control - workflow, rules, Sources & Variables.md",
+    "6. CI&CD/gitlab-ci/1.GitLab CI-CD Architecture.md",
+    "6. CI&CD/gitlab-ci/index.md",
+    "6. CI&CD/gitlab-ci/old/3.gitlab-advanced.md",
+    "6. CI&CD/gitlab-ci/old/2.gitlab-architecture.md",
+    "6. CI&CD/gitlab-ci/old/1.gitlab-fundmentals.md",
+    "6. CI&CD/gitlab-ci/old",
+    "6. CI&CD/gitlab-ci/old/4.gitlab-containers.md",
     "5. K8s/2026-03-24.md",
     "0. Tools/k9s/Pasted image 20260808172039.png",
     "Temp/SSL Certificates/README.md.md",
@@ -240,26 +256,11 @@
     "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/send-request-to-REST-proxy.md",
     "0. Tools/k9s",
     "11. kafka/docs/5. Schema registry & REST Proxy/4.confluent-REST-proxy/confluent-rest-proxy.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/3.2.java-kafka-avro-producer-and-consumer-lab-backword.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/3.1.java-kafka-avro-producer-and-consumer-lab-forward.md",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab.zip",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/notes.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/4.summary.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/2.2.java-kafka-avro-producer-and-consumer-lab.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/2.1.java-kafka-avro-producer-and-consumer-doc.md",
-    "11. kafka/docs/5. Schema registry & REST Proxy/3.confluent-schema-registry/1.console-kafka-avro-producer-and-consumer.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801145310.png",
     "11. kafka/playground/kafka-setup/using-k8s-strimzi/homelab-audit.txt",
-    "12. storage/flashblade/README.md",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/config.env.example",
     "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts/test.sh",
-    "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/scripts/status.sh",
-    "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-gateway-api-lab/README.md",
-    "12. storage/portworx/README.md",
-    "12. storage/flashblade/docs.md",
-    "11. kafka/playground/kafka-setup/kafka-strimzi-k3s-ingress-lab/README.md",
-    "11. kafka/playground/kafka-setup/with-k8s-strimzi/README.md",
-    "11. kafka/playground/kafka-setup/using-k8s-strimzi/README.md",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801150602.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142431.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801094903.png",

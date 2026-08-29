@@ -6,5 +6,7 @@
   "interfaceFontFamily": "",
   "textFontFamily": "",
   "enabledCssSnippets": [],
-  "accentColor": ""
+  "accentColor": "",
+  "showViewHeader": true,
+  "showRibbon": true
 }
