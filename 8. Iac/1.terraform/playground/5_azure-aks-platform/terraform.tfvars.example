@@ -1,0 +1,29 @@
+# Copy to terraform.tfvars and adjust per environment.
+# Better yet: keep one tfvars file per env (dev.tfvars, staging.tfvars,
+# prod.tfvars) and select a matching backend key per env - see README.
+
+location = "uaenorth"
+env      = "dev"
+project  = "ai71demo"
+
+vnet_cidr       = "10.20.0.0/16"
+aks_subnet_cidr = "10.20.1.0/24"
+db_subnet_cidr  = "10.20.2.0/24"
+
+kubernetes_version = "1.30"
+node_vm_size       = "Standard_D4s_v5"
+node_count = {
+  min = 2
+  max = 5
+}
+
+gpu_node_pool_enabled = false
+
+dns_zone_name = "platform.example.com"
+
+# db_admin_password is intentionally omitted here - export
+# TF_VAR_db_admin_password or inject it from your CI secret store instead.
+
+tags = {
+  owner = "platform-team"
+}
