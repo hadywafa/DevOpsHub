@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6. CI&CD/gitlab-ci/summary.md",
+                "file": "7. GitOps/argo-cd/5.advanced/multi-cluster-deployment/2.multi-cluster-with-applicationSet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "summary"
+              "title": "2.multi-cluster-with-applicationSet"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 507.5086555480957,
-    "collapsed": true
+    "width": 507.5086555480957
   },
   "right": {
     "id": "7c209669fec76014",
@@ -221,6 +220,26 @@
   },
   "active": "4291ff26f2760b94",
   "lastOpenFiles": [
+    "7. GitOps/argo-cd/5.advanced/multi-cluster-deployment/1.multi-cluster-deployment.md",
+    "7. GitOps/argo-cd/5.advanced/monitoring-with-promethues/argocd-monitoring.md",
+    "7. GitOps/argo-cd/5.advanced/deployment-strategies/2.2.hands-on-canaray-deployment.md",
+    "7. GitOps/argo-cd/5.advanced/deployment-strategies/2.1.canaray-deployment.md",
+    "7. GitOps/argo-cd/5.advanced/deployment-strategies/1.2.hands-on-blue-green-deployment.md",
+    "7. GitOps/argo-cd/5.advanced/deployment-strategies/1.1.blue-green-deployment.md",
+    "7. GitOps/argo-cd/1.core/9.history-and-rollback.md",
+    "7. GitOps/argo-cd/1.core/8.2.sync-in-depth.md",
+    "7. GitOps/argo-cd/1.core/8.1.synchronization-in-argocd.md",
+    "7. GitOps/argo-cd/1.core/7.3.hands-on-app-of-apps-docs.md",
+    "7. GitOps/argo-cd/1.core/7.2.hands-on-custom-health-check.md",
+    "7. GitOps/argo-cd/1.core/7.1.application-health-checks.md",
+    "7. GitOps/argo-cd/1.core/6.reconciliation-loop.md",
+    "7. GitOps/argo-cd/1.core/4.2.hands-on-app-of-apps.md",
+    "7. GitOps/argo-cd/1.core/4.1.app-of-apps.md",
+    "7. GitOps/argo-cd/1.core/3.2.argocd-with-helm-community.md",
+    "7. GitOps/argo-cd/1.core/3.1.declarative-argocd-application.md",
+    "7. GitOps/argo-cd/1.core/2.installation.md",
+    "7. GitOps/argo-cd/1.core/1.argocd.md",
+    "6. CI&CD/gitlab-ci/summary.md",
     "13. Troubleshooting/trust cert in java 8 to 25/images/Pasted image 20260823123307.png",
     "13. Troubleshooting/trust cert in java 8 to 25/images/Pasted image 20260823123258.png",
     "13. Troubleshooting/trust cert in java 8 to 25/images",
@@ -230,29 +249,10 @@
     "13. Troubleshooting/trust cert in java 8 to 25/1.java history.md",
     "13. Troubleshooting/java 25 tls handshake failure/Summay.md",
     "13. Troubleshooting/java 25 tls handshake failure/5.2.Certificates Trust in java.md",
-    "13. Troubleshooting/java 25 tls handshake failure/5.1.Certificates Trust in OS.md",
-    "13. Troubleshooting/java 25 tls handshake failure/4.Certificate Chain Validation.md",
-    "13. Troubleshooting/java 25 tls handshake failure/3.Certificates Trust.md",
-    "13. Troubleshooting/java 25 tls handshake failure/2.Certificate Format.md",
-    "13. Troubleshooting/java 25 tls handshake failure/1.TLS-Handshake-and-Troubleshooting.md",
     "13. Troubleshooting/trust cert in java 8 to 25",
     "13. Troubleshooting/java 25 tls handshake failure",
     "13. Troubleshooting",
-    "6. CI&CD/gitlab-ci/8.Security, Identity & Enterprise CI-CD Design.md",
-    "6. CI&CD/gitlab-ci/summary.md",
-    "6. CI&CD/gitlab-ci/7.Deployments, Environments & GitOps.md",
-    "6. CI&CD/gitlab-ci/6.GitLab Runners & Enterprise Runner Architecture.md",
-    "6. CI&CD/gitlab-ci/5.Parent-Child & Multi-Project Pipelines.md",
-    "6. CI&CD/gitlab-ci/4.Reusable Pipelines & CI-CD Components.md",
-    "6. CI&CD/gitlab-ci/3.DAG Pipelines, Dependencies, Artifacts & Caching.md",
-    "6. CI&CD/gitlab-ci/2.Pipeline Control - workflow, rules, Sources & Variables.md",
-    "6. CI&CD/gitlab-ci/1.GitLab CI-CD Architecture.md",
-    "6. CI&CD/gitlab-ci/index.md",
-    "6. CI&CD/gitlab-ci/old/3.gitlab-advanced.md",
-    "6. CI&CD/gitlab-ci/old/2.gitlab-architecture.md",
-    "6. CI&CD/gitlab-ci/old/1.gitlab-fundmentals.md",
     "6. CI&CD/gitlab-ci/old",
-    "6. CI&CD/gitlab-ci/old/4.gitlab-containers.md",
     "0. Tools/k9s/Pasted image 20260808172039.png",
     "Pasted image 20260815134306.png",
     "Temp/Books",
@@ -267,7 +267,6 @@
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801094903.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142119.png",
     "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801142058.png",
-    "11. kafka/docs/5. Schema registry & REST Proxy/images/Pasted image 20260801141548.png",
     "0. Tools/tmux/summary.canvas",
     "Canvas/Canvas-1.canvas",
     "Canvas/Canvas-2.canvas",
