@@ -1,5 +1,7 @@
 # AWS EKS Platform
 
+![AWS EKS Platform architecture](./architecture.svg)
+
 The AWS build of the same architecture as `../5_azure-aks-platform`:
 
 ```text

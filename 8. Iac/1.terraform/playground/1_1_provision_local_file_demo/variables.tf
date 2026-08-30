@@ -1,10 +1,12 @@
 
-variable "env_prefix" {
-  type    = string
-  default = "prod"
+variable "project_name" {
+  type        = string
+  description = "Please Provide Project Name:"
 }
 
-variable "names" {
-  type = list(number)
-  default = [1, 2, 3, 12, 4, 1]
+variable "env_prefix" {
+  type        = string
+  description = "Env name"
+  default     = "prod"
 }
+

@@ -1,5 +1,7 @@
 # Azure AKS Platform
 
+![Azure AKS Platform architecture](./architecture.svg)
+
 A from-empty-subscription-to-production-grade-platform Terraform root, matching
 the architecture:
 

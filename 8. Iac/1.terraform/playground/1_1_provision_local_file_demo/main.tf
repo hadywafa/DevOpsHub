@@ -1,3 +1,8 @@
+resource "local_file" "project_docs" {
+  filename = "./${var.project_name}.txt"
+  content  = "${var.project_name}: \n is an awesome project"
+}
+
 resource "local_file" "file1" {
   filename = "./file1.txt"
   content  = "1. Hello from Terraform!"
