@@ -17,7 +17,7 @@
 Current official format:
 
 | Item            | Current LFCS                      |
-| --------------- | --------------------------------- | ------------------------------------- |
+| --------------- | --------------------------------- |
 | Type            | **100% performance-based**        |
 | Questions/tasks | **17–20 tasks**                   |
 | Time            | **2 hours**                       |
@@ -26,7 +26,7 @@ Current official format:
 | Simulator       | **2 Killer.sh attempts included** |
 | Validity        | **2 years**                       |
 | Distribution    | Distribution-agnostic             |
-| Environment     | Linux command line over SSH       | :chatgpt-content-reference{index="1"} |
+| Environment     | Linux command line over SSH       |
 
 There are no multiple-choice questions. You actually configure and troubleshoot systems.
 
@@ -63,12 +63,12 @@ hope for the best
 This is the **current official weighting**:
 
 | Domain                  | Weight | Priority |
-| ----------------------- | -----: | -------- | ------------------------------------- |
+| ----------------------- | -----: | -------- |
 | Operations & Deployment |    25% | 🔥       |
 | Networking              |    25% | 🔥       |
 | Storage                 |    20% | 🔥       |
 | Essential Commands      |    20% | 🔥       |
-| Users & Groups          |    10% | Medium   | :chatgpt-content-reference{index="3"} |
+| Users & Groups          |    10% | Medium   |
 
 Notice something important:
 
@@ -93,7 +93,7 @@ containers
 SELinux
 ```
 
-Official objectives explicitly include **libvirt, containers, and SELinux**. :chatgpt-content-reference{index="4"}
+Official objectives explicitly include **libvirt, containers, and SELinux**.
 
 You should be comfortable doing things such as:
 
@@ -148,7 +148,7 @@ The official objectives include:
 - bridges
 - bonding
 - reverse proxies
-- load balancers :chatgpt-content-reference{index="5"}
+- load balancers
 
 You should be fast with:
 
@@ -582,7 +582,7 @@ No stopping
 2 hours
 ```
 
-Recent LFCS candidates commonly report that Killer.sh feels **harder than the real exam**, while still being useful preparation. That's anecdotal rather than an official guarantee, but the pattern appears repeatedly in candidate reports from 2024–2026. :chatgpt-content-reference{index="9"}
+Recent LFCS candidates commonly report that Killer.sh feels **harder than the real exam**, while still being useful preparation. That's anecdotal rather than an official guarantee, but the pattern appears repeatedly in candidate reports from 2024–2026.
 
 If you're comfortably handling the simulator, I'd book the real exam.
 
@@ -598,7 +598,7 @@ Linux Foundation currently allows resources available inside the exam terminal s
 - distribution documentation such as `/usr/share`
 - packages available from the distribution
 
-Normal external research resources aren't allowed. :chatgpt-content-reference{index="10"}
+Normal external research resources aren't allowed.
 
 So this skill matters a lot:
 
@@ -640,7 +640,7 @@ ip route help
 openssl req -help
 ```
 
-A recent successful LFCS candidate specifically reported that spending too much time searching man pages hurt their first simulator run, then improving lookup speed materially helped. :chatgpt-content-reference{index="11"}
+A recent successful LFCS candidate specifically reported that spending too much time searching man pages hurt their first simulator run, then improving lookup speed materially helped.
 
 So don't memorize **every flag**.
 
@@ -658,7 +658,7 @@ That's much smarter.
 
 This matters almost as much as Linux knowledge.
 
-You have only two hours for 17–20 tasks. :chatgpt-content-reference{index="12"}
+You have only two hours for 17–20 tasks.
 
 Use three passes.
 
@@ -682,7 +682,7 @@ Come back for medium tasks.
 
 Use remaining time for hard tasks and verification.
 
-Because LF says individual exam items can have **different point values**, don't assume every task is worth the same amount. :chatgpt-content-reference{index="13"}
+Because LF says individual exam items can have **different point values**, don't assume every task is worth the same amount.
 
 ---
 
@@ -768,7 +768,7 @@ exit
 
 and connect to the next requested host.
 
-Nested SSH isn't supported, and Linux Foundation explicitly says **do not reboot the base host**. :chatgpt-content-reference{index="14"}
+Nested SSH isn't supported, and Linux Foundation explicitly says **do not reboot the base host**.
 
 Also remember:
 
@@ -777,7 +777,7 @@ Terminal copy:  Ctrl+Shift+C
 Terminal paste: Ctrl+Shift+V
 ```
 
-Linux Foundation recommends one monitor, 1080p, and a screen of 15″ or larger for the exam UI. :chatgpt-content-reference{index="15"}
+Linux Foundation recommends one monitor, 1080p, and a screen of 15″ or larger for the exam UI.
 
 ---
 
@@ -820,7 +820,7 @@ fix it
 
 If Killer.sh exposes major gaps and you want structured labs, **KodeKloud LFCS** is the one additional resource I'd consider.
 
-Recent candidate reports repeatedly mention KodeKloud labs/mocks as useful preparation, while using Killer.sh as the final harder rehearsal. :chatgpt-content-reference{index="16"}
+Recent candidate reports repeatedly mention KodeKloud labs/mocks as useful preparation, while using Killer.sh as the final harder rehearsal.
 
 But for **you**, I would **not start by completing the whole KodeKloud course**.
 
